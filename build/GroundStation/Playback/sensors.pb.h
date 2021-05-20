@@ -32,6 +32,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/timestamp.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_sensors_2eproto
@@ -226,10 +227,29 @@ class Gps PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kTimestampFieldNumber = 4,
     kLatitudeFieldNumber = 1,
     kLongitudeFieldNumber = 2,
     kHorizontalDilutionOfPrecisionFieldNumber = 3,
   };
+  // .google.protobuf.Timestamp timestamp = 4;
+  bool has_timestamp() const;
+  private:
+  bool _internal_has_timestamp() const;
+  public:
+  void clear_timestamp();
+  const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* release_timestamp();
+  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_timestamp();
+  void set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  private:
+  const PROTOBUF_NAMESPACE_ID::Timestamp& _internal_timestamp() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_timestamp();
+  public:
+  void unsafe_arena_set_allocated_timestamp(
+      PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_timestamp();
+
   // double latitude = 1;
   void clear_latitude();
   double latitude() const;
@@ -264,6 +284,7 @@ class Gps PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  PROTOBUF_NAMESPACE_ID::Timestamp* timestamp_;
   double latitude_;
   double longitude_;
   double horizontaldilutionofprecision_;
@@ -379,10 +400,29 @@ class Imu PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kTimestampFieldNumber = 4,
     kScaledAccelXFieldNumber = 1,
     kScaledAccelYFieldNumber = 2,
     kScaledAccelZFieldNumber = 3,
   };
+  // .google.protobuf.Timestamp timestamp = 4;
+  bool has_timestamp() const;
+  private:
+  bool _internal_has_timestamp() const;
+  public:
+  void clear_timestamp();
+  const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* release_timestamp();
+  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_timestamp();
+  void set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  private:
+  const PROTOBUF_NAMESPACE_ID::Timestamp& _internal_timestamp() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_timestamp();
+  public:
+  void unsafe_arena_set_allocated_timestamp(
+      PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_timestamp();
+
   // float scaledAccelX = 1;
   void clear_scaledaccelx();
   float scaledaccelx() const;
@@ -417,6 +457,7 @@ class Imu PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  PROTOBUF_NAMESPACE_ID::Timestamp* timestamp_;
   float scaledaccelx_;
   float scaledaccely_;
   float scaledaccelz_;
@@ -533,6 +574,7 @@ class Cam PROTOBUF_FINAL :
 
   enum : int {
     kImageDataFieldNumber = 3,
+    kTimestampFieldNumber = 4,
     kColsFieldNumber = 1,
     kRowsFieldNumber = 2,
   };
@@ -549,6 +591,24 @@ class Cam PROTOBUF_FINAL :
   void _internal_set_image_data(const std::string& value);
   std::string* _internal_mutable_image_data();
   public:
+
+  // .google.protobuf.Timestamp timestamp = 4;
+  bool has_timestamp() const;
+  private:
+  bool _internal_has_timestamp() const;
+  public:
+  void clear_timestamp();
+  const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* release_timestamp();
+  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_timestamp();
+  void set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  private:
+  const PROTOBUF_NAMESPACE_ID::Timestamp& _internal_timestamp() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_timestamp();
+  public:
+  void unsafe_arena_set_allocated_timestamp(
+      PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_timestamp();
 
   // int32 cols = 1;
   void clear_cols();
@@ -576,6 +636,7 @@ class Cam PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr image_data_;
+  PROTOBUF_NAMESPACE_ID::Timestamp* timestamp_;
   ::PROTOBUF_NAMESPACE_ID::int32 cols_;
   ::PROTOBUF_NAMESPACE_ID::int32 rows_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -846,6 +907,7 @@ class Lidar PROTOBUF_FINAL :
 
   enum : int {
     kDataFieldNumber = 2,
+    kTimestampFieldNumber = 4,
     kSizeFieldNumber = 1,
   };
   // repeated .sensors.Lidar.xyz data = 2;
@@ -866,6 +928,24 @@ class Lidar PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::sensors::Lidar_xyz >&
       data() const;
 
+  // .google.protobuf.Timestamp timestamp = 4;
+  bool has_timestamp() const;
+  private:
+  bool _internal_has_timestamp() const;
+  public:
+  void clear_timestamp();
+  const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* release_timestamp();
+  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_timestamp();
+  void set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  private:
+  const PROTOBUF_NAMESPACE_ID::Timestamp& _internal_timestamp() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_timestamp();
+  public:
+  void unsafe_arena_set_allocated_timestamp(
+      PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_timestamp();
+
   // float size = 1;
   void clear_size();
   float size() const;
@@ -883,6 +963,7 @@ class Lidar PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::sensors::Lidar_xyz > data_;
+  PROTOBUF_NAMESPACE_ID::Timestamp* timestamp_;
   float size_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sensors_2eproto;
@@ -996,9 +1077,28 @@ class Can PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kTimestampFieldNumber = 3,
     kTypeFieldNumber = 1,
     kDataFieldNumber = 2,
   };
+  // .google.protobuf.Timestamp timestamp = 3;
+  bool has_timestamp() const;
+  private:
+  bool _internal_has_timestamp() const;
+  public:
+  void clear_timestamp();
+  const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* release_timestamp();
+  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_timestamp();
+  void set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  private:
+  const PROTOBUF_NAMESPACE_ID::Timestamp& _internal_timestamp() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_timestamp();
+  public:
+  void unsafe_arena_set_allocated_timestamp(
+      PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_timestamp();
+
   // float type = 1;
   void clear_type();
   float type() const;
@@ -1024,6 +1124,7 @@ class Can PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  PROTOBUF_NAMESPACE_ID::Timestamp* timestamp_;
   float type_;
   float data_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1306,6 +1407,83 @@ inline void Gps::set_horizontaldilutionofprecision(double value) {
   // @@protoc_insertion_point(field_set:sensors.Gps.horizontalDilutionOfPrecision)
 }
 
+// .google.protobuf.Timestamp timestamp = 4;
+inline bool Gps::_internal_has_timestamp() const {
+  return this != internal_default_instance() && timestamp_ != nullptr;
+}
+inline bool Gps::has_timestamp() const {
+  return _internal_has_timestamp();
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& Gps::_internal_timestamp() const {
+  const PROTOBUF_NAMESPACE_ID::Timestamp* p = timestamp_;
+  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& Gps::timestamp() const {
+  // @@protoc_insertion_point(field_get:sensors.Gps.timestamp)
+  return _internal_timestamp();
+}
+inline void Gps::unsafe_arena_set_allocated_timestamp(
+    PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
+  }
+  timestamp_ = timestamp;
+  if (timestamp) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:sensors.Gps.timestamp)
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Gps::release_timestamp() {
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
+  timestamp_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Gps::unsafe_arena_release_timestamp() {
+  // @@protoc_insertion_point(field_release:sensors.Gps.timestamp)
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
+  timestamp_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Gps::_internal_mutable_timestamp() {
+  
+  if (timestamp_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArena());
+    timestamp_ = p;
+  }
+  return timestamp_;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Gps::mutable_timestamp() {
+  // @@protoc_insertion_point(field_mutable:sensors.Gps.timestamp)
+  return _internal_mutable_timestamp();
+}
+inline void Gps::set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
+  }
+  if (timestamp) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp)->GetArena();
+    if (message_arena != submessage_arena) {
+      timestamp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, timestamp, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  timestamp_ = timestamp;
+  // @@protoc_insertion_point(field_set_allocated:sensors.Gps.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // Imu
@@ -1368,6 +1546,83 @@ inline void Imu::_internal_set_scaledaccelz(float value) {
 inline void Imu::set_scaledaccelz(float value) {
   _internal_set_scaledaccelz(value);
   // @@protoc_insertion_point(field_set:sensors.Imu.scaledAccelZ)
+}
+
+// .google.protobuf.Timestamp timestamp = 4;
+inline bool Imu::_internal_has_timestamp() const {
+  return this != internal_default_instance() && timestamp_ != nullptr;
+}
+inline bool Imu::has_timestamp() const {
+  return _internal_has_timestamp();
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& Imu::_internal_timestamp() const {
+  const PROTOBUF_NAMESPACE_ID::Timestamp* p = timestamp_;
+  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& Imu::timestamp() const {
+  // @@protoc_insertion_point(field_get:sensors.Imu.timestamp)
+  return _internal_timestamp();
+}
+inline void Imu::unsafe_arena_set_allocated_timestamp(
+    PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
+  }
+  timestamp_ = timestamp;
+  if (timestamp) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:sensors.Imu.timestamp)
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Imu::release_timestamp() {
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
+  timestamp_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Imu::unsafe_arena_release_timestamp() {
+  // @@protoc_insertion_point(field_release:sensors.Imu.timestamp)
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
+  timestamp_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Imu::_internal_mutable_timestamp() {
+  
+  if (timestamp_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArena());
+    timestamp_ = p;
+  }
+  return timestamp_;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Imu::mutable_timestamp() {
+  // @@protoc_insertion_point(field_mutable:sensors.Imu.timestamp)
+  return _internal_mutable_timestamp();
+}
+inline void Imu::set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
+  }
+  if (timestamp) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp)->GetArena();
+    if (message_arena != submessage_arena) {
+      timestamp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, timestamp, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  timestamp_ = timestamp;
+  // @@protoc_insertion_point(field_set_allocated:sensors.Imu.timestamp)
 }
 
 // -------------------------------------------------------------------
@@ -1457,6 +1712,83 @@ inline void Cam::set_allocated_image_data(std::string* image_data) {
   image_data_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), image_data,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:sensors.Cam.image_data)
+}
+
+// .google.protobuf.Timestamp timestamp = 4;
+inline bool Cam::_internal_has_timestamp() const {
+  return this != internal_default_instance() && timestamp_ != nullptr;
+}
+inline bool Cam::has_timestamp() const {
+  return _internal_has_timestamp();
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& Cam::_internal_timestamp() const {
+  const PROTOBUF_NAMESPACE_ID::Timestamp* p = timestamp_;
+  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& Cam::timestamp() const {
+  // @@protoc_insertion_point(field_get:sensors.Cam.timestamp)
+  return _internal_timestamp();
+}
+inline void Cam::unsafe_arena_set_allocated_timestamp(
+    PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
+  }
+  timestamp_ = timestamp;
+  if (timestamp) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:sensors.Cam.timestamp)
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Cam::release_timestamp() {
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
+  timestamp_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Cam::unsafe_arena_release_timestamp() {
+  // @@protoc_insertion_point(field_release:sensors.Cam.timestamp)
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
+  timestamp_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Cam::_internal_mutable_timestamp() {
+  
+  if (timestamp_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArena());
+    timestamp_ = p;
+  }
+  return timestamp_;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Cam::mutable_timestamp() {
+  // @@protoc_insertion_point(field_mutable:sensors.Cam.timestamp)
+  return _internal_mutable_timestamp();
+}
+inline void Cam::set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
+  }
+  if (timestamp) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp)->GetArena();
+    if (message_arena != submessage_arena) {
+      timestamp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, timestamp, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  timestamp_ = timestamp;
+  // @@protoc_insertion_point(field_set_allocated:sensors.Cam.timestamp)
 }
 
 // -------------------------------------------------------------------
@@ -1586,6 +1918,83 @@ Lidar::data() const {
   return data_;
 }
 
+// .google.protobuf.Timestamp timestamp = 4;
+inline bool Lidar::_internal_has_timestamp() const {
+  return this != internal_default_instance() && timestamp_ != nullptr;
+}
+inline bool Lidar::has_timestamp() const {
+  return _internal_has_timestamp();
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& Lidar::_internal_timestamp() const {
+  const PROTOBUF_NAMESPACE_ID::Timestamp* p = timestamp_;
+  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& Lidar::timestamp() const {
+  // @@protoc_insertion_point(field_get:sensors.Lidar.timestamp)
+  return _internal_timestamp();
+}
+inline void Lidar::unsafe_arena_set_allocated_timestamp(
+    PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
+  }
+  timestamp_ = timestamp;
+  if (timestamp) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:sensors.Lidar.timestamp)
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Lidar::release_timestamp() {
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
+  timestamp_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Lidar::unsafe_arena_release_timestamp() {
+  // @@protoc_insertion_point(field_release:sensors.Lidar.timestamp)
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
+  timestamp_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Lidar::_internal_mutable_timestamp() {
+  
+  if (timestamp_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArena());
+    timestamp_ = p;
+  }
+  return timestamp_;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Lidar::mutable_timestamp() {
+  // @@protoc_insertion_point(field_mutable:sensors.Lidar.timestamp)
+  return _internal_mutable_timestamp();
+}
+inline void Lidar::set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
+  }
+  if (timestamp) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp)->GetArena();
+    if (message_arena != submessage_arena) {
+      timestamp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, timestamp, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  timestamp_ = timestamp;
+  // @@protoc_insertion_point(field_set_allocated:sensors.Lidar.timestamp)
+}
+
 // -------------------------------------------------------------------
 
 // Can
@@ -1628,6 +2037,83 @@ inline void Can::_internal_set_data(float value) {
 inline void Can::set_data(float value) {
   _internal_set_data(value);
   // @@protoc_insertion_point(field_set:sensors.Can.data)
+}
+
+// .google.protobuf.Timestamp timestamp = 3;
+inline bool Can::_internal_has_timestamp() const {
+  return this != internal_default_instance() && timestamp_ != nullptr;
+}
+inline bool Can::has_timestamp() const {
+  return _internal_has_timestamp();
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& Can::_internal_timestamp() const {
+  const PROTOBUF_NAMESPACE_ID::Timestamp* p = timestamp_;
+  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& Can::timestamp() const {
+  // @@protoc_insertion_point(field_get:sensors.Can.timestamp)
+  return _internal_timestamp();
+}
+inline void Can::unsafe_arena_set_allocated_timestamp(
+    PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
+  }
+  timestamp_ = timestamp;
+  if (timestamp) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:sensors.Can.timestamp)
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Can::release_timestamp() {
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
+  timestamp_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Can::unsafe_arena_release_timestamp() {
+  // @@protoc_insertion_point(field_release:sensors.Can.timestamp)
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
+  timestamp_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Can::_internal_mutable_timestamp() {
+  
+  if (timestamp_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArena());
+    timestamp_ = p;
+  }
+  return timestamp_;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* Can::mutable_timestamp() {
+  // @@protoc_insertion_point(field_mutable:sensors.Can.timestamp)
+  return _internal_mutable_timestamp();
+}
+inline void Can::set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
+  }
+  if (timestamp) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp)->GetArena();
+    if (message_arena != submessage_arena) {
+      timestamp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, timestamp, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  timestamp_ = timestamp;
+  // @@protoc_insertion_point(field_set_allocated:sensors.Can.timestamp)
 }
 
 // -------------------------------------------------------------------

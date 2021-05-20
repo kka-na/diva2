@@ -1,6 +1,6 @@
 #pragma once
 #include "CamVisualization.h"
-
+#include <sys/time.h>
 #include <fstream>
 
 #include <opencv2/opencv.hpp>
@@ -38,6 +38,9 @@ void CamVisualization::run(void *contextSub)
     // int cnt = 0;
     clock_t clk_bef = clock();
     clock_t clk_now = clock();
+
+    fstream dataFile;
+    dataFile.open("CAM_DELAY.csv", ios::out);
     while (1)
     { 
         sensors::Cam cam;
@@ -51,12 +54,25 @@ void CamVisualization::run(void *contextSub)
         zmq::message_t msgData;
         clk_now = clock();
         socketSub.recv(&msgData);
+        // < timestamp >
+        struct timeval tv;
+        auto *end_ts = new google::protobuf::Timestamp();
+        gettimeofday(&tv, NULL);
+        end_ts->set_seconds(tv.tv_sec);
+        end_ts->set_nanos(tv.tv_usec*1000);
+        
         printf("(%d)(%dms)[MobilePlatform/Sensing/CamVisualization] receive %dbytes\n",c++,(float)(clk_now-clk_bef)/CLOCKS_PER_SEC*1000,msgData.size());
         clk_bef = clk_now;
 
         // [Parsing to proto]
         unsigned char data[msgData.size()] = "\0";
         cam.ParseFromArray(msgData.data(), msgData.size());
+        // <TIME>
+        auto *dur_ts = new google::protobuf::Timestamp();
+        dur_ts->set_seconds(end_ts->seconds()-cam.timestamp().seconds());
+        dur_ts->set_nanos(end_ts->nanos()-cam.timestamp().nanos());
+        printf("dur:%f,  %f\n", dur_ts->seconds(), dur_ts->nanos());
+        dataFile<<dur_ts->seconds()<<","<<dur_ts->nanos()<<","<<dur_ts->seconds()*1000+dur_ts->nanos()<<endl;
 
         // [CHECK THE IMAGE]
         // 참고: https://github.com/linklab-uva/deepracing/blob/adca1d1a724c4d930e3a5b905a039da5a143a561/data-logger/src/image_logging/utils/opencv_utils.cpp
@@ -72,6 +88,7 @@ void CamVisualization::run(void *contextSub)
         // sleep(1);
         
     }
+    dataFile.close();
 
 }
 

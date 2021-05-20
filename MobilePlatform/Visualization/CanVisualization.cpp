@@ -1,4 +1,6 @@
 #include "CanVisualization.h"
+#include <sys/time.h>
+
 #include "../../service/Timestamp.h"
 #include "../../service/global_name.hpp"
 #include "../../protobuf/sensors.pb.h"
@@ -24,6 +26,10 @@ void CanVisualization::run(void *contextSub)
 
     clock_t time_bef = clock();
     clock_t time_now = clock();
+
+    fstream dataFile;
+    dataFile.open("CAN_DELAY.csv", ios::out);
+
     while (1)
     {
         // [Receive the topic From SUB Socket]
@@ -35,6 +41,14 @@ void CanVisualization::run(void *contextSub)
         sensors::Can can;
         zmq::message_t msgData;
         SubSock.recv(&msgData);
+
+        // < timestamp >
+        struct timeval tv;
+        auto *end_ts = new google::protobuf::Timestamp();
+        gettimeofday(&tv, NULL);
+        end_ts->set_seconds(tv.tv_sec);
+        end_ts->set_nanos(tv.tv_usec*1000);
+
         time_now = clock();
         printf("(%dms)[MobilePlatform/Visualization/CanVisualization] Receive %dbytes\n",(float)(time_now-time_bef)/CLOCKS_PER_SEC*1000,msgData.size());
         time_bef = time_now;
@@ -47,6 +61,13 @@ void CanVisualization::run(void *contextSub)
 
         printf("\n");
         can.ParseFromArray(msgData.data(), msgData.size());
+
+        // <TIME>
+        auto *dur_ts = new google::protobuf::Timestamp();
+        dur_ts->set_seconds(end_ts->seconds()-can.timestamp().seconds());
+        dur_ts->set_nanos(end_ts->nanos()-can.timestamp().nanos());
+        printf("dur:%f,  %f\n", dur_ts->seconds(), dur_ts->nanos());
+        dataFile<<dur_ts->seconds()<<","<<dur_ts->nanos()<<","<<dur_ts->seconds()*1000+dur_ts->nanos()<<endl;
         
         printf("type=%f, data=%f\n", can.type(), can.data());
         
@@ -58,4 +79,5 @@ void CanVisualization::run(void *contextSub)
         // [OPTIONS]
         // sleep(1);
     }
+    dataFile.close();
 }

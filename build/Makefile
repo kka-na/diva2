@@ -124,19 +124,6 @@ diva2/fast:
 .PHONY : diva2/fast
 
 #=============================================================================
-# Target rules for targets named ouster_helper
-
-# Build rule for target.
-ouster_helper: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ouster_helper
-.PHONY : ouster_helper
-
-# fast build rule for target.
-ouster_helper/fast:
-	$(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build
-.PHONY : ouster_helper/fast
-
-#=============================================================================
 # Target rules for targets named MP_sensing
 
 # Build rule for target.
@@ -176,17 +163,17 @@ GS_playback/fast:
 .PHONY : GS_playback/fast
 
 #=============================================================================
-# Target rules for targets named sensing_proto
+# Target rules for targets named GS_algorithm
 
 # Build rule for target.
-sensing_proto: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensing_proto
-.PHONY : sensing_proto
+GS_algorithm: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GS_algorithm
+.PHONY : GS_algorithm
 
 # fast build rule for target.
-sensing_proto/fast:
-	$(MAKE) -f test/sensing_proto/CMakeFiles/sensing_proto.dir/build.make test/sensing_proto/CMakeFiles/sensing_proto.dir/build
-.PHONY : sensing_proto/fast
+GS_algorithm/fast:
+	$(MAKE) -f GroundStation/AlgorithmTesting/CMakeFiles/GS_algorithm.dir/build.make GroundStation/AlgorithmTesting/CMakeFiles/GS_algorithm.dir/build
+.PHONY : GS_algorithm/fast
 
 #=============================================================================
 # Target rules for targets named socketCan
@@ -213,6 +200,45 @@ candbcparser: cmake_check_build_system
 candbcparser/fast:
 	$(MAKE) -f test/can_dbcparser/CMakeFiles/candbcparser.dir/build.make test/can_dbcparser/CMakeFiles/candbcparser.dir/build
 .PHONY : candbcparser/fast
+
+#=============================================================================
+# Target rules for targets named lanes
+
+# Build rule for target.
+lanes: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lanes
+.PHONY : lanes
+
+# fast build rule for target.
+lanes/fast:
+	$(MAKE) -f test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/build.make test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/build
+.PHONY : lanes/fast
+
+#=============================================================================
+# Target rules for targets named contours
+
+# Build rule for target.
+contours: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 contours
+.PHONY : contours
+
+# fast build rule for target.
+contours/fast:
+	$(MAKE) -f test/lane_detection2/CMakeFiles/contours.dir/build.make test/lane_detection2/CMakeFiles/contours.dir/build
+.PHONY : contours/fast
+
+#=============================================================================
+# Target rules for targets named lane_detection3
+
+# Build rule for target.
+lane_detection3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lane_detection3
+.PHONY : lane_detection3
+
+# fast build rule for target.
+lane_detection3/fast:
+	$(MAKE) -f test/lane_detection3/CMakeFiles/lane_detection3.dir/build.make test/lane_detection3/CMakeFiles/lane_detection3.dir/build
+.PHONY : lane_detection3/fast
 
 main.o: main.cpp.o
 
@@ -250,13 +276,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... diva2"
 	@echo "... edit_cache"
-	@echo "... ouster_helper"
 	@echo "... MP_sensing"
 	@echo "... MP_visualization"
 	@echo "... GS_playback"
-	@echo "... sensing_proto"
+	@echo "... GS_algorithm"
 	@echo "... socketCan"
 	@echo "... candbcparser"
+	@echo "... lanes"
+	@echo "... contours"
+	@echo "... lane_detection3"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

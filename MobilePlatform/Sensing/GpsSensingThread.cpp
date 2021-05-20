@@ -1,6 +1,7 @@
 #pragma once
 #include "GpsSensingThread.h"
 #include <unistd.h>
+#include <sys/time.h>
 
 int initialize(string devicename);
 void readGPS(int iDev, char *cBuff);
@@ -35,10 +36,18 @@ void GpsSensingThread::run(zmq::socket_t *pubSock)
         // [Read 255bytes from GPS]
         int nRet = 0;
         char cBuff[255];
+        sensors::Gps gps;
         if (USE_GPS == 1)
         {
             nRet = read(iDev, cBuff, 255);
             cBuff[nRet] = 0;
+            // < timestamp >
+            struct timeval tv;
+            auto *timestamp = new google::protobuf::Timestamp();
+            gettimeofday(&tv, NULL);
+            timestamp->set_seconds(tv.tv_sec);
+            timestamp->set_nanos(tv.tv_usec*1000);
+            gps.set_allocated_timestamp(timestamp);
             // printf("(%d) [MobilePlatform/Sensing/GpsSensingThread] read %dbytes from GPS device\n", cnt,nRet); cnt++;
             // printf("%s\n", cBuff);
         }
@@ -51,7 +60,6 @@ void GpsSensingThread::run(zmq::socket_t *pubSock)
         }
 
         // [Parsing to Proto]
-        sensors::Gps gps;
         char *pSep; char *pText; string strBuff[1000];
         int cnt = 0;
         

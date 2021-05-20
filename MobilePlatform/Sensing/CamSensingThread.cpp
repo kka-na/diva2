@@ -1,5 +1,6 @@
 #pragma once
 #include "CamSensingThread.h"
+#include <sys/time.h>
 
 sensors::ChannelOrder imTypeToProto(const int& cv_type);
 
@@ -28,6 +29,15 @@ void CamSensingThread::run(zmq::socket_t *pubSock) // const int devicename, zmq:
       sensors::Cam cam;
       Mat frame;
       cap.read(frame);
+      
+      // < timestamp >
+      struct timeval tv;
+      auto *timestamp = new google::protobuf::Timestamp();
+      gettimeofday(&tv, NULL);
+      timestamp->set_seconds(tv.tv_sec);
+      timestamp->set_nanos(tv.tv_usec*1000);
+      cam.set_allocated_timestamp(timestamp);
+
       // resize(frame, frame, Size(320, 240));
       printf("[MobilePlatform/Sensing/CamSensingThread] read a frame (size:%dx%d, %d)\n",frame.cols, frame.rows, frame.type());
       
@@ -73,22 +83,22 @@ void CamSensingThread::run(zmq::socket_t *pubSock) // const int devicename, zmq:
 
       // [Store the CAM data]
       // <Make json object>
-      Json::Value json_dataset;
-      string path = "cam.json"; // TO-DO: the rule of file name
-      ifstream in(path.c_str());
-      if(in.is_open()) in >> json_dataset;
-      printf("[MobilePlatform/Sensing/CamSensingThread] Make Json Object (path:%s)\n",path.c_str()); 
+      // Json::Value json_dataset;
+      // string path = "cam.json"; // TO-DO: the rule of file name
+      // ifstream in(path.c_str());
+      // if(in.is_open()) in >> json_dataset;
+      // printf("[MobilePlatform/Sensing/CamSensingThread] Make Json Object (path:%s)\n",path.c_str()); 
 
-      Json::Value json_data; 
-      // json_data["latitude"] = strBuff[2]; 
-      json_dataset.append(json_data);
-      printf("[MobilePlatform/Sensing/CamSensingThread] Append a json data\n");
+      // Json::Value json_data; 
+      // // json_data["latitude"] = strBuff[2]; 
+      // json_dataset.append(json_data);
+      // printf("[MobilePlatform/Sensing/CamSensingThread] Append a json data\n");
 
-      Json::StyledWriter jsonWriter;
-      ofstream out(path.c_str());
-      out<<jsonWriter.write(json_dataset);
-      out.close();
-      printf("[MobilePlatform/Sensing/CamSensingThread] complete to make json file at \"%s\"\n",path.c_str());
+      // Json::StyledWriter jsonWriter;
+      // ofstream out(path.c_str());
+      // out<<jsonWriter.write(json_dataset);
+      // out.close();
+      // printf("[MobilePlatform/Sensing/CamSensingThread] complete to make json file at \"%s\"\n",path.c_str());
       
 
       // <Make JPG file> 
@@ -105,12 +115,19 @@ void CamSensingThread::run(zmq::socket_t *pubSock) // const int devicename, zmq:
       tm *ts = localtime(&nowTime);
 
       char cPath[15]; // sprintf(cPath, "cam");  
-      sprintf(cPath, "%04d-%02d-%02d/CAM", ts->tm_year+1900, ts->tm_mon+1, ts->tm_mday);
+      sprintf(cPath, "%04d-%02d-%02d", ts->tm_year+1900, ts->tm_mon+1, ts->tm_mday);
       
       int nResult = mkdir(cPath, 0776); 
+      printf("***********result = %d****************\n");
       if( nResult == 0 ){
         printf("[MobilePlatform/Sensing/CamSensingThread] make directory (%s)\n", cPath);
       }// if(nResult == -1 ) : already exists
+
+      sprintf(cPath, "%04d-%02d-%02d/CAM", ts->tm_year+1900, ts->tm_mon+1, ts->tm_mday);
+      nResult = mkdir(cPath, 0776);
+      if(nResult==0){
+        printf("[MobilePlatform/Sensing/CamSensingThread] make directory (%s)\n", cPath);
+      }
 
       sprintf(cFn, "%s/%02d-%02d-%02d-%03d.jpg", cPath,
       ts->tm_hour, ts->tm_min, ts->tm_sec, msc);

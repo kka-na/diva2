@@ -1,5 +1,7 @@
 #pragma once
 #include "ImuSensingThread.h"
+#include <sys/time.h>
+
 
 enum IMU{IMU_EXCEPTION=0, IMU_ACCELX, IMU_ACCELY, IMU_ACCELZ, IMU_GYROX, IMU_GYROY, IMU_GYROZ, IMU_MAGX, IMU_MAGY, IMU_MAGZ,
         IMU_ESTROLL, IMU_ESTPITCH, IMU_ESTYAW, IMU_ESTROLL_UNCERT, IMU_ESTPITCH_UNCERT, IMU_ESTYAW_UNCERT};
@@ -27,7 +29,7 @@ void ImuSensingThread::run(zmq::socket_t *pubSock, const char *devicename, mscl:
         // [Connect the IMU device]
         // <create the connection object with port and baud rate>
         mscl::Connection connection = mscl::Connection::Serial(devicename, baudrate);
-
+        
         // <create the InertialNode, passing in the connection>
         mscl::InertialNode msclNode = mscl::InertialNode(connection);
         printf("[MobilePlatform/Sensing/ImuSensingThread] connect to IMU device\n");
@@ -38,6 +40,14 @@ void ImuSensingThread::run(zmq::socket_t *pubSock, const char *devicename, mscl:
 
             // <Get MipDataPackets>
             mscl::MipDataPackets msclPackets = msclNode.getDataPackets(500);
+            
+            // < timestamp >
+            struct timeval tv;
+            auto *timestamp = new google::protobuf::Timestamp();
+            gettimeofday(&tv, NULL);
+            timestamp->set_seconds(tv.tv_sec);
+            timestamp->set_nanos(tv.tv_usec*1000);
+            imu.set_allocated_timestamp(timestamp);
                 
             for(mscl::MipDataPacket packet : msclPackets)
             {

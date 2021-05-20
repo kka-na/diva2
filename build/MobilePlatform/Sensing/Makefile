@@ -111,21 +111,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/rule:
-	cd /home/diva2/diva2/build && $(MAKE) -f CMakeFiles/Makefile2 MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/rule
-.PHONY : MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/rule
-
-# Convenience name for target.
-ouster_helper: MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/rule
-
-.PHONY : ouster_helper
-
-# fast build rule for target.
-ouster_helper/fast:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build
-.PHONY : ouster_helper/fast
-
-# Convenience name for target.
 MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/rule:
 	cd /home/diva2/diva2/build && $(MAKE) -f CMakeFiles/Makefile2 MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/rule
 .PHONY : MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/rule
@@ -248,168 +233,6 @@ ImuSensingThread.cpp.s:
 	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/build.make MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/ImuSensingThread.cpp.s
 .PHONY : ImuSensingThread.cpp.s
 
-LiDAR_Sensing.o: LiDAR_Sensing.cpp.o
-
-.PHONY : LiDAR_Sensing.o
-
-# target to build an object file
-LiDAR_Sensing.cpp.o:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/build.make MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/LiDAR_Sensing.cpp.o
-.PHONY : LiDAR_Sensing.cpp.o
-
-LiDAR_Sensing.i: LiDAR_Sensing.cpp.i
-
-.PHONY : LiDAR_Sensing.i
-
-# target to preprocess a source file
-LiDAR_Sensing.cpp.i:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/build.make MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/LiDAR_Sensing.cpp.i
-.PHONY : LiDAR_Sensing.cpp.i
-
-LiDAR_Sensing.s: LiDAR_Sensing.cpp.s
-
-.PHONY : LiDAR_Sensing.s
-
-# target to generate assembly for a file
-LiDAR_Sensing.cpp.s:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/build.make MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/LiDAR_Sensing.cpp.s
-.PHONY : LiDAR_Sensing.cpp.s
-
-LiDAR_SensingThread.o: LiDAR_SensingThread.cpp.o
-
-.PHONY : LiDAR_SensingThread.o
-
-# target to build an object file
-LiDAR_SensingThread.cpp.o:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/build.make MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/LiDAR_SensingThread.cpp.o
-.PHONY : LiDAR_SensingThread.cpp.o
-
-LiDAR_SensingThread.i: LiDAR_SensingThread.cpp.i
-
-.PHONY : LiDAR_SensingThread.i
-
-# target to preprocess a source file
-LiDAR_SensingThread.cpp.i:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/build.make MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/LiDAR_SensingThread.cpp.i
-.PHONY : LiDAR_SensingThread.cpp.i
-
-LiDAR_SensingThread.s: LiDAR_SensingThread.cpp.s
-
-.PHONY : LiDAR_SensingThread.s
-
-# target to generate assembly for a file
-LiDAR_SensingThread.cpp.s:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/build.make MobilePlatform/Sensing/CMakeFiles/MP_sensing.dir/LiDAR_SensingThread.cpp.s
-.PHONY : LiDAR_SensingThread.cpp.s
-
-__/__/service/ouster/client.o: __/__/service/ouster/client.cpp.o
-
-.PHONY : __/__/service/ouster/client.o
-
-# target to build an object file
-__/__/service/ouster/client.cpp.o:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/client.cpp.o
-.PHONY : __/__/service/ouster/client.cpp.o
-
-__/__/service/ouster/client.i: __/__/service/ouster/client.cpp.i
-
-.PHONY : __/__/service/ouster/client.i
-
-# target to preprocess a source file
-__/__/service/ouster/client.cpp.i:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/client.cpp.i
-.PHONY : __/__/service/ouster/client.cpp.i
-
-__/__/service/ouster/client.s: __/__/service/ouster/client.cpp.s
-
-.PHONY : __/__/service/ouster/client.s
-
-# target to generate assembly for a file
-__/__/service/ouster/client.cpp.s:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/client.cpp.s
-.PHONY : __/__/service/ouster/client.cpp.s
-
-__/__/service/ouster/impl/netcompat.o: __/__/service/ouster/impl/netcompat.cpp.o
-
-.PHONY : __/__/service/ouster/impl/netcompat.o
-
-# target to build an object file
-__/__/service/ouster/impl/netcompat.cpp.o:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/impl/netcompat.cpp.o
-.PHONY : __/__/service/ouster/impl/netcompat.cpp.o
-
-__/__/service/ouster/impl/netcompat.i: __/__/service/ouster/impl/netcompat.cpp.i
-
-.PHONY : __/__/service/ouster/impl/netcompat.i
-
-# target to preprocess a source file
-__/__/service/ouster/impl/netcompat.cpp.i:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/impl/netcompat.cpp.i
-.PHONY : __/__/service/ouster/impl/netcompat.cpp.i
-
-__/__/service/ouster/impl/netcompat.s: __/__/service/ouster/impl/netcompat.cpp.s
-
-.PHONY : __/__/service/ouster/impl/netcompat.s
-
-# target to generate assembly for a file
-__/__/service/ouster/impl/netcompat.cpp.s:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/impl/netcompat.cpp.s
-.PHONY : __/__/service/ouster/impl/netcompat.cpp.s
-
-__/__/service/ouster/os1_util.o: __/__/service/ouster/os1_util.cpp.o
-
-.PHONY : __/__/service/ouster/os1_util.o
-
-# target to build an object file
-__/__/service/ouster/os1_util.cpp.o:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/os1_util.cpp.o
-.PHONY : __/__/service/ouster/os1_util.cpp.o
-
-__/__/service/ouster/os1_util.i: __/__/service/ouster/os1_util.cpp.i
-
-.PHONY : __/__/service/ouster/os1_util.i
-
-# target to preprocess a source file
-__/__/service/ouster/os1_util.cpp.i:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/os1_util.cpp.i
-.PHONY : __/__/service/ouster/os1_util.cpp.i
-
-__/__/service/ouster/os1_util.s: __/__/service/ouster/os1_util.cpp.s
-
-.PHONY : __/__/service/ouster/os1_util.s
-
-# target to generate assembly for a file
-__/__/service/ouster/os1_util.cpp.s:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/os1_util.cpp.s
-.PHONY : __/__/service/ouster/os1_util.cpp.s
-
-__/__/service/ouster/types.o: __/__/service/ouster/types.cpp.o
-
-.PHONY : __/__/service/ouster/types.o
-
-# target to build an object file
-__/__/service/ouster/types.cpp.o:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/types.cpp.o
-.PHONY : __/__/service/ouster/types.cpp.o
-
-__/__/service/ouster/types.i: __/__/service/ouster/types.cpp.i
-
-.PHONY : __/__/service/ouster/types.i
-
-# target to preprocess a source file
-__/__/service/ouster/types.cpp.i:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/types.cpp.i
-.PHONY : __/__/service/ouster/types.cpp.i
-
-__/__/service/ouster/types.s: __/__/service/ouster/types.cpp.s
-
-.PHONY : __/__/service/ouster/types.s
-
-# target to generate assembly for a file
-__/__/service/ouster/types.cpp.s:
-	cd /home/diva2/diva2/build && $(MAKE) -f MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/build.make MobilePlatform/Sensing/CMakeFiles/ouster_helper.dir/__/__/service/ouster/types.cpp.s
-.PHONY : __/__/service/ouster/types.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -471,9 +294,8 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... ouster_helper"
 	@echo "... MP_sensing"
+	@echo "... edit_cache"
 	@echo "... CamSensingThread.o"
 	@echo "... CamSensingThread.i"
 	@echo "... CamSensingThread.s"
@@ -486,24 +308,6 @@ help:
 	@echo "... ImuSensingThread.o"
 	@echo "... ImuSensingThread.i"
 	@echo "... ImuSensingThread.s"
-	@echo "... LiDAR_Sensing.o"
-	@echo "... LiDAR_Sensing.i"
-	@echo "... LiDAR_Sensing.s"
-	@echo "... LiDAR_SensingThread.o"
-	@echo "... LiDAR_SensingThread.i"
-	@echo "... LiDAR_SensingThread.s"
-	@echo "... __/__/service/ouster/client.o"
-	@echo "... __/__/service/ouster/client.i"
-	@echo "... __/__/service/ouster/client.s"
-	@echo "... __/__/service/ouster/impl/netcompat.o"
-	@echo "... __/__/service/ouster/impl/netcompat.i"
-	@echo "... __/__/service/ouster/impl/netcompat.s"
-	@echo "... __/__/service/ouster/os1_util.o"
-	@echo "... __/__/service/ouster/os1_util.i"
-	@echo "... __/__/service/ouster/os1_util.s"
-	@echo "... __/__/service/ouster/types.o"
-	@echo "... __/__/service/ouster/types.i"
-	@echo "... __/__/service/ouster/types.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

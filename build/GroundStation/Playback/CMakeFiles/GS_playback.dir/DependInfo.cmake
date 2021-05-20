@@ -18,7 +18,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/share/c++-mscl/source"
   "/usr/share/c++-mscl/Boost/include"
-  "/usr/include/opencv"
+  "/usr/local/include/opencv4"
   "/usr/local/include"
   "GroundStation/Playback"
   )

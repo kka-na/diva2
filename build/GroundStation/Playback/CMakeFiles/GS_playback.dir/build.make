@@ -68,15 +68,15 @@ GroundStation/Playback/sensors.pb.h: GroundStation/Playback/sensors.pb.cc
 GroundStation/Playback/CMakeFiles/GS_playback.dir/main.cpp.o: GroundStation/Playback/CMakeFiles/GS_playback.dir/flags.make
 GroundStation/Playback/CMakeFiles/GS_playback.dir/main.cpp.o: ../GroundStation/Playback/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object GroundStation/Playback/CMakeFiles/GS_playback.dir/main.cpp.o"
-	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GS_playback.dir/main.cpp.o -c /home/diva2/diva2/GroundStation/Playback/main.cpp
+	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GS_playback.dir/main.cpp.o -c /home/diva2/diva2/GroundStation/Playback/main.cpp
 
 GroundStation/Playback/CMakeFiles/GS_playback.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GS_playback.dir/main.cpp.i"
-	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diva2/diva2/GroundStation/Playback/main.cpp > CMakeFiles/GS_playback.dir/main.cpp.i
+	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diva2/diva2/GroundStation/Playback/main.cpp > CMakeFiles/GS_playback.dir/main.cpp.i
 
 GroundStation/Playback/CMakeFiles/GS_playback.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GS_playback.dir/main.cpp.s"
-	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diva2/diva2/GroundStation/Playback/main.cpp -o CMakeFiles/GS_playback.dir/main.cpp.s
+	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diva2/diva2/GroundStation/Playback/main.cpp -o CMakeFiles/GS_playback.dir/main.cpp.s
 
 GroundStation/Playback/CMakeFiles/GS_playback.dir/main.cpp.o.requires:
 
@@ -92,15 +92,15 @@ GroundStation/Playback/CMakeFiles/GS_playback.dir/main.cpp.o.provides.build: Gro
 GroundStation/Playback/CMakeFiles/GS_playback.dir/sensors.pb.cc.o: GroundStation/Playback/CMakeFiles/GS_playback.dir/flags.make
 GroundStation/Playback/CMakeFiles/GS_playback.dir/sensors.pb.cc.o: GroundStation/Playback/sensors.pb.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object GroundStation/Playback/CMakeFiles/GS_playback.dir/sensors.pb.cc.o"
-	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GS_playback.dir/sensors.pb.cc.o -c /home/diva2/diva2/build/GroundStation/Playback/sensors.pb.cc
+	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GS_playback.dir/sensors.pb.cc.o -c /home/diva2/diva2/build/GroundStation/Playback/sensors.pb.cc
 
 GroundStation/Playback/CMakeFiles/GS_playback.dir/sensors.pb.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GS_playback.dir/sensors.pb.cc.i"
-	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diva2/diva2/build/GroundStation/Playback/sensors.pb.cc > CMakeFiles/GS_playback.dir/sensors.pb.cc.i
+	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diva2/diva2/build/GroundStation/Playback/sensors.pb.cc > CMakeFiles/GS_playback.dir/sensors.pb.cc.i
 
 GroundStation/Playback/CMakeFiles/GS_playback.dir/sensors.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GS_playback.dir/sensors.pb.cc.s"
-	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diva2/diva2/build/GroundStation/Playback/sensors.pb.cc -o CMakeFiles/GS_playback.dir/sensors.pb.cc.s
+	cd /home/diva2/diva2/build/GroundStation/Playback && /usr/bin/g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diva2/diva2/build/GroundStation/Playback/sensors.pb.cc -o CMakeFiles/GS_playback.dir/sensors.pb.cc.s
 
 GroundStation/Playback/CMakeFiles/GS_playback.dir/sensors.pb.cc.o.requires:
 
@@ -125,49 +125,23 @@ GroundStation/Playback/GS_playback: GroundStation/Playback/CMakeFiles/GS_playbac
 GroundStation/Playback/GS_playback: GroundStation/Playback/CMakeFiles/GS_playback.dir/sensors.pb.cc.o
 GroundStation/Playback/GS_playback: GroundStation/Playback/CMakeFiles/GS_playback.dir/build.make
 GroundStation/Playback/GS_playback: /usr/local/lib/libzmq.so
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_shape.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_superres.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_aruco.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_bgsegm.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_bioinspired.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_ccalib.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_datasets.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_dpm.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_face.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_freetype.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_fuzzy.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_hdf.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_line_descriptor.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_optflow.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_plot.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_reg.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_saliency.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_stereo.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_structured_light.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_surface_matching.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_text.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_ximgproc.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_xobjdetect.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_xphoto.so.3.2.0
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_gapi.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_highgui.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_ml.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_objdetect.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_photo.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_stitching.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_video.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_videoio.so.4.5.2
 GroundStation/Playback/GS_playback: /usr/local/lib/libprotobuf.so
 GroundStation/Playback/GS_playback: /usr/share/c++-mscl/libmscl.so
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_video.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_viz.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_phase_unwrapping.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_rgbd.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_features2d.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_flann.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_ml.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_highgui.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_videoio.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
-GroundStation/Playback/GS_playback: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_dnn.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_imgcodecs.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_calib3d.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_features2d.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_flann.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_imgproc.so.4.5.2
+GroundStation/Playback/GS_playback: /usr/local/lib/libopencv_core.so.4.5.2
 GroundStation/Playback/GS_playback: GroundStation/Playback/CMakeFiles/GS_playback.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable GS_playback"
 	cd /home/diva2/diva2/build/GroundStation/Playback && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GS_playback.dir/link.txt --verbose=$(VERBOSE)
