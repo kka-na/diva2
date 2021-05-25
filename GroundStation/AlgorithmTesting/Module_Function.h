@@ -19,6 +19,8 @@
 
 #include <algorithm>
 
+#include <sys/time.h>
+
 
 using namespace cv;
 using namespace std;
@@ -26,10 +28,23 @@ using namespace std;
 class Module_Function
 {
 public:
-    Module_Function();
-    void laneDetection(int i, string videoFullName);
+    Module_Function(int sensorIdx, int algorithmIdx);
+    // void laneDetection(int i, string videoFullName);
+    void run();
+    void model_run(string model_path, string weight_path);
+
+    void setFileName(string fileName);
 private:
-    // int sensorType;
+    int sensorIdx;
+    int algorithmIdx;
+
+    string funcPath;
+    string funcName;
+    string fileName;
+
+    clock_t clk_term;
+    
+
     // string strDirPath;
     // vector<string> fileNames;
     // string strFileType;

@@ -69,3 +69,4 @@ target_link_libraries(GS_algorithm PUBLIC
     ) # at the 0mq library to our link directive
 
 
+add_subdirectory(Algorithm)

@@ -18,18 +18,13 @@
 #include <sys/types.h> 
 #include <sys/stat.h> 
 #include <unistd.h>
+#include "global.h"
 
 #include <algorithm>
 
 
 using namespace cv;
 using namespace std;
-
-const int MODULE_SENSOR_TYPE_GPS = 100;
-const int MODULE_SENSOR_TYPE_IMU = 101;
-const int MODULE_SENSOR_TYPE_CAM = 102;
-const int MODULE_SENSOR_TYPE_LIDAR = 103;
-const int MODULE_SENSOR_TYPE_CAN = 104;
 
 class Module_Input
 {
@@ -45,11 +40,16 @@ public:
     // string getVideoFullName(){ printf("[Module_Input::getVideoFullName] start\n"); return cam.getVideoFullName();}
     // Module_Input_CAM *getCAM(){return &cam;}
     // void setVideoFullName(string strFullName) {this->cam.setVideoFullName(strFullName);}
-    void setImages();
-    void setFps(int fps){this->fps = fps;}
+    void setFiles();
+        void setImages();
+
+    // void setFps(int fps){this->fps = fps;}
+    string getDateNameFromDir();
+    
     void displayImages();
     // vector<Mat> getImages();
     void image2video(string strFileName);
+    void displayVideos(string strFileName);
 
 private:
     int sensorType;

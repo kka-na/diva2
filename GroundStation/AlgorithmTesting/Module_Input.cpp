@@ -68,6 +68,29 @@ void Module_Input::setImages(){
     printf("[Module_Input::setImages] end (images.size=%d)\n",images.size());
 
 }
+
+void Module_Input::setFiles(){
+    printf("[Module_Input::setImages] start (fileNames.size=%d)\n",fileNames.size());
+
+    switch (sensorType)
+    {
+    case SensorIdx::lidar:
+    { break; }
+    case SensorIdx::cam:
+    { 
+        setImages();
+        break;
+    }
+    case SensorIdx::can:
+    { break; }
+    case SensorIdx::imu:
+    { break; }
+    case SensorIdx::gps:
+    { break; }
+    default:
+    { break; }
+    }
+}
     
 
 void Module_Input::displayFileName(){
@@ -136,4 +159,43 @@ void Module_Input::image2video(string strFileName){
 
 
     writer.release();
+}
+
+void Module_Input::displayVideos(string strFileName)
+{
+    printf("[Module_Input::displayVideos] start\n");
+    VideoCapture cap(strFileName.c_str());
+    if(!cap.isOpened())
+    {
+        cout << "Capture could not be opened succesfully" <<endl;
+        exit(-1);
+    }
+    namedWindow("video");
+    while (char(waitKey(1)) != 'q' && cap.isOpened()) {
+        Mat frame;
+        cap >> frame;
+
+        if(frame.empty())
+        {
+            cout<<"Video over"<<endl;
+            break;
+        }
+        imshow("Video", frame);
+    }
+    waitKey(0);
+}
+
+string Module_Input::getDateNameFromDir(){
+    std::size_t pos = strDirPath.rfind('/');
+    string fileDir= strDirPath.substr(0, pos);
+    printf(">> %s\n", fileDir.c_str());
+    pos = fileDir.rfind('/');
+    fileDir= fileDir.substr(0, pos);
+    printf(">> %s\n", fileDir.c_str());
+    pos = fileDir.rfind('/');
+    // fileDir= fileDir.substr(0, pos);
+    std::string fileName = fileDir.substr(pos + 1);
+    printf(">> %s\n", fileName.c_str());
+    
+    return fileName;
 }
