@@ -5,6 +5,15 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <QListWidget>
+#include <QLabel>
+
+#include <string>
+
+#include "AlgorithmThread.h"
+
+
+using namespace std;
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,10 +32,20 @@ public:
 //    void on_pushButton_save_clicked();
     //void on_pushButton_clicked();
     QDir dir;
+    QDir model_path;
+    QDir weight_path;
     QFileInfoList list;
     ~MainWindow();
 
+    QLabel *originalImageWidget;
+    QLabel *resultImageWidget;
+
+public slots:
+    void display_original(QImage image, QImage image_result);
+
+
 private slots:
+    
     void on_pushButton_select_clicked();
     void on_pushButton_clicked();
     void on_comboBox_currentIndexChanged(int index);
@@ -37,6 +56,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    class AlgorithmThread::AlgorithmThread *algorithmThread;
 
 //    Ui::MainWindow listDir;
 };

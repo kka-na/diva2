@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
@@ -35,7 +34,6 @@ public:
     QComboBox *comboBox_2;
     QLabel *label;
     QLabel *label_2;
-    QGraphicsView *graphicsView_2;
     QLabel *label_5;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
@@ -43,6 +41,8 @@ public:
     QListWidget *listDir;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
+    QLabel *label_original_img;
+    QLabel *label_result_img;
     QMenuBar *menubar;
     QStatusBar *statusbar;
     QToolBar *toolBar;
@@ -51,7 +51,8 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1512, 776);
+        MainWindow->resize(1497, 788);
+        MainWindow->setBaseSize(QSize(640, 0));
         MainWindow->setStyleSheet(QLatin1String("QLabel{\n"
 "\n"
 "border-radius: 2px;\n"
@@ -115,10 +116,6 @@ public:
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(20, 180, 91, 21));
-        graphicsView_2 = new QGraphicsView(centralwidget);
-        graphicsView_2->setObjectName(QStringLiteral("graphicsView_2"));
-        graphicsView_2->setGeometry(QRect(340, 70, 1041, 581));
-        graphicsView_2->setStyleSheet(QStringLiteral(""));
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(840, 30, 61, 21));
@@ -140,10 +137,20 @@ public:
         pushButton_4 = new QPushButton(centralwidget);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
         pushButton_4->setGeometry(QRect(130, 250, 111, 21));
+        label_original_img = new QLabel(centralwidget);
+        label_original_img->setObjectName(QStringLiteral("label_original_img"));
+        label_original_img->setGeometry(QRect(360, 160, 512, 384));
+        label_original_img->setBaseSize(QSize(640, 480));
+        label_original_img->setStyleSheet(QStringLiteral("background-color: rgb(46, 52, 54);"));
+        label_result_img = new QLabel(centralwidget);
+        label_result_img->setObjectName(QStringLiteral("label_result_img"));
+        label_result_img->setGeometry(QRect(890, 160, 512, 384));
+        label_result_img->setBaseSize(QSize(640, 480));
+        label_result_img->setStyleSheet(QStringLiteral("background-color: rgb(46, 52, 54);"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1512, 22));
+        menubar->setGeometry(QRect(0, 0, 1497, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -181,6 +188,8 @@ public:
         pushButton_select->setText(QApplication::translate("MainWindow", "select directory", Q_NULLPTR));
         pushButton_3->setText(QApplication::translate("MainWindow", "select model", Q_NULLPTR));
         pushButton_4->setText(QApplication::translate("MainWindow", "select weight", Q_NULLPTR));
+        label_original_img->setText(QApplication::translate("MainWindow", "original Image Widget", Q_NULLPTR));
+        label_result_img->setText(QApplication::translate("MainWindow", "result Image Widget", Q_NULLPTR));
         toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", Q_NULLPTR));
     } // retranslateUi
 

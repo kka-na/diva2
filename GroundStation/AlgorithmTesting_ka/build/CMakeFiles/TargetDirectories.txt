@@ -1,0 +1,4 @@
+/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles/rebuild_cache.dir
+/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles/diva_algorithm.dir
+/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles/edit_cache.dir
+/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles/diva_algorithm_autogen.dir

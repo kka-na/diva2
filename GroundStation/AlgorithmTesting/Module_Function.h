@@ -31,7 +31,7 @@ public:
     Module_Function(int sensorIdx, int algorithmIdx);
     // void laneDetection(int i, string videoFullName);
     void run();
-    void model_run(string model_path, string weight_path);
+    void model_run(string model_path, string weight_path, string dir);
 
     void setFileName(string fileName);
 private:

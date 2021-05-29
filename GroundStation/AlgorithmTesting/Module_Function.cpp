@@ -58,7 +58,7 @@ void Module_Function::setFileName(string fileName){
 
 
 
-void Module_Function::model_run(string model_path, string weight_path){
+void Module_Function::model_run(string model_path, string weight_path, string dir){
     // './checkpoints/fcn_big_01.json'
     // './checkpoints/fcn_big_01.h5'
     string command = "";
@@ -68,6 +68,8 @@ void Module_Function::model_run(string model_path, string weight_path){
     command += model_path;
     command += " ";
     command += weight_path;
+    command += " ";
+    command += dir;
     printf("[Module_Function::model_run] command: %s\n", command.c_str());
     system(command.c_str());
 }

@@ -5,14 +5,24 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <QListWidget>
+// #include <QtMultimedia>
+// #include <QGraphicsVideoItem>
 
+// ZeroMQ
+#include <zmq.hpp>
+
+// OpenCV
+//#include <opencv2/opencv.hpp>
+//#include "opencv2/imgproc/imgproc.hpp"
+//#include "opencv2/highgui/highgui.hpp"
+//#include <opencv2/imgcodecs.hpp>
 
 #include <iostream>
 #include <string>
 #include <map>
 
 using namespace std;
-
+//using namespace cv;
 
 void setMSettings();
 QStringList getAlgorithmQStringList(int sensorIdx);
@@ -30,6 +40,8 @@ MainWindow::MainWindow(QWidget *parent)
            setPalette(p);
 
     ui->setupUi(this);
+    // connect(ui->pushButton, SIGNAL(on_pushButton_clicked()), algorithmThread, SLOT(start()));
+    printf("[MainWindow::MainWindow] pushButton\n");
 }
 
 enum Sensor { lidar, cam, can, imu, gps};
@@ -41,30 +53,74 @@ map<int, string> mCan;
 map<int, string> mImu;
 map<int, string> mGps;
 
-string model_path;
-string weight_path;
-string dir_path;
+void MainWindow::display_original(QImage image, QImage image_result){
+    printf("[MainWindow::display_original] start\n");
+    originalImageWidget->setPixmap(QPixmap::fromImage(image).scaled(originalImageWidget->width(), originalImageWidget->height(), Qt::KeepAspectRatio));
+    originalImageWidget->setAlignment(Qt::AlignCenter);
+
+    resultImageWidget->setPixmap(QPixmap::fromImage(image_result).scaled(resultImageWidget->width(), resultImageWidget->height(), Qt::KeepAspectRatio));
+    resultImageWidget->setAlignment(Qt::AlignCenter);
+
+    originalImageWidget->show();
+    resultImageWidget->show();
+
+    QCoreApplication::processEvents();
+}
 
 void MainWindow::on_pushButton_clicked()
 {
     // PushButton : Play
     cout << "[MainWindow::on_pushButton_clicked] start\n";
 
+    // ==================
+    algorithmThread = new AlgorithmThread(this);
+    algorithmThread->start();
+
+    originalImageWidget =ui->label_original_img;
+    originalImageWidget->clear();
+    resultImageWidget = ui->label_result_img;
+    resultImageWidget->clear();
+    // algorithmThread->run();
+    connect(algorithmThread, SIGNAL(send_qimage(QImage, QImage)), this, SLOT(display_original(QImage, QImage)));
+    
+    // =====================
+    
     printf("sensor: %d\n", sensorIdx);
     printf("algorithm: %d\n", algorithmIdx);
-    printf("model: %s\n", model_path.c_str());
-    printf("weight: %s\n", weight_path.c_str());
+    printf("model: %s\n", model_path.path().toStdString().c_str());
+    printf("weight: %s\n", weight_path.path().toStdString().c_str());
     printf("dir: %s\n",dir.path().toStdString().c_str());
+    /*
     int ret;
     string command;
     command += "cd /home/diva2/diva2/build/GroundStation/AlgorithmTesting ";
     command += "&& ./GS_algorithm ";
     command += (to_string(sensorIdx) + " ");
     command += (to_string(algorithmIdx) + " ");
+    command += (model_path.path().toStdString() + " ");
+    command += (weight_path.path().toStdString() + " ");
     command += (dir.path().toStdString());
 
     // ret = system("cd /home/diva2/diva2/build/GroundStation/AlgorithmTesting && ./GS_algorithm");
     ret = system(command.c_str());
+
+    // /home/diva2/diva2/GroundStation/AlgorithmTesting/Algorithm/output_video.avi
+    
+
+    QGraphicsScene *scene = new QGraphicsScene;
+    QMediaPlayer *player = new QMediaPlayer();
+    QGraphicsVideoItem *videoItem = new QGraphicsVideoItem;
+
+    ui->graphicsView_2->setScene(scene);
+    player->setVideoOutput(videoItem);
+    ui->graphicsView_2->scene()->addItem(videoItem);
+    player->setMedia(QUrl::fromLocalFile("/home/diva2/diva2/GroundStation/AlgorithmTesting/Algorithm/output_video.avi"));
+    // player->setVolume();
+    ui->graphicsView_2->fitInView(videoItem);
+    player->play();
+
+    */
+
 
 }
 
@@ -155,12 +211,12 @@ void MainWindow::on_pushButton_select_clicked()
 }
 
 void MainWindow::on_pushButton_3_clicked(){
-    model_path = QFileDialog::getOpenFileName(this, "file selct","home/kayeon/", "Files(*.*)");
-    qDebug()<<file;
+    this->model_path = QFileDialog::getOpenFileName(this, "file selct","home/kayeon/", "Files(*.*)");
+    // qDebug()<<file;
 
 }
 
 void MainWindow::on_pushButton_4_clicked(){
-    weight_path = QFileDialog::getOpenFileName(this, "file selct","home/kayeon/", "Files(*.*)");
-    qDebug()<<file;
+    this->weight_path = QFileDialog::getOpenFileName(this, "file selct","home/kayeon/", "Files(*.*)");
+    // qDebug()<<file;
 }
