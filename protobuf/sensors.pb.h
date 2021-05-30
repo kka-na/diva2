@@ -48,7 +48,7 @@ struct TableStruct_sensors_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[7]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[8]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -77,6 +77,9 @@ extern Lidar_xyzDefaultTypeInternal _Lidar_xyz_default_instance_;
 class Log;
 struct LogDefaultTypeInternal;
 extern LogDefaultTypeInternal _Log_default_instance_;
+class algorithm_img;
+struct algorithm_imgDefaultTypeInternal;
+extern algorithm_imgDefaultTypeInternal _algorithm_img_default_instance_;
 }  // namespace sensors
 PROTOBUF_NAMESPACE_OPEN
 template<> ::sensors::Cam* Arena::CreateMaybeMessage<::sensors::Cam>(Arena*);
@@ -86,6 +89,7 @@ template<> ::sensors::Imu* Arena::CreateMaybeMessage<::sensors::Imu>(Arena*);
 template<> ::sensors::Lidar* Arena::CreateMaybeMessage<::sensors::Lidar>(Arena*);
 template<> ::sensors::Lidar_xyz* Arena::CreateMaybeMessage<::sensors::Lidar_xyz>(Arena*);
 template<> ::sensors::Log* Arena::CreateMaybeMessage<::sensors::Log>(Arena*);
+template<> ::sensors::algorithm_img* Arena::CreateMaybeMessage<::sensors::algorithm_img>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace sensors {
 
@@ -1336,6 +1340,191 @@ class Log PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sensors_2eproto;
 };
+// -------------------------------------------------------------------
+
+class algorithm_img PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:sensors.algorithm_img) */ {
+ public:
+  inline algorithm_img() : algorithm_img(nullptr) {}
+  ~algorithm_img() override;
+  explicit constexpr algorithm_img(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  algorithm_img(const algorithm_img& from);
+  algorithm_img(algorithm_img&& from) noexcept
+    : algorithm_img() {
+    *this = ::std::move(from);
+  }
+
+  inline algorithm_img& operator=(const algorithm_img& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline algorithm_img& operator=(algorithm_img&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const algorithm_img& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const algorithm_img* internal_default_instance() {
+    return reinterpret_cast<const algorithm_img*>(
+               &_algorithm_img_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(algorithm_img& a, algorithm_img& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(algorithm_img* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(algorithm_img* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline algorithm_img* New() const final {
+    return CreateMaybeMessage<algorithm_img>(nullptr);
+  }
+
+  algorithm_img* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<algorithm_img>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const algorithm_img& from);
+  void MergeFrom(const algorithm_img& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(algorithm_img* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "sensors.algorithm_img";
+  }
+  protected:
+  explicit algorithm_img(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kImageOriginalFieldNumber = 3,
+    kImageResultFieldNumber = 4,
+    kColsFieldNumber = 1,
+    kRowsFieldNumber = 2,
+    kMillisTermFieldNumber = 5,
+  };
+  // bytes image_original = 3;
+  void clear_image_original();
+  const std::string& image_original() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_image_original(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_image_original();
+  std::string* release_image_original();
+  void set_allocated_image_original(std::string* image_original);
+  private:
+  const std::string& _internal_image_original() const;
+  void _internal_set_image_original(const std::string& value);
+  std::string* _internal_mutable_image_original();
+  public:
+
+  // bytes image_result = 4;
+  void clear_image_result();
+  const std::string& image_result() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_image_result(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_image_result();
+  std::string* release_image_result();
+  void set_allocated_image_result(std::string* image_result);
+  private:
+  const std::string& _internal_image_result() const;
+  void _internal_set_image_result(const std::string& value);
+  std::string* _internal_mutable_image_result();
+  public:
+
+  // int32 cols = 1;
+  void clear_cols();
+  ::PROTOBUF_NAMESPACE_ID::int32 cols() const;
+  void set_cols(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_cols() const;
+  void _internal_set_cols(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 rows = 2;
+  void clear_rows();
+  ::PROTOBUF_NAMESPACE_ID::int32 rows() const;
+  void set_rows(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_rows() const;
+  void _internal_set_rows(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // float millis_term = 5;
+  void clear_millis_term();
+  float millis_term() const;
+  void set_millis_term(float value);
+  private:
+  float _internal_millis_term() const;
+  void _internal_set_millis_term(float value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:sensors.algorithm_img)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr image_original_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr image_result_;
+  ::PROTOBUF_NAMESPACE_ID::int32 cols_;
+  ::PROTOBUF_NAMESPACE_ID::int32 rows_;
+  float millis_term_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_sensors_2eproto;
+};
 // ===================================================================
 
 
@@ -2340,9 +2529,165 @@ inline void Log::set_allocated_data(std::string* data) {
   // @@protoc_insertion_point(field_set_allocated:sensors.Log.data)
 }
 
+// -------------------------------------------------------------------
+
+// algorithm_img
+
+// int32 cols = 1;
+inline void algorithm_img::clear_cols() {
+  cols_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 algorithm_img::_internal_cols() const {
+  return cols_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 algorithm_img::cols() const {
+  // @@protoc_insertion_point(field_get:sensors.algorithm_img.cols)
+  return _internal_cols();
+}
+inline void algorithm_img::_internal_set_cols(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  cols_ = value;
+}
+inline void algorithm_img::set_cols(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_cols(value);
+  // @@protoc_insertion_point(field_set:sensors.algorithm_img.cols)
+}
+
+// int32 rows = 2;
+inline void algorithm_img::clear_rows() {
+  rows_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 algorithm_img::_internal_rows() const {
+  return rows_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 algorithm_img::rows() const {
+  // @@protoc_insertion_point(field_get:sensors.algorithm_img.rows)
+  return _internal_rows();
+}
+inline void algorithm_img::_internal_set_rows(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  rows_ = value;
+}
+inline void algorithm_img::set_rows(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_rows(value);
+  // @@protoc_insertion_point(field_set:sensors.algorithm_img.rows)
+}
+
+// bytes image_original = 3;
+inline void algorithm_img::clear_image_original() {
+  image_original_.ClearToEmpty();
+}
+inline const std::string& algorithm_img::image_original() const {
+  // @@protoc_insertion_point(field_get:sensors.algorithm_img.image_original)
+  return _internal_image_original();
+}
+template <typename ArgT0, typename... ArgT>
+PROTOBUF_ALWAYS_INLINE
+inline void algorithm_img::set_image_original(ArgT0&& arg0, ArgT... args) {
+ 
+ image_original_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArena());
+  // @@protoc_insertion_point(field_set:sensors.algorithm_img.image_original)
+}
+inline std::string* algorithm_img::mutable_image_original() {
+  // @@protoc_insertion_point(field_mutable:sensors.algorithm_img.image_original)
+  return _internal_mutable_image_original();
+}
+inline const std::string& algorithm_img::_internal_image_original() const {
+  return image_original_.Get();
+}
+inline void algorithm_img::_internal_set_image_original(const std::string& value) {
+  
+  image_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline std::string* algorithm_img::_internal_mutable_image_original() {
+  
+  return image_original_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* algorithm_img::release_image_original() {
+  // @@protoc_insertion_point(field_release:sensors.algorithm_img.image_original)
+  return image_original_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void algorithm_img::set_allocated_image_original(std::string* image_original) {
+  if (image_original != nullptr) {
+    
+  } else {
+    
+  }
+  image_original_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), image_original,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:sensors.algorithm_img.image_original)
+}
+
+// bytes image_result = 4;
+inline void algorithm_img::clear_image_result() {
+  image_result_.ClearToEmpty();
+}
+inline const std::string& algorithm_img::image_result() const {
+  // @@protoc_insertion_point(field_get:sensors.algorithm_img.image_result)
+  return _internal_image_result();
+}
+template <typename ArgT0, typename... ArgT>
+PROTOBUF_ALWAYS_INLINE
+inline void algorithm_img::set_image_result(ArgT0&& arg0, ArgT... args) {
+ 
+ image_result_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArena());
+  // @@protoc_insertion_point(field_set:sensors.algorithm_img.image_result)
+}
+inline std::string* algorithm_img::mutable_image_result() {
+  // @@protoc_insertion_point(field_mutable:sensors.algorithm_img.image_result)
+  return _internal_mutable_image_result();
+}
+inline const std::string& algorithm_img::_internal_image_result() const {
+  return image_result_.Get();
+}
+inline void algorithm_img::_internal_set_image_result(const std::string& value) {
+  
+  image_result_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline std::string* algorithm_img::_internal_mutable_image_result() {
+  
+  return image_result_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* algorithm_img::release_image_result() {
+  // @@protoc_insertion_point(field_release:sensors.algorithm_img.image_result)
+  return image_result_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void algorithm_img::set_allocated_image_result(std::string* image_result) {
+  if (image_result != nullptr) {
+    
+  } else {
+    
+  }
+  image_result_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), image_result,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:sensors.algorithm_img.image_result)
+}
+
+// float millis_term = 5;
+inline void algorithm_img::clear_millis_term() {
+  millis_term_ = 0;
+}
+inline float algorithm_img::_internal_millis_term() const {
+  return millis_term_;
+}
+inline float algorithm_img::millis_term() const {
+  // @@protoc_insertion_point(field_get:sensors.algorithm_img.millis_term)
+  return _internal_millis_term();
+}
+inline void algorithm_img::_internal_set_millis_term(float value) {
+  
+  millis_term_ = value;
+}
+inline void algorithm_img::set_millis_term(float value) {
+  _internal_set_millis_term(value);
+  // @@protoc_insertion_point(field_set:sensors.algorithm_img.millis_term)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
