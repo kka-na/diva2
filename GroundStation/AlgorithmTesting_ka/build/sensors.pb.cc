@@ -126,7 +126,8 @@ constexpr algorithm_img::algorithm_img(
   : image_original_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , image_result_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , cols_(0)
-  , rows_(0){}
+  , rows_(0)
+  , millis_term_(0){}
 struct algorithm_imgDefaultTypeInternal {
   constexpr algorithm_imgDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -213,6 +214,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sensors_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::sensors::algorithm_img, rows_),
   PROTOBUF_FIELD_OFFSET(::sensors::algorithm_img, image_original_),
   PROTOBUF_FIELD_OFFSET(::sensors::algorithm_img, image_result_),
+  PROTOBUF_FIELD_OFFSET(::sensors::algorithm_img, millis_term_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::sensors::Gps)},
@@ -255,19 +257,19 @@ const char descriptor_table_protodef_sensors_2eproto[] PROTOBUF_SECTION_VARIABLE
   "amp\030\003 \001(\0132\032.google.protobuf.Timestamp\"c\n"
   "\003Log\022\016\n\006can_id\030\002 \001(\r\022\017\n\007can_dlc\030\003 \001(\r\022\r\n"
   "\005__pad\030\004 \001(\014\022\016\n\006__res0\030\005 \001(\014\022\016\n\006__res1\030\006"
-  " \001(\014\022\014\n\004data\030\007 \001(\014\"Y\n\ralgorithm_img\022\014\n\004c"
+  " \001(\014\022\014\n\004data\030\007 \001(\014\"n\n\ralgorithm_img\022\014\n\004c"
   "ols\030\001 \001(\005\022\014\n\004rows\030\002 \001(\005\022\026\n\016image_origina"
-  "l\030\003 \001(\014\022\024\n\014image_result\030\004 \001(\014*U\n\014Channel"
-  "Order\022\r\n\tGRAYSCALE\020\000\022\007\n\003BGR\020\001\022\007\n\003RGB\020\002\022\010"
-  "\n\004BGRA\020\003\022\010\n\004RGBA\020\004\022\020\n\014OPTICAL_FLOW\020\005b\006pr"
-  "oto3"
+  "l\030\003 \001(\014\022\024\n\014image_result\030\004 \001(\014\022\023\n\013millis_"
+  "term\030\005 \001(\002*U\n\014ChannelOrder\022\r\n\tGRAYSCALE\020"
+  "\000\022\007\n\003BGR\020\001\022\007\n\003RGB\020\002\022\010\n\004BGRA\020\003\022\010\n\004RGBA\020\004\022"
+  "\020\n\014OPTICAL_FLOW\020\005b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sensors_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sensors_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sensors_2eproto = {
-  false, false, 924, descriptor_table_protodef_sensors_2eproto, "sensors.proto", 
+  false, false, 945, descriptor_table_protodef_sensors_2eproto, "sensors.proto", 
   &descriptor_table_sensors_2eproto_once, descriptor_table_sensors_2eproto_deps, 1, 8,
   schemas, file_default_instances, TableStruct_sensors_2eproto::offsets,
   file_level_metadata_sensors_2eproto, file_level_enum_descriptors_sensors_2eproto, file_level_service_descriptors_sensors_2eproto,
@@ -2344,8 +2346,8 @@ algorithm_img::algorithm_img(const algorithm_img& from)
       GetArena());
   }
   ::memcpy(&cols_, &from.cols_,
-    static_cast<size_t>(reinterpret_cast<char*>(&rows_) -
-    reinterpret_cast<char*>(&cols_)) + sizeof(rows_));
+    static_cast<size_t>(reinterpret_cast<char*>(&millis_term_) -
+    reinterpret_cast<char*>(&cols_)) + sizeof(millis_term_));
   // @@protoc_insertion_point(copy_constructor:sensors.algorithm_img)
 }
 
@@ -2354,8 +2356,8 @@ image_original_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStr
 image_result_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&cols_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&rows_) -
-    reinterpret_cast<char*>(&cols_)) + sizeof(rows_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&millis_term_) -
+    reinterpret_cast<char*>(&cols_)) + sizeof(millis_term_));
 }
 
 algorithm_img::~algorithm_img() {
@@ -2389,8 +2391,8 @@ void algorithm_img::Clear() {
   image_original_.ClearToEmpty();
   image_result_.ClearToEmpty();
   ::memset(&cols_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&rows_) -
-      reinterpret_cast<char*>(&cols_)) + sizeof(rows_));
+      reinterpret_cast<char*>(&millis_term_) -
+      reinterpret_cast<char*>(&cols_)) + sizeof(millis_term_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2428,6 +2430,13 @@ const char* algorithm_img::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           auto str = _internal_mutable_image_result();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // float millis_term = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
+          millis_term_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
         } else goto handle_unusual;
         continue;
       default: {
@@ -2483,6 +2492,12 @@ failure:
         4, this->_internal_image_result(), target);
   }
 
+  // float millis_term = 5;
+  if (!(this->millis_term() <= 0 && this->millis_term() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_millis_term(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2525,6 +2540,11 @@ size_t algorithm_img::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_rows());
+  }
+
+  // float millis_term = 5;
+  if (!(this->millis_term() <= 0 && this->millis_term() >= 0)) {
+    total_size += 1 + 4;
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2570,6 +2590,9 @@ void algorithm_img::MergeFrom(const algorithm_img& from) {
   if (from.rows() != 0) {
     _internal_set_rows(from._internal_rows());
   }
+  if (!(from.millis_term() <= 0 && from.millis_term() >= 0)) {
+    _internal_set_millis_term(from._internal_millis_term());
+  }
 }
 
 void algorithm_img::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -2596,8 +2619,8 @@ void algorithm_img::InternalSwap(algorithm_img* other) {
   image_original_.Swap(&other->image_original_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   image_result_.Swap(&other->image_result_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(algorithm_img, rows_)
-      + sizeof(algorithm_img::rows_)
+      PROTOBUF_FIELD_OFFSET(algorithm_img, millis_term_)
+      + sizeof(algorithm_img::millis_term_)
       - PROTOBUF_FIELD_OFFSET(algorithm_img, cols_)>(
           reinterpret_cast<char*>(&cols_),
           reinterpret_cast<char*>(&other->cols_));

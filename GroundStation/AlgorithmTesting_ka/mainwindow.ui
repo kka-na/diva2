@@ -71,7 +71,7 @@ background-color : rgb(173, 127, 168)
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QComboBox" name="cb_Sensor">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -106,7 +106,7 @@ background-color : rgb(173, 127, 168)
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="comboBox_2">
+   <widget class="QComboBox" name="cb_Algorithm">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -126,7 +126,7 @@ background-color : rgb(173, 127, 168)
      </property>
     </item>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="label_Sensor">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -139,7 +139,7 @@ background-color : rgb(173, 127, 168)
      <string>Sensor</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="label_Algorithm">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -165,7 +165,7 @@ background-color : rgb(173, 127, 168)
      <string>Result</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pb_Play">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -178,20 +178,7 @@ background-color : rgb(173, 127, 168)
      <string>play</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>330</y>
-      <width>71</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>File list</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_select">
+   <widget class="QPushButton" name="pb_SelectDirectory">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -204,7 +191,7 @@ background-color : rgb(173, 127, 168)
      <string>select directory</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="listDir">
+   <widget class="QListWidget" name="list_FileList">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -214,7 +201,7 @@ background-color : rgb(173, 127, 168)
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="pb_SelectModel">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -227,7 +214,7 @@ background-color : rgb(173, 127, 168)
      <string>select model</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="pb_SelectWeight">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -282,6 +269,36 @@ background-color : rgb(173, 127, 168)
     </property>
     <property name="text">
      <string>result Image Widget</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_FileList">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>330</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>File list</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_fps">
+    <property name="geometry">
+     <rect>
+      <x>1280</x>
+      <y>550</y>
+      <width>121</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>fps</string>
     </property>
    </widget>
   </widget>

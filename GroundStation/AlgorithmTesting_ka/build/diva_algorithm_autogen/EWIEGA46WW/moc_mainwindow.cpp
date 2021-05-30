@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[12];
-    char stringdata0[219];
+    QByteArrayData data[13];
+    char stringdata0[229];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -36,21 +36,23 @@ QT_MOC_LITERAL(1, 11, 16), // "display_original"
 QT_MOC_LITERAL(2, 28, 0), // ""
 QT_MOC_LITERAL(3, 29, 5), // "image"
 QT_MOC_LITERAL(4, 35, 12), // "image_result"
-QT_MOC_LITERAL(5, 48, 28), // "on_pushButton_select_clicked"
-QT_MOC_LITERAL(6, 77, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(7, 99, 31), // "on_comboBox_currentIndexChanged"
-QT_MOC_LITERAL(8, 131, 5), // "index"
-QT_MOC_LITERAL(9, 137, 33), // "on_comboBox_2_currentIndexCha..."
-QT_MOC_LITERAL(10, 171, 23), // "on_pushButton_3_clicked"
-QT_MOC_LITERAL(11, 195, 23) // "on_pushButton_4_clicked"
+QT_MOC_LITERAL(5, 48, 3), // "fps"
+QT_MOC_LITERAL(6, 52, 18), // "on_pb_Play_clicked"
+QT_MOC_LITERAL(7, 71, 32), // "on_cb_Sensor_currentIndexChanged"
+QT_MOC_LITERAL(8, 104, 5), // "index"
+QT_MOC_LITERAL(9, 110, 35), // "on_cb_Algorithm_currentIndexC..."
+QT_MOC_LITERAL(10, 146, 29), // "on_pb_SelectDirectory_clicked"
+QT_MOC_LITERAL(11, 176, 25), // "on_pb_SelectModel_clicked"
+QT_MOC_LITERAL(12, 202, 26) // "on_pb_SelectWeight_clicked"
 
     },
     "MainWindow\0display_original\0\0image\0"
-    "image_result\0on_pushButton_select_clicked\0"
-    "on_pushButton_clicked\0"
-    "on_comboBox_currentIndexChanged\0index\0"
-    "on_comboBox_2_currentIndexChanged\0"
-    "on_pushButton_3_clicked\0on_pushButton_4_clicked"
+    "image_result\0fps\0on_pb_Play_clicked\0"
+    "on_cb_Sensor_currentIndexChanged\0index\0"
+    "on_cb_Algorithm_currentIndexChanged\0"
+    "on_pb_SelectDirectory_clicked\0"
+    "on_pb_SelectModel_clicked\0"
+    "on_pb_SelectWeight_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,20 +70,20 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    2,   49,    2, 0x0a /* Public */,
-       5,    0,   54,    2, 0x08 /* Private */,
-       6,    0,   55,    2, 0x08 /* Private */,
-       7,    1,   56,    2, 0x08 /* Private */,
-       9,    1,   59,    2, 0x08 /* Private */,
-      10,    0,   62,    2, 0x08 /* Private */,
-      11,    0,   63,    2, 0x08 /* Private */,
+       1,    3,   49,    2, 0x0a /* Public */,
+       6,    0,   56,    2, 0x08 /* Private */,
+       7,    1,   57,    2, 0x08 /* Private */,
+       9,    1,   60,    2, 0x08 /* Private */,
+      10,    0,   63,    2, 0x08 /* Private */,
+      11,    0,   64,    2, 0x08 /* Private */,
+      12,    0,   65,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QImage, QMetaType::QImage,    3,    4,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QImage, QMetaType::QImage, QMetaType::QString,    3,    4,    5,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    8,
     QMetaType::Void, QMetaType::Int,    8,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -94,13 +96,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         MainWindow *_t = static_cast<MainWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->display_original((*reinterpret_cast< QImage(*)>(_a[1])),(*reinterpret_cast< QImage(*)>(_a[2]))); break;
-        case 1: _t->on_pushButton_select_clicked(); break;
-        case 2: _t->on_pushButton_clicked(); break;
-        case 3: _t->on_comboBox_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 4: _t->on_comboBox_2_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 5: _t->on_pushButton_3_clicked(); break;
-        case 6: _t->on_pushButton_4_clicked(); break;
+        case 0: _t->display_original((*reinterpret_cast< QImage(*)>(_a[1])),(*reinterpret_cast< QImage(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3]))); break;
+        case 1: _t->on_pb_Play_clicked(); break;
+        case 2: _t->on_cb_Sensor_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->on_cb_Algorithm_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 4: _t->on_pb_SelectDirectory_clicked(); break;
+        case 5: _t->on_pb_SelectModel_clicked(); break;
+        case 6: _t->on_pb_SelectWeight_clicked(); break;
         default: ;
         }
     }

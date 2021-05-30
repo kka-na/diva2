@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/diva_algorithm.dir/main.cpp.o"
   "CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o"
   "CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o"
+  "CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o"
   "CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o"
   "CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o"
   "diva_algorithm.pdb"

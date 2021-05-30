@@ -1453,6 +1453,7 @@ class algorithm_img PROTOBUF_FINAL :
     kImageResultFieldNumber = 4,
     kColsFieldNumber = 1,
     kRowsFieldNumber = 2,
+    kMillisTermFieldNumber = 5,
   };
   // bytes image_original = 3;
   void clear_image_original();
@@ -1500,6 +1501,15 @@ class algorithm_img PROTOBUF_FINAL :
   void _internal_set_rows(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // float millis_term = 5;
+  void clear_millis_term();
+  float millis_term() const;
+  void set_millis_term(float value);
+  private:
+  float _internal_millis_term() const;
+  void _internal_set_millis_term(float value);
+  public:
+
   // @@protoc_insertion_point(class_scope:sensors.algorithm_img)
  private:
   class _Internal;
@@ -1511,6 +1521,7 @@ class algorithm_img PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr image_result_;
   ::PROTOBUF_NAMESPACE_ID::int32 cols_;
   ::PROTOBUF_NAMESPACE_ID::int32 rows_;
+  float millis_term_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sensors_2eproto;
 };
@@ -2650,6 +2661,26 @@ inline void algorithm_img::set_allocated_image_result(std::string* image_result)
   image_result_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), image_result,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:sensors.algorithm_img.image_result)
+}
+
+// float millis_term = 5;
+inline void algorithm_img::clear_millis_term() {
+  millis_term_ = 0;
+}
+inline float algorithm_img::_internal_millis_term() const {
+  return millis_term_;
+}
+inline float algorithm_img::millis_term() const {
+  // @@protoc_insertion_point(field_get:sensors.algorithm_img.millis_term)
+  return _internal_millis_term();
+}
+inline void algorithm_img::_internal_set_millis_term(float value) {
+  
+  millis_term_ = value;
+}
+inline void algorithm_img::set_millis_term(float value) {
+  _internal_set_millis_term(value);
+  // @@protoc_insertion_point(field_set:sensors.algorithm_img.millis_term)
 }
 
 #ifdef __GNUC__

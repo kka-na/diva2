@@ -17,10 +17,12 @@ void AlgorithmThread::run(){
     printf("[AlgorithmThread::run] start\n");
     zmq::context_t ctx(1);
     zmq::socket_t algorithmTesting_sub(ctx, ZMQ_SUB);
-    algorithmTesting_sub.connect("tcp://localhost:9898");
+    algorithmTesting_sub.connect("tcp://localhost:9899");
     algorithmTesting_sub.setsockopt(ZMQ_SUBSCRIBE, "", 0);
     printf("[AlgorithmThread::run] connect\n");
 
+    int frame_cnt = 0;
+    float millis_sum = 0;
     while(!stop_flag){
         printf("[AlgorithmThread::run] while\n");
         // [ Setting ]
@@ -34,11 +36,17 @@ void AlgorithmThread::run(){
         // < receive message from pub(=diva2/GroundStation/AlgorithmTesting/main) >
         zmq::message_t msg;
         algorithmTesting_sub.recv(&msg);
+        frame_cnt++;
         printf("[AlgorithmThread::run] msg size = %d\n", msg.size());
         
         // < parsing serialized data to message >
-        algo_img.ParseFromArray(msg.data(), msg.size());
-
+        // algo_img.ParseFromArray(msg.data(), msg.size());
+        std::string _buff = std::string(static_cast<char *>(msg.data()), msg.size());
+        algo_img.ParseFromString(_buff);
+        float millis = algo_img.millis_term();
+        millis_sum += millis;
+        float fps = (float)(1000*frame_cnt)/(float)(millis_sum);
+        printf("fps=%f\n", fps);
 
         // [ Preprocessing for Visualization ]
         // < Setting for original image >
@@ -46,14 +54,14 @@ void AlgorithmThread::run(){
         frame_original.create(480, 640, CV_8UC3);
         memcpy((void*)frame_original.data, (void*)(&algo_img.image_original()[0]),
                     frame_original.step[0]*(size_t)frame_original.rows);
-        cv::cvtColor(frame_original, frame_original, cv::COLOR_BGR2RGB);
+        // cv::cvtColor(frame_original, frame_original, cv::COLOR_BGR2RGB);
         
         // < Setting for result image >
         cv::Mat frame_result;
         frame_result.create(480, 640, CV_8UC3);
         memcpy((void*)frame_result.data, (void*)(&algo_img.image_result()[0]),
                     frame_result.step[0]*(size_t)frame_result.rows);
-        cv::cvtColor(frame_result, frame_result, cv::COLOR_BGR2RGB);
+        // cv::cvtColor(frame_result, frame_result, cv::COLOR_BGR2RGB);
 
 
         // [ Visualization at Qt GUI ]
@@ -65,8 +73,10 @@ void AlgorithmThread::run(){
         memcpy(image_result.scanLine(0), frame_result.data, 
             static_cast<size_t>(image_result.width() * image_result.height() * frame_result.channels()));
         
-        emit send_qimage(image_original, image_result);
+        emit send_qimage(image_original, image_result, QString::number(fps)); 
+        // emit send_qimage(image_original, image_result);
     }
+
 }
 
 void AlgorithmThread::stop(){

@@ -137,9 +137,33 @@ CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o.provides: CMakeFiles/diva_al
 CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o.provides.build: CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o
 
 
+CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o: CMakeFiles/diva_algorithm.dir/flags.make
+CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o: ../ModelRunThread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o -c /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.cpp
+
+CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.cpp > CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.i
+
+CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.cpp -o CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.s
+
+CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o.requires:
+
+.PHONY : CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o.requires
+
+CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o.provides: CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o.requires
+	$(MAKE) -f CMakeFiles/diva_algorithm.dir/build.make CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o.provides.build
+.PHONY : CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o.provides
+
+CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o.provides.build: CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o
+
+
 CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o: CMakeFiles/diva_algorithm.dir/flags.make
 CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o: sensors.pb.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o -c /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/sensors.pb.cc
 
 CMakeFiles/diva_algorithm.dir/sensors.pb.cc.i: cmake_force
@@ -163,7 +187,7 @@ CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o.provides.build: CMakeFiles/diva_al
 
 CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o: CMakeFiles/diva_algorithm.dir/flags.make
 CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o: diva_algorithm_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o -c /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/diva_algorithm_autogen/mocs_compilation.cpp
 
 CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.i: cmake_force
@@ -190,6 +214,7 @@ diva_algorithm_OBJECTS = \
 "CMakeFiles/diva_algorithm.dir/main.cpp.o" \
 "CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o" \
 "CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o" \
+"CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o" \
 "CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o" \
 "CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o"
 
@@ -199,6 +224,7 @@ diva_algorithm_EXTERNAL_OBJECTS =
 diva_algorithm: CMakeFiles/diva_algorithm.dir/main.cpp.o
 diva_algorithm: CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o
 diva_algorithm: CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o
+diva_algorithm: CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o
 diva_algorithm: CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o
 diva_algorithm: CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o
 diva_algorithm: CMakeFiles/diva_algorithm.dir/build.make
@@ -223,7 +249,7 @@ diva_algorithm: /usr/local/lib/libopencv_core.so.4.5.2
 diva_algorithm: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.9.5
 diva_algorithm: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.9.5
 diva_algorithm: CMakeFiles/diva_algorithm.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable diva_algorithm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable diva_algorithm"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/diva_algorithm.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -234,6 +260,7 @@ CMakeFiles/diva_algorithm.dir/build: diva_algorithm
 CMakeFiles/diva_algorithm.dir/requires: CMakeFiles/diva_algorithm.dir/main.cpp.o.requires
 CMakeFiles/diva_algorithm.dir/requires: CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o.requires
 CMakeFiles/diva_algorithm.dir/requires: CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o.requires
+CMakeFiles/diva_algorithm.dir/requires: CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o.requires
 CMakeFiles/diva_algorithm.dir/requires: CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o.requires
 CMakeFiles/diva_algorithm.dir/requires: CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o.requires
 

@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/AlgorithmThread.cpp" "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o"
+  "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.cpp" "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o"
   "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/diva_algorithm_autogen/mocs_compilation.cpp" "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o"
   "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/main.cpp" "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles/diva_algorithm.dir/main.cpp.o"
   "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/mainwindow.cpp" "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o"

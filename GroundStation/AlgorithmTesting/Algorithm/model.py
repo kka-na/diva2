@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# Install Python ZeroMQ Module : pip install pyzmq
+# Install Python Protobuf Module : pip install protobu
+
 # In[1]:
 ## Import Libraries
 
@@ -13,11 +16,21 @@ import numpy as np
 import time
 import cv2
 import os
-import sys
 
 import matplotlib.pyplot as plt
 import imageio
 
+import zmq
+import sys
+# sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+# sys.path.append(os.path.dirname(os.path.abspath("../../../protobuf")))
+# from . import sensor_pb2
+from pathlib import Path
+#p = Path(__file__).parents[3]
+#p = p / 'protobuf/'
+sys.path.append(os.path.abspath('/home/diva2/diva2/protobuf'))
+print(sys.path)
+import sensors_pb2
 
 # In[2]:
 ## Define a Function to Count a Time Interval
@@ -25,6 +38,14 @@ import imageio
 def millis():
     return int(time.time() * 1000)
 
+
+# In[3]:
+## Communicate using ZeroMQ
+
+port = 9899
+context = zmq.Context()
+socketPub = context.socket(zmq.PUB)
+socketPub.bind("tcp://*:%s" % port)
 
 
 # In[4]:
@@ -54,6 +75,7 @@ test_model.load_weights('/home/diva2/diva2/GroundStation/AlgorithmTesting/Algori
 
 # test_folder = sys.argv[3] # './training_images/'
 test_folder = '/home/diva2/diva2/GroundStation/AlgorithmTesting/Algorithm/training_images/'
+algoImg = sensors_pb2.algorithm_img()
 
 # test_folder = './training_images/'
 from PIL import Image
@@ -87,94 +109,34 @@ def apply_to_image():
     # cv2.namedWindow(windowName, cv2.WINDOW_NORMAL)
     frameSize = (width, height)
     out = cv2.VideoWriter('output_video.avi', cv2.VideoWriter_fourcc(*'DIVX'), 60, frameSize, False)
-
+    
     for image in images:
         image.resize((144,400,3))
+        start_mil = millis()
         pred = test_model.predict(np.expand_dims(image, 0))
-        
-        img = cv2.resize(pred[0], frameSize)        
-        out.write(img.astype('uint8') * 255)
-        
-        # plt.figure(1); plt.clf()
-        # plt.imshow(pred[0])
-        # plt.title(windowName)
-        # plt.pause(0.1)
-        cv2.imshow('result', img)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+        stop_mil = millis()
 
-
-        ## ================== Accuracy ==================== ##    
-        # scores = []
-        # lines = []
-        # for i in range(0, width):
-        #     score = 0.0
-
-        #     y_start_point = 0
-        #     y_end_point = height
-            
-        #     # np.random.nomral 함수를 이용해서 평균 0, 표준편차 0.1인 sample들을 1000개 추출한다.
-        #     mean, sigma = 0, 0.1 # mean and standard deviation
-        #     Gaussian_sample = np.random.normal(mean, sigma, 1)
-        #     x_start_point = width/2 + Gaussian_sample
-        #     Gaussian_sample = np.random.normal(mean, sigma, 1)
-        #     x_end_point = width/2 + Gaussian_sample
-            
-        #     slope = (x_end_point - x_start_point) / height
-            
-        #     for j in range(0, height):
-        #         x_current = x_start_point + j * slope
-        #         # score += intensity_value_at(j,x_current)
-        #         #print('x_current.shape:', x_current.shape)
-        #         #print('j=',j,',  x_current=', x_current[0])
-        #         #print('img = ', img[j,x_current[0]])
-        #         x_current = x_current[0].astype(int)
-        #         #print('x_current.shape:', x_current.shape)
-        #         #print('j=',j,',  x_current=', x_current)
-        #         score += img[j,x_current]
-        #     lines.append([slope, x_start_point])
-        #     scores.append(score)
+        image = cv2.resize(image, dsize=(640, 480), interpolation=cv2.INTER_AREA)
+        result = pred[0].astype('uint8') * 255
+        result = cv2.resize(result, dsize=(640, 480), interpolation=cv2.INTER_AREA)
+        result = cv2.merge([result,result,result])
+        out.write(result)
         
-        # # sort(vector_of_lines.begin(), vector_of_lines.end(), compare_score)
-        # zipped_lists = zip(lines, scores)
-        # sorted_zipped_lists = sorted(zipped_lists)
-        # sorted_lines = [element for _, element in sorted_zipped_lists]
-        
-        # for i in range(0, 2):
-        #     print('score(',i,')/lines(',0,') : ', scores[i], sorted_lines[i])
-        # # return line_with_highest_score
-        
-        # image = np.zeros((height, width), np.float32)
-        # image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
-        # cv2.line(image, pt1, pt2, color=(255,0,255), thickness=5)
-        # cv2.imshow('result', img)
+        # cv2.imshow('result', result)
         # if cv2.waitKey(1) & 0xFF == ord('q'):
         #     break
-        ## ================== Accuracy END ==================== ##    
         
-
+        algoImg.image_original = image.data.tobytes()
+        algoImg.image_result = result.data.tobytes()
+        algoImg.millis_term = (stop_mil-start_mil)
+        zmqData = algoImg.SerializeToString()
+        socketPub.send(zmqData)
+    
     out.release()
-    cv2.destroyAllWindows()
-    # plt.show()
+    # cv2.destroyAllWindows()
 
 
 apply_to_image()
-
-
-
-# In[25]:
-## Predict the Model with Test Image
-
-## Show the Result
-# plt.figure(figsize=(15, 15))
-# plt.subplot(2, 1, 1)
-# plt.imshow(image)
-# plt.subplot(2, 1, 2)
-# plt.imshow(pred[0])
-
-## Save the result : original image (output1), processed image (output2)
-# plt.imsave("output1.png", image)
-# imageio.imwrite('output2.png', pred[0])
 
 
 # In[32]:

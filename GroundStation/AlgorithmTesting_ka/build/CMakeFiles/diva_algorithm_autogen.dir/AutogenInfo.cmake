@@ -7,7 +7,7 @@ set(AM_CMAKE_CURRENT_SOURCE_DIR "/home/diva2/diva2/GroundStation/AlgorithmTestin
 set(AM_CMAKE_CURRENT_BINARY_DIR "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/")
 set(AM_CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE "")
 set(AM_BUILD_DIR "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/diva_algorithm_autogen")
-set(AM_SOURCES "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/AlgorithmThread.cpp;/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/main.cpp;/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/mainwindow.cpp")
+set(AM_SOURCES "/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/AlgorithmThread.cpp;/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.cpp;/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/main.cpp;/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/mainwindow.cpp")
 set(AM_HEADERS "")
 # Qt environment
 set(AM_QT_VERSION_MAJOR "5")

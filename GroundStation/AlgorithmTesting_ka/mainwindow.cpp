@@ -5,8 +5,6 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <QListWidget>
-// #include <QtMultimedia>
-// #include <QGraphicsVideoItem>
 
 // ZeroMQ
 #include <zmq.hpp>
@@ -27,23 +25,7 @@ using namespace std;
 void setMSettings();
 QStringList getAlgorithmQStringList(int sensorIdx);
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
-    QPixmap bg("/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/color.jpeg");
-
-           QPalette p(palette());
-           setMSettings();
-           p.setBrush(QPalette::Background, bg);
-           setAutoFillBackground(true);
-           setPalette(p);
-
-    ui->setupUi(this);
-    // connect(ui->pushButton, SIGNAL(on_pushButton_clicked()), algorithmThread, SLOT(start()));
-    printf("[MainWindow::MainWindow] pushButton\n");
-}
-
+// [ Global Variables ]
 enum Sensor { lidar, cam, can, imu, gps};
 int sensorIdx=Sensor::lidar;
 int algorithmIdx = 0;
@@ -53,44 +35,85 @@ map<int, string> mCan;
 map<int, string> mImu;
 map<int, string> mGps;
 
-void MainWindow::display_original(QImage image, QImage image_result){
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    QPixmap bg("/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/color.jpeg");
+    QPalette p(palette());
+    setMSettings();
+    p.setBrush(QPalette::Background, bg);
+    setAutoFillBackground(true);
+    setPalette(p);
+    ui->setupUi(this);
+    printf("complete to setup UI\n");
+}
+
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+
+// [ Image Result ]
+void MainWindow::display_original(QImage image, QImage image_result, QString fps){
+// void MainWindow::display_original(QImage image, QImage image_result){
     printf("[MainWindow::display_original] start\n");
+    // < Set Original Image Widget >
     originalImageWidget->setPixmap(QPixmap::fromImage(image).scaled(originalImageWidget->width(), originalImageWidget->height(), Qt::KeepAspectRatio));
     originalImageWidget->setAlignment(Qt::AlignCenter);
-
+    // < Set Result Image Widget >
     resultImageWidget->setPixmap(QPixmap::fromImage(image_result).scaled(resultImageWidget->width(), resultImageWidget->height(), Qt::KeepAspectRatio));
     resultImageWidget->setAlignment(Qt::AlignCenter);
+    // < Set fps Widget >
+    QString q_fps = fps + " fps";
+    fpsWidget->setText(q_fps);
+    fpsWidget->setAlignment(Qt::AlignCenter);
 
+    // < Show Image Widgets >
     originalImageWidget->show();
     resultImageWidget->show();
+    fpsWidget->show();
 
     QCoreApplication::processEvents();
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-    // PushButton : Play
-    cout << "[MainWindow::on_pushButton_clicked] start\n";
 
-    // ==================
+// [ Play Button ]
+void MainWindow::on_pb_Play_clicked()
+{
+    printf("[MainWindow::on_pb_Play_clicked] start\n");
+
+    // [ Set the Environments ]
+    // < Set Algorithm Thread to Run >
     algorithmThread = new AlgorithmThread(this);
     algorithmThread->start();
+    modelRunThread = new ModelRunThread(this);
+    modelRunThread->start();
 
+    connect(algorithmThread, SIGNAL(send_qimage(QImage, QImage, QString)), this, SLOT(display_original(QImage, QImage, QString)));
+    // connect(algorithmThread, SIGNAL(send_qimage(QImage, QImage)), this, SLOT(display_original(QImage, QImage)));
+
+    // < Set Image Widgets to Initialize >
     originalImageWidget =ui->label_original_img;
     originalImageWidget->clear();
     resultImageWidget = ui->label_result_img;
     resultImageWidget->clear();
-    // algorithmThread->run();
-    connect(algorithmThread, SIGNAL(send_qimage(QImage, QImage)), this, SLOT(display_original(QImage, QImage)));
-    
+    fpsWidget = ui->label_fps;
+    fpsWidget->clear();
+
+
+
     // =====================
     
+    /*
     printf("sensor: %d\n", sensorIdx);
     printf("algorithm: %d\n", algorithmIdx);
     printf("model: %s\n", model_path.path().toStdString().c_str());
     printf("weight: %s\n", weight_path.path().toStdString().c_str());
     printf("dir: %s\n",dir.path().toStdString().c_str());
-    /*
     int ret;
     string command;
     command += "cd /home/diva2/diva2/build/GroundStation/AlgorithmTesting ";
@@ -120,28 +143,29 @@ void MainWindow::on_pushButton_clicked()
     player->play();
 
     */
-
-
 }
 
-void MainWindow::on_comboBox_currentIndexChanged(int index)
+
+// [ Sensor ComboBox ]
+void MainWindow::on_cb_Sensor_currentIndexChanged(int index)
 {
-    // ComboBox : Sensor
-    printf("[MainWindow::on_comboBox_currentIndexChanged] start (index=%d)\n", index);
     sensorIdx = index;
+    printf("[MainWindow::on_comboBox_currentIndexChanged] start (index=%d)\n", sensorIdx);
 
-    // [ Sensor에서 사용가능한 function만을 load ]
-    ui->comboBox_2->clear();
-    ui->comboBox_2->insertItems(0, getAlgorithmQStringList(sensorIdx));
+
+    // < Load Algorithms Related to SensorIdx >
+    ui->cb_Algorithm->clear();
+    ui->cb_Algorithm->insertItems(0, getAlgorithmQStringList(sensorIdx));
 }
 
-void MainWindow::on_comboBox_2_currentIndexChanged(int index)
+// [ Algorithm ComboBox ]
+void MainWindow::on_cb_Algorithm_currentIndexChanged(int index)
 {
-    // ComboBox : Function
-    printf("[MainWindow::on_comboBox_2_currentIndexChanged] start (index=%d)\n", index);
     algorithmIdx = index;
+    printf("[MainWindow::on_cb_Algorithm_currentIndexChanged] start (index=%d)\n", algorithmIdx);
 }
 
+// [ Set Sensor-Algorithm Map ]
 void setMSettings(){
     printf("[setMSettings] start \n");
 
@@ -150,8 +174,10 @@ void setMSettings(){
     mCam.insert(make_pair(1, "Object Detection"));
 }
 
+// [ Get Sensor-Algorithm Map ]
 QStringList getAlgorithmQStringList(int sensorIdx){
     printf("[getAlgorithmQStringList] start (sensorIdx=%d)\n", sensorIdx);
+
     QStringList qStringList;
     map<int,string> mMap;
     switch (sensorIdx) {
@@ -162,61 +188,39 @@ QStringList getAlgorithmQStringList(int sensorIdx){
     case Sensor::gps: {mMap=mGps; break;}
     defualt: {break;}
     }
-    map<int,string>::iterator iter;
+
+    // < Get Algorithm According to sensorIdx >
     printf("[getAlgorithmQStringList] size= %d\n", mMap.size());
+    map<int,string>::iterator iter;
     for(iter=mMap.begin(); iter!=mMap.end(); iter++){
-        printf("2");
         qStringList << QApplication::translate("MainWindow", iter->second.c_str(), Q_NULLPTR);
-        printf("%d, %s\n", iter->first, iter->second.c_str());
     }
     return qStringList;
 }
 
-MainWindow::~MainWindow()
+
+// [ Select Directory PushButton ]
+void MainWindow::on_pb_SelectDirectory_clicked()
 {
-    delete ui;
-}
-
-
-//void MainWindow::on_pushButton_2_clicked()
-//{s
-//    QString file = QFileDialog::getOpenFileName(this, "file", "/home/kayeon", "Files (*.*)");
-//    //각자의 파일 경로로 바꿔야 함
-//    qDebug() << file;
-//}
-
-//void MainWindow::on_listView_activated(const QModelIndex &index)
-//{
-
-//}
-
-
-
-
-
-void MainWindow::on_pushButton_select_clicked()
-{
-    // Select Directory
-
-    // show exisiting directory
+    // < Show Exisiting Directory >
     dir = QFileDialog::getExistingDirectory();
     dir.setFilter(QDir::Files | QDir::NoSymLinks);
-    ui->listDir-> clear();
+    ui->list_FileList-> clear();
     list = dir.entryInfoList();
-    // loop for file print
+
+    // < Loop for File Print >
     for(int i = 0; i < list.size(); ++i){
         QFileInfo fileInfo = list.at(i);
-        ui -> listDir ->addItem(QString("%1").arg(fileInfo.fileName()));
+        ui -> list_FileList ->addItem(QString("%1").arg(fileInfo.fileName()));
     }
 }
 
-void MainWindow::on_pushButton_3_clicked(){
+// [ Select Model PushButton ]
+void MainWindow::on_pb_SelectModel_clicked(){
     this->model_path = QFileDialog::getOpenFileName(this, "file selct","home/kayeon/", "Files(*.*)");
-    // qDebug()<<file;
-
 }
 
-void MainWindow::on_pushButton_4_clicked(){
+// [ Select Weight PushButton ]
+void MainWindow::on_pb_SelectWeight_clicked(){
     this->weight_path = QFileDialog::getOpenFileName(this, "file selct","home/kayeon/", "Files(*.*)");
-    // qDebug()<<file;
 }

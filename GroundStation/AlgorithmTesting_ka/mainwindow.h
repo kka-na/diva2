@@ -10,6 +10,7 @@
 #include <string>
 
 #include "AlgorithmThread.h"
+#include "ModelRunThread.h"
 
 
 using namespace std;
@@ -39,24 +40,33 @@ public:
 
     QLabel *originalImageWidget;
     QLabel *resultImageWidget;
+    QLabel *fpsWidget;
 
 public slots:
-    void display_original(QImage image, QImage image_result);
+    void display_original(QImage image, QImage image_result, QString fps);
+    // void display_original(QImage image, QImage image_result);
 
 
 private slots:
-    
-    void on_pushButton_select_clicked();
-    void on_pushButton_clicked();
-    void on_comboBox_currentIndexChanged(int index);
-    void on_comboBox_2_currentIndexChanged(int index);
-    void on_pushButton_3_clicked();
-    void on_pushButton_4_clicked();
+    void on_pb_Play_clicked();
+    void on_cb_Sensor_currentIndexChanged(int index);
+    void on_cb_Algorithm_currentIndexChanged(int index);
+    void on_pb_SelectDirectory_clicked();
+    void on_pb_SelectModel_clicked();
+    void on_pb_SelectWeight_clicked();
+
+//    void on_pushButton_select_clicked();
+//    void on_pushButton_clicked();
+//    void on_comboBox_currentIndexChanged(int index);
+//    void on_comboBox_2_currentIndexChanged(int index);
+//    void on_pushButton_3_clicked();
+//    void on_pushButton_4_clicked();
 //    void on_pushButton_open_clicked();
 
 private:
     Ui::MainWindow *ui;
     class AlgorithmThread::AlgorithmThread *algorithmThread;
+    class ModelRunThread::ModelRunThread *modelRunThread;
 
 //    Ui::MainWindow listDir;
 };

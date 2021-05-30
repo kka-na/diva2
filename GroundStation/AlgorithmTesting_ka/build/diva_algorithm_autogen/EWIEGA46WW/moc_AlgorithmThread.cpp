@@ -55,13 +55,13 @@ static const uint qt_meta_data_AlgorithmThread[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    2,   24,    2, 0x06 /* Public */,
+       1,    3,   24,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   29,    2, 0x08 /* Private */,
+       3,    0,   31,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QImage, QMetaType::QImage,    2,    2,
+    QMetaType::Void, QMetaType::QImage, QMetaType::QImage, QMetaType::QString,    2,    2,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -75,14 +75,14 @@ void AlgorithmThread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         AlgorithmThread *_t = static_cast<AlgorithmThread *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->send_qimage((*reinterpret_cast< QImage(*)>(_a[1])),(*reinterpret_cast< QImage(*)>(_a[2]))); break;
+        case 0: _t->send_qimage((*reinterpret_cast< QImage(*)>(_a[1])),(*reinterpret_cast< QImage(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3]))); break;
         case 1: _t->stop(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            typedef void (AlgorithmThread::*_t)(QImage , QImage );
+            typedef void (AlgorithmThread::*_t)(QImage , QImage , QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&AlgorithmThread::send_qimage)) {
                 *result = 0;
                 return;
@@ -128,9 +128,9 @@ int AlgorithmThread::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void AlgorithmThread::send_qimage(QImage _t1, QImage _t2)
+void AlgorithmThread::send_qimage(QImage _t1, QImage _t2, QString _t3)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

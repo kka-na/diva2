@@ -39,7 +39,8 @@ private slots:
 private:
     void run() override;
 signals :
-    void send_qimage(QImage, QImage);
+    void send_qimage(QImage, QImage, QString);
+	// void send_qimage(QImage, QImage);
 	// void send_acc(float, float, float);
     
 

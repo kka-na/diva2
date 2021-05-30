@@ -30,19 +30,20 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QComboBox *comboBox;
-    QComboBox *comboBox_2;
-    QLabel *label;
-    QLabel *label_2;
+    QComboBox *cb_Sensor;
+    QComboBox *cb_Algorithm;
+    QLabel *label_Sensor;
+    QLabel *label_Algorithm;
     QLabel *label_5;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_select;
-    QListWidget *listDir;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
+    QPushButton *pb_Play;
+    QPushButton *pb_SelectDirectory;
+    QListWidget *list_FileList;
+    QPushButton *pb_SelectModel;
+    QPushButton *pb_SelectWeight;
     QLabel *label_original_img;
     QLabel *label_result_img;
+    QLabel *label_FileList;
+    QLabel *label_fps;
     QMenuBar *menubar;
     QStatusBar *statusbar;
     QToolBar *toolBar;
@@ -104,39 +105,36 @@ public:
 ""));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
-        comboBox = new QComboBox(centralwidget);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(20, 130, 191, 25));
-        comboBox_2 = new QComboBox(centralwidget);
-        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
-        comboBox_2->setGeometry(QRect(20, 210, 191, 25));
-        label = new QLabel(centralwidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(20, 100, 61, 21));
-        label_2 = new QLabel(centralwidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(20, 180, 91, 21));
+        cb_Sensor = new QComboBox(centralwidget);
+        cb_Sensor->setObjectName(QStringLiteral("cb_Sensor"));
+        cb_Sensor->setGeometry(QRect(20, 130, 191, 25));
+        cb_Algorithm = new QComboBox(centralwidget);
+        cb_Algorithm->setObjectName(QStringLiteral("cb_Algorithm"));
+        cb_Algorithm->setGeometry(QRect(20, 210, 191, 25));
+        label_Sensor = new QLabel(centralwidget);
+        label_Sensor->setObjectName(QStringLiteral("label_Sensor"));
+        label_Sensor->setGeometry(QRect(20, 100, 61, 21));
+        label_Algorithm = new QLabel(centralwidget);
+        label_Algorithm->setObjectName(QStringLiteral("label_Algorithm"));
+        label_Algorithm->setGeometry(QRect(20, 180, 91, 21));
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setGeometry(QRect(840, 30, 61, 21));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(100, 660, 89, 25));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(20, 330, 71, 20));
-        pushButton_select = new QPushButton(centralwidget);
-        pushButton_select->setObjectName(QStringLiteral("pushButton_select"));
-        pushButton_select->setGeometry(QRect(20, 290, 131, 21));
-        listDir = new QListWidget(centralwidget);
-        listDir->setObjectName(QStringLiteral("listDir"));
-        listDir->setGeometry(QRect(20, 360, 256, 281));
-        pushButton_3 = new QPushButton(centralwidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(20, 250, 101, 21));
-        pushButton_4 = new QPushButton(centralwidget);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        pushButton_4->setGeometry(QRect(130, 250, 111, 21));
+        pb_Play = new QPushButton(centralwidget);
+        pb_Play->setObjectName(QStringLiteral("pb_Play"));
+        pb_Play->setGeometry(QRect(100, 660, 89, 25));
+        pb_SelectDirectory = new QPushButton(centralwidget);
+        pb_SelectDirectory->setObjectName(QStringLiteral("pb_SelectDirectory"));
+        pb_SelectDirectory->setGeometry(QRect(20, 290, 131, 21));
+        list_FileList = new QListWidget(centralwidget);
+        list_FileList->setObjectName(QStringLiteral("list_FileList"));
+        list_FileList->setGeometry(QRect(20, 360, 256, 281));
+        pb_SelectModel = new QPushButton(centralwidget);
+        pb_SelectModel->setObjectName(QStringLiteral("pb_SelectModel"));
+        pb_SelectModel->setGeometry(QRect(20, 250, 101, 21));
+        pb_SelectWeight = new QPushButton(centralwidget);
+        pb_SelectWeight->setObjectName(QStringLiteral("pb_SelectWeight"));
+        pb_SelectWeight->setGeometry(QRect(130, 250, 111, 21));
         label_original_img = new QLabel(centralwidget);
         label_original_img->setObjectName(QStringLiteral("label_original_img"));
         label_original_img->setGeometry(QRect(360, 160, 512, 384));
@@ -147,6 +145,14 @@ public:
         label_result_img->setGeometry(QRect(890, 160, 512, 384));
         label_result_img->setBaseSize(QSize(640, 480));
         label_result_img->setStyleSheet(QStringLiteral("background-color: rgb(46, 52, 54);"));
+        label_FileList = new QLabel(centralwidget);
+        label_FileList->setObjectName(QStringLiteral("label_FileList"));
+        label_FileList->setGeometry(QRect(20, 330, 71, 21));
+        label_fps = new QLabel(centralwidget);
+        label_fps->setObjectName(QStringLiteral("label_fps"));
+        label_fps->setGeometry(QRect(1280, 550, 121, 21));
+        label_fps->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);"));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
@@ -167,29 +173,30 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        comboBox->clear();
-        comboBox->insertItems(0, QStringList()
+        cb_Sensor->clear();
+        cb_Sensor->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "lidar", Q_NULLPTR)
          << QApplication::translate("MainWindow", "cam", Q_NULLPTR)
          << QApplication::translate("MainWindow", "can", Q_NULLPTR)
          << QApplication::translate("MainWindow", "imu", Q_NULLPTR)
          << QApplication::translate("MainWindow", "gps", Q_NULLPTR)
         );
-        comboBox_2->clear();
-        comboBox_2->insertItems(0, QStringList()
+        cb_Algorithm->clear();
+        cb_Algorithm->insertItems(0, QStringList()
          << QApplication::translate("MainWindow", "Lane Detection", Q_NULLPTR)
          << QApplication::translate("MainWindow", "Object Detection", Q_NULLPTR)
         );
-        label->setText(QApplication::translate("MainWindow", "Sensor", Q_NULLPTR));
-        label_2->setText(QApplication::translate("MainWindow", "Algorithm", Q_NULLPTR));
+        label_Sensor->setText(QApplication::translate("MainWindow", "Sensor", Q_NULLPTR));
+        label_Algorithm->setText(QApplication::translate("MainWindow", "Algorithm", Q_NULLPTR));
         label_5->setText(QApplication::translate("MainWindow", "Result", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("MainWindow", "play", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("MainWindow", "File list", Q_NULLPTR));
-        pushButton_select->setText(QApplication::translate("MainWindow", "select directory", Q_NULLPTR));
-        pushButton_3->setText(QApplication::translate("MainWindow", "select model", Q_NULLPTR));
-        pushButton_4->setText(QApplication::translate("MainWindow", "select weight", Q_NULLPTR));
+        pb_Play->setText(QApplication::translate("MainWindow", "play", Q_NULLPTR));
+        pb_SelectDirectory->setText(QApplication::translate("MainWindow", "select directory", Q_NULLPTR));
+        pb_SelectModel->setText(QApplication::translate("MainWindow", "select model", Q_NULLPTR));
+        pb_SelectWeight->setText(QApplication::translate("MainWindow", "select weight", Q_NULLPTR));
         label_original_img->setText(QApplication::translate("MainWindow", "original Image Widget", Q_NULLPTR));
         label_result_img->setText(QApplication::translate("MainWindow", "result Image Widget", Q_NULLPTR));
+        label_FileList->setText(QApplication::translate("MainWindow", "File list", Q_NULLPTR));
+        label_fps->setText(QApplication::translate("MainWindow", "fps", Q_NULLPTR));
         toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", Q_NULLPTR));
     } // retranslateUi
 

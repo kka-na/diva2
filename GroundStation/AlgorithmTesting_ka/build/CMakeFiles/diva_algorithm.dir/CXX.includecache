@@ -44,9 +44,43 @@ iostream
 fstream
 -
 
+/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.cpp
+ModelRunThread.h
+/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.h
+
+/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.h
+QMainWindow
+-
+QObject
+-
+QWidget
+-
+QLabel
+-
+QThread
+-
+QDebug
+-
+QCoreApplication
+-
+string
+-
+iostream
+-
+fstream
+-
+
 /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/diva_algorithm_autogen/EWIEGA46WW/moc_AlgorithmThread.cpp
 ../../../AlgorithmThread.h
 /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/AlgorithmThread.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/diva_algorithm_autogen/EWIEGA46WW/moc_ModelRunThread.cpp
+../../../ModelRunThread.h
+/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
@@ -63,6 +97,8 @@ QtCore/qmetatype.h
 /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/diva_algorithm_autogen/mocs_compilation.cpp
 EWIEGA46WW/moc_AlgorithmThread.cpp
 /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/diva_algorithm_autogen/EWIEGA46WW/moc_AlgorithmThread.cpp
+EWIEGA46WW/moc_ModelRunThread.cpp
+/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/diva_algorithm_autogen/EWIEGA46WW/moc_ModelRunThread.cpp
 EWIEGA46WW/moc_mainwindow.cpp
 /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/diva_algorithm_autogen/EWIEGA46WW/moc_mainwindow.cpp
 
@@ -171,6 +207,8 @@ string
 -
 AlgorithmThread.h
 /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/AlgorithmThread.h
+ModelRunThread.h
+/home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.h
 
 /home/diva2/diva2/protobuf/sensors.pb.h
 limits

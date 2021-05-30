@@ -117,6 +117,7 @@ set(project_SOURCES
     main.cpp  
     mainwindow.cpp
     AlgorithmThread.cpp
+    ModelRunThread.cpp
     )
 #
 add_executable(${PROJECT_NAME} ${project_SOURCES} 
