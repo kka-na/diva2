@@ -180,17 +180,32 @@ void MainWindow::display_original(QImage image, QImage image_result, QString fps
     fpsWidget->setText(q_fps);
     fpsWidget->setAlignment(Qt::AlignCenter);
 
+//    QFile file("/home/diva2/algorithm_resources/result/result.txt");
+//    QTextStream in(&file);
+//    QString result_txt;
+//    while(!in.atEnd()) {
+//        QString line = in.readLine();
+//        QStringList fields = line.split(",");
+//        result_txt.append(line);
+//        result_txt.append(QString::fromStdString("\n"));
+//    }
+//    file.close();
+
     QFile file("/home/diva2/algorithm_resources/result/result.txt");
-    QTextStream in(&file);
-    QString result_txt;
-    while(!in.atEnd()) {
-        QString line = in.readLine();
-        QStringList fields = line.split(",");
-        result_txt.append(line);
-        result_txt.append(QString::fromStdString("\n"));
+    QLabel *testLabel= new QLabel;
+
+    QString line;
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream stream(&file);
+        while (!stream.atEnd()){
+
+            line.append(stream.readLine()+"\n");
+        }
+        ui->label_Result_text2->setText(line);
     }
     file.close();
-    ui->label_Result_text2->setText(result_txt);
+
+//    ui->label_Result_text2->setText(result_txt);
 
     // < Show Image Widgets >
     originalImageWidget->show();
