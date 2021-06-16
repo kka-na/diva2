@@ -85,43 +85,121 @@ void AlgorithmThread::lane_detection(){
 }
 
 void AlgorithmThread::obj_detection(){
+
+    // [ Setting ]
+    // < Zeromq >
     void *ctx = zmq_ctx_new();
     void *socketSub = zmq_socket(ctx, ZMQ_REP);
     int rc = -1;
     rc = zmq_connect(socketSub, "tcp://localhost:9899");
     printf("[AlgorithmThread::obj_detection] connect:%d\n", rc);
 
-
+    // < Input File >
+    printf("[AlgorithmThread::obj_detection] get input files\n");
+    vector<string> fileName;
+    DIR *d = opendir(get_input_path().c_str());
+    struct dirent *dir;
+    vector<string> fileList;
+    int i=0;
+    if (d){
+        while ((dir = readdir(d)) != NULL){
+            string d_name = dir->d_name;
+            if((d_name.compare("..")==0) || (d_name.compare(".")==0))
+                continue;
+            i++;
+            fileList.push_back(d_name);
+        }
+        for(int i=0;i<fileList.size();i++) {
+            printf("... %s\n",fileList[i].c_str());
+            // doSomething(fileList[i]);
+        }
+        closedir(d);
+    }
+    
+    // < Variables > 
     int frame_cnt = 0;
     float millis_sum = 0;
+    int count = 0;
+
+    
+    // [PROTOCOL0: START SIGNAL]
+    printf("[zeromq] Protocol%d: Start Signal\n", count++);
+    char buf [512];
+    int nbytes = zmq_recv (socketSub, buf, 512, 0);
+    assert (nbytes != -1);
+    printf("[AlgorithmThread::obj_detection] ... recv %d bytes\n", nbytes);
+    if(strcmp(buf, "start")==0){
+        printf("[AlgorithmThread::obj_detection] ... ... content: %s\n",buf);
+    }
+
+    int len;
+    string fn;
     while(!stop_flag){
         printf("[AlgorithmThread::obj_detection] while\n");
         // [ Setting ]
-        
-        // [ Communicate ]
-        // < receive topic from pub(=diva2/GroundStation/AlgorithmTesting/main) >
-        // string topic = s_recv(algorithmTesting_sub);
-        // printf("[AlgorithmThread::run] topic = %s\n", topic.c_str());
-        
-        // < receive message from pub(=diva2/GroundStation/AlgorithmTesting/main) >
         cv::Mat frame_original;
         frame_original.create(480, 640, CV_8UC3);
         cv::Mat frame_result;
         frame_result.create(480, 640, CV_8UC3);
 
-        // < parsing serialized data to message >
-        char buf [512];
-        printf("[AlgorithmThread::obj_detection] ready to read\n");
-        int nbytes = zmq_recv (socketSub, buf, 512, 0);
-        // assert (nbytes != -1);
-        printf("[AlgorithmThread::obj_detection] receive %d bytes\n", nbytes);
-        printf("... %s\n", buf);
+        // [ Communicate ]
+        // < Send a file name of original image >
+        printf("[AlgorithmThread::obj_detection] [zeromq] Protocol%d: Communicate file name\n",count);
+        // len = sprintf(buf,
+        //     "/home/diva2/diva2/test/obj_detection/darknet/data/test/testcone%d.jpg",count-1);
+        len = sprintf(buf,
+            "%s/%s",get_input_path().c_str(), fileList[count].c_str());
+        buf[len] = '\0';
+        rc = zmq_send(socketSub, buf, len+1, 0);
+        assert (rc > 0);
+        printf("[AlgorithmThread::obj_detection] ... send result = %d\n", rc);
+        printf("[AlgorithmThread::obj_detection] ... ... content: %s\n", buf);
+        fn = buf;
+        
+        // < Receive a file name of result image >
+        printf("[AlgorithmThread::obj_detection] ... ready to read\n");
+        nbytes = zmq_recv (socketSub, buf, 512, 0);
+        assert (nbytes != -1);
+        printf("[AlgorithmThread::obj_detection] ... recv%d bytes\n", nbytes);
+        printf("[AlgorithmThread::obj_detection] ... ... content: %s\n", buf);
+        float milli_second = atof(buf);
+        printf("[AlgorithmThread::obj_detection] ... ... content: %f\n", milli_second);
+        printf("\n");
+        frame_cnt++;
 
-        cv::Mat mat = cv::imread(buf);
+        // [ Image Processing ]
+        // < Read an original image >
+        cv::Mat mat;
+        mat = cv::imread(fn);
+        cv::resize(mat, frame_original, cv::Size(640, 480));
+        cv::cvtColor(frame_original, frame_original, cv::COLOR_BGR2RGB);
+        
+        // < Get a result file name >
+        char delimeter[] = "/";
+        char *result;
+        char parsing[20][30];
+        char result_filename[512];
+        memset(result_filename, '\0', sizeof(char)*512);
+        char c_input_path[512];
+        strcpy(c_input_path,input_path.c_str());
+        result = strtok(c_input_path, delimeter);
+        int cnt=0;
+        while(result!=NULL){
+            strcpy(parsing[cnt++], result);
+            result = strtok(NULL, delimeter);
+        }
+        for(int i=0; i<cnt-1; i++){
+            sprintf(result_filename, "%s/%s", result_filename, parsing[i]);
+        }
+        len = sprintf(result_filename, "%s/%s/%s", result_filename, "result", fileList[count].c_str());
+        printf("[AlgorithmThread::obj_detection] ... ... result = %s\n", result_filename);
+
+        // < Resize to 640*480>
+        mat = cv::imread(result_filename);
         int width = mat.size().width;
         int height = mat.size().height;
         cv::resize(mat, frame_result, cv::Size(640, 480));
-        frame_result.copyTo(frame_original);
+        cv::cvtColor(frame_result, frame_result, cv::COLOR_BGR2RGB);
         // imshow(buf, mat);
         // waitKey(0);
         // destroyAllWindows();
@@ -135,10 +213,14 @@ void AlgorithmThread::obj_detection(){
         memcpy(image_result.scanLine(0), frame_result.data, 
             static_cast<size_t>(image_result.width() * image_result.height() * frame_result.channels()));
         
-        float fps = 0;
+        
+        millis_sum += milli_second;
+        float fps = frame_cnt/millis_sum;
+        printf("[AlgorithmThread::obj_detection] fps = %f\n", fps);
         emit send_qimage(image_original, image_result, QString::number(fps)); 
         // emit send_qimage(image_original, image_result);
 
+        count++;
     }
 
     printf("[AlgorithmThread::obj_detection] end\n");
@@ -149,6 +231,7 @@ void AlgorithmThread::run(){
     printf("[AlgorithmThread::run] start\n");
     printf("   sensorIdx:%d\n", this->sensorIdx);
     printf("   algorithmIdx:%d\n", this->algorithmIdx);
+    printf("   input path:%s\n", this->input_path.c_str());
     printf("\n");
     
     if((sensorIdx==Sensor::cam) && (algorithmIdx==0)){

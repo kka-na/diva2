@@ -24,6 +24,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <dirent.h>
 
 using namespace std;
 
@@ -35,6 +36,7 @@ public:
     bool stop_flag = false;
     void set_input_path(string input_path);
     void set_algorithmIdx(int algoIdx);
+    string get_input_path(){return input_path;}
     void set_sensorIdx(int sensorIdx);
     void lane_detection();
     void obj_detection();
@@ -46,7 +48,6 @@ private:
     string input_path;
     int sensorIdx;
     int algorithmIdx;
-    
 	
 signals :
     void send_qimage(QImage, QImage, QString);

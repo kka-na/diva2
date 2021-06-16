@@ -49,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->cb_Algorithm->clear();
     printf("complete to setup UI\n");
+
 }
 
 
@@ -126,17 +127,27 @@ void MainWindow::on_pb_Play_clicked()
 
     // [ Set the Environments ]
     // < Set Algorithm Thread to Run >
+    sensorIdx = 1;
+    algorithmIdx = 1;
     algorithmThread = new AlgorithmThread(this);
-    algorithmThread->set_input_path(this->input_path.dirName().toStdString());
     algorithmThread->set_sensorIdx(sensorIdx);
     algorithmThread->set_algorithmIdx(algorithmIdx);
+    string tmp = "/home/diva2/algorithm_resources/test";
+    algorithmThread->set_input_path(tmp);
+//    algorithmThread->set_input_path(this->input_path.path().toStdString());
     algorithmThread->start();
     modelRunThread = new ModelRunThread(this);
     modelRunThread->set_sensorIdx(sensorIdx);
     modelRunThread->set_algorithmIdx(algorithmIdx);
-    modelRunThread->set_datafile(this->data_path.path().toStdString());
-    modelRunThread->set_configfile(this->config_path.path().toStdString());
-    modelRunThread->set_weightfile(this->weight_path.path().toStdString());
+//    modelRunThread->set_datafile(this->data_path.path().toStdString());
+//    modelRunThread->set_configfile(this->config_path.path().toStdString());
+//    modelRunThread->set_weightfile(this->weight_path.path().toStdString());
+    tmp = "/home/diva2/algorithm_resources/coco.data";
+    modelRunThread->set_datafile(tmp);
+    tmp = "/home/diva2/algorithm_resources/yolov4.cfg";
+    modelRunThread->set_configfile(tmp);
+    tmp = "/home/diva2/algorithm_resources/yolov4.weights";
+    modelRunThread->set_weightfile(tmp);
     modelRunThread->start();
     connect(algorithmThread, SIGNAL(send_qimage(QImage, QImage, QString)), this, SLOT(display_original(QImage, QImage, QString)));
 
@@ -148,43 +159,6 @@ void MainWindow::on_pb_Play_clicked()
     fpsWidget = ui->label_fps;
     fpsWidget->clear();
 
-    // =====================
-
-    /*
-    printf("sensor: %d\n", sensorIdx);
-    printf("algorithm: %d\n", algorithmIdx);
-    printf("model: %s\n", model_path.path().toStdString().c_str());
-    printf("weight: %s\n", weight_path.path().toStdString().c_str());
-    printf("dir: %s\n",dir.path().toStdString().c_str());
-    int ret;
-    string command;
-    command += "cd /home/diva2/diva2/build/GroundStation/AlgorithmTesting ";
-    command += "&& ./GS_algorithm ";
-    command += (to_string(sensorIdx) + " ");
-    command += (to_string(algorithmIdx) + " ");
-    command += (model_path.path().toStdString() + " ");
-    command += (weight_path.path().toStdString() + " ");
-    command += (dir.path().toStdString());
-
-    // ret = system("cd /home/diva2/diva2/build/GroundStation/AlgorithmTesting && ./GS_algorithm");
-    ret = system(command.c_str());
-
-    // /home/diva2/diva2/GroundStation/AlgorithmTesting/Algorithm/output_video.avi
-
-
-    QGraphicsScene *scene = new QGraphicsScene;
-    QMediaPlayer *player = new QMediaPlayer();
-    QGraphicsVideoItem *videoItem = new QGraphicsVideoItem;
-
-    ui->graphicsView_2->setScene(scene);
-    player->setVideoOutput(videoItem);
-    ui->graphicsView_2->scene()->addItem(videoItem);
-    player->setMedia(QUrl::fromLocalFile("/home/diva2/diva2/GroundStation/AlgorithmTesting/Algorithm/output_video.avi"));
-    // player->setVolume();
-    ui->graphicsView_2->fitInView(videoItem);
-    player->play();
-
-    */
 }
 
 
@@ -205,6 +179,18 @@ void MainWindow::display_original(QImage image, QImage image_result, QString fps
     QString q_fps = fps + " fps";
     fpsWidget->setText(q_fps);
     fpsWidget->setAlignment(Qt::AlignCenter);
+
+    QFile file("/home/diva2/algorithm_resources/result/result.txt");
+    QTextStream in(&file);
+    QString result_txt;
+    while(!in.atEnd()) {
+        QString line = in.readLine();
+        QStringList fields = line.split(",");
+        result_txt.append(line);
+        result_txt.append(QString::fromStdString("\n"));
+    }
+    file.close();
+    ui->label_Result_text2->setText(result_txt);
 
     // < Show Image Widgets >
     originalImageWidget->show();
