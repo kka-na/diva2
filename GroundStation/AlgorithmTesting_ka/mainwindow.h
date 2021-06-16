@@ -32,9 +32,10 @@ public:
 //    void on_pushButton_open_clicked();
 //    void on_pushButton_save_clicked();
     //void on_pushButton_clicked();
-    QDir dir;
-    QDir model_path;
+    QDir data_path;
+    QDir config_path;
     QDir weight_path;
+    QDir input_path;
     QFileInfoList list;
     ~MainWindow();
 
@@ -51,9 +52,10 @@ private slots:
     void on_pb_Play_clicked();
     void on_cb_Sensor_currentIndexChanged(int index);
     void on_cb_Algorithm_currentIndexChanged(int index);
-    void on_pb_SelectDirectory_clicked();
-    void on_pb_SelectModel_clicked();
-    void on_pb_SelectWeight_clicked();
+    void on_pb_Select_ConfigFile_clicked();
+    void on_pb_Select_WeightFile_clicked();
+    void on_pb_Select_DataFile_clicked();
+    void on_pb_Select_Directory_clicked();
 
 //    void on_pushButton_select_clicked();
 //    void on_pushButton_clicked();

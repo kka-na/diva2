@@ -451,6 +451,7 @@ CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o: /usr/local/include/opencv2/
 CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o: /usr/local/include/opencv2/xfeatures2d.hpp
 CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o: /usr/local/include/opencv2/xfeatures2d/cuda.hpp
 CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o: /usr/local/include/opencv2/xfeatures2d/nonfree.hpp
+CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o: /usr/local/include/zmq.h
 
 CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o: ../ModelRunThread.cpp
 CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o: ../ModelRunThread.h
@@ -1046,6 +1047,7 @@ CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o: /us
 CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o: /usr/local/include/opencv2/xfeatures2d.hpp
 CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o: /usr/local/include/opencv2/xfeatures2d/cuda.hpp
 CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o: /usr/local/include/opencv2/xfeatures2d/nonfree.hpp
+CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o: /usr/local/include/zmq.h
 
 CMakeFiles/diva_algorithm.dir/main.cpp.o: ../AlgorithmThread.h
 CMakeFiles/diva_algorithm.dir/main.cpp.o: ../ModelRunThread.h
@@ -1526,6 +1528,7 @@ CMakeFiles/diva_algorithm.dir/main.cpp.o: /usr/local/include/opencv2/viz/widgets
 CMakeFiles/diva_algorithm.dir/main.cpp.o: /usr/local/include/opencv2/xfeatures2d.hpp
 CMakeFiles/diva_algorithm.dir/main.cpp.o: /usr/local/include/opencv2/xfeatures2d/cuda.hpp
 CMakeFiles/diva_algorithm.dir/main.cpp.o: /usr/local/include/opencv2/xfeatures2d/nonfree.hpp
+CMakeFiles/diva_algorithm.dir/main.cpp.o: /usr/local/include/zmq.h
 
 CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o: ../AlgorithmThread.h
 CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o: ../ModelRunThread.h
@@ -2026,6 +2029,7 @@ CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o: /usr/local/include/opencv2/viz/w
 CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o: /usr/local/include/opencv2/xfeatures2d.hpp
 CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o: /usr/local/include/opencv2/xfeatures2d/cuda.hpp
 CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o: /usr/local/include/opencv2/xfeatures2d/nonfree.hpp
+CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o: /usr/local/include/zmq.h
 CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o: diva_algorithm_autogen/include/ui_mainwindow.h
 
 CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o: sensors.pb.cc

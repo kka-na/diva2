@@ -13,6 +13,7 @@
 #include <QCoreApplication>
 
 #include <zmq.hpp>
+#include <zmq.h>
 #include "../../protobuf/sensors.pb.h"
 
 #include <opencv2/opencv.hpp>
@@ -32,12 +33,21 @@ class AlgorithmThread : public QThread
 public:
     explicit AlgorithmThread(QObject *parent = 0);
     bool stop_flag = false;
-	
+    void set_input_path(string input_path);
+    void set_algorithmIdx(int algoIdx);
+    void set_sensorIdx(int sensorIdx);
+    void lane_detection();
+    void obj_detection();
 private slots:
     void stop();
 
 private:
     void run() override;
+    string input_path;
+    int sensorIdx;
+    int algorithmIdx;
+    
+	
 signals :
     void send_qimage(QImage, QImage, QString);
 	// void send_qimage(QImage, QImage);

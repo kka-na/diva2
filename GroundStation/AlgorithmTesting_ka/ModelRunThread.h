@@ -24,12 +24,23 @@ class ModelRunThread : public QThread
 public:
     explicit ModelRunThread(QObject *parent = 0);
     bool stop_flag = false;
+    void set_algorithmIdx(int algoIdx);
+    void set_sensorIdx(int sensorIdx);
+    void set_datafile(string datafile);
+    void set_configfile(string configfile);
+    void set_weightfile(string weightfile);
 	
 private slots:
     void stop();
 
 private:
     void run() override;
+    int sensorIdx;
+    int algorithmIdx;
+    string str_datafile;
+    string str_configfile;
+    string str_weightfile;
+
 
 };
 

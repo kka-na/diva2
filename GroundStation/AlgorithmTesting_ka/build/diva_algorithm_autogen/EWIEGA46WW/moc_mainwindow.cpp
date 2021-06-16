@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[13];
-    char stringdata0[229];
+    QByteArrayData data[14];
+    char stringdata0[271];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,18 +41,20 @@ QT_MOC_LITERAL(6, 52, 18), // "on_pb_Play_clicked"
 QT_MOC_LITERAL(7, 71, 32), // "on_cb_Sensor_currentIndexChanged"
 QT_MOC_LITERAL(8, 104, 5), // "index"
 QT_MOC_LITERAL(9, 110, 35), // "on_cb_Algorithm_currentIndexC..."
-QT_MOC_LITERAL(10, 146, 29), // "on_pb_SelectDirectory_clicked"
-QT_MOC_LITERAL(11, 176, 25), // "on_pb_SelectModel_clicked"
-QT_MOC_LITERAL(12, 202, 26) // "on_pb_SelectWeight_clicked"
+QT_MOC_LITERAL(10, 146, 31), // "on_pb_Select_ConfigFile_clicked"
+QT_MOC_LITERAL(11, 178, 31), // "on_pb_Select_WeightFile_clicked"
+QT_MOC_LITERAL(12, 210, 29), // "on_pb_Select_DataFile_clicked"
+QT_MOC_LITERAL(13, 240, 30) // "on_pb_Select_Directory_clicked"
 
     },
     "MainWindow\0display_original\0\0image\0"
     "image_result\0fps\0on_pb_Play_clicked\0"
     "on_cb_Sensor_currentIndexChanged\0index\0"
     "on_cb_Algorithm_currentIndexChanged\0"
-    "on_pb_SelectDirectory_clicked\0"
-    "on_pb_SelectModel_clicked\0"
-    "on_pb_SelectWeight_clicked"
+    "on_pb_Select_ConfigFile_clicked\0"
+    "on_pb_Select_WeightFile_clicked\0"
+    "on_pb_Select_DataFile_clicked\0"
+    "on_pb_Select_Directory_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,7 +64,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,19 +72,21 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    3,   49,    2, 0x0a /* Public */,
-       6,    0,   56,    2, 0x08 /* Private */,
-       7,    1,   57,    2, 0x08 /* Private */,
-       9,    1,   60,    2, 0x08 /* Private */,
-      10,    0,   63,    2, 0x08 /* Private */,
-      11,    0,   64,    2, 0x08 /* Private */,
-      12,    0,   65,    2, 0x08 /* Private */,
+       1,    3,   54,    2, 0x0a /* Public */,
+       6,    0,   61,    2, 0x08 /* Private */,
+       7,    1,   62,    2, 0x08 /* Private */,
+       9,    1,   65,    2, 0x08 /* Private */,
+      10,    0,   68,    2, 0x08 /* Private */,
+      11,    0,   69,    2, 0x08 /* Private */,
+      12,    0,   70,    2, 0x08 /* Private */,
+      13,    0,   71,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QImage, QMetaType::QImage, QMetaType::QString,    3,    4,    5,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    8,
     QMetaType::Void, QMetaType::Int,    8,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -100,9 +104,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->on_pb_Play_clicked(); break;
         case 2: _t->on_cb_Sensor_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 3: _t->on_cb_Algorithm_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 4: _t->on_pb_SelectDirectory_clicked(); break;
-        case 5: _t->on_pb_SelectModel_clicked(); break;
-        case 6: _t->on_pb_SelectWeight_clicked(); break;
+        case 4: _t->on_pb_Select_ConfigFile_clicked(); break;
+        case 5: _t->on_pb_Select_WeightFile_clicked(); break;
+        case 6: _t->on_pb_Select_DataFile_clicked(); break;
+        case 7: _t->on_pb_Select_Directory_clicked(); break;
         default: ;
         }
     }
@@ -133,13 +138,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 8)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }

@@ -60,7 +60,7 @@ from tensorflow.keras.models import model_from_json
 model_path = './checkpoints/fcn_big_01.json'
 with open(model_path, 'r') as model_file:
     test_model = model_from_json(model_file.read())
-test_model.summary()
+# test_model.summary()
 
 
 # In[6]:
@@ -73,8 +73,9 @@ test_model.load_weights('/home/diva2/diva2/GroundStation/AlgorithmTesting/Algori
 # In[8]:
 ## Load Test Images
 
-# test_folder = sys.argv[3] # './training_images/'
 test_folder = '/home/diva2/diva2/GroundStation/AlgorithmTesting/Algorithm/training_images/'
+#test_folder = sys.argv[3] # './training_images/'
+# test_folder = '/home/diva2/diva2/test/lane_detection_gt/dataset/test_set/clips/0530/1492626047222176976_0/'
 algoImg = sensors_pb2.algorithm_img()
 
 # test_folder = './training_images/'
@@ -121,6 +122,9 @@ def apply_to_image():
         result = cv2.resize(result, dsize=(640, 480), interpolation=cv2.INTER_AREA)
         result = cv2.merge([result,result,result])
         out.write(result)
+        # cv2.imwrite('./model_result.png', result)
+        # plt.imshow(result)
+        # plt.show()
         
         # cv2.imshow('result', result)
         # if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -131,6 +135,7 @@ def apply_to_image():
         algoImg.millis_term = (stop_mil-start_mil)
         zmqData = algoImg.SerializeToString()
         socketPub.send(zmqData)
+
     
     out.release()
     # cv2.destroyAllWindows()
@@ -151,4 +156,6 @@ stop_mil = millis()
 print('Prediction took {} millis'.format((stop_mil - start_mil)//predict_count))
 
 
+socketPub.send(b"fin")
 
+exit()

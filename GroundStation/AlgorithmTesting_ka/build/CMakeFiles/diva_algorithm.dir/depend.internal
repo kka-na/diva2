@@ -452,6 +452,7 @@ CMakeFiles/diva_algorithm.dir/AlgorithmThread.cpp.o
  /usr/local/include/opencv2/xfeatures2d.hpp
  /usr/local/include/opencv2/xfeatures2d/cuda.hpp
  /usr/local/include/opencv2/xfeatures2d/nonfree.hpp
+ /usr/local/include/zmq.h
 CMakeFiles/diva_algorithm.dir/ModelRunThread.cpp.o
  /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.cpp
  /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.h
@@ -1047,6 +1048,7 @@ CMakeFiles/diva_algorithm.dir/diva_algorithm_autogen/mocs_compilation.cpp.o
  /usr/local/include/opencv2/xfeatures2d.hpp
  /usr/local/include/opencv2/xfeatures2d/cuda.hpp
  /usr/local/include/opencv2/xfeatures2d/nonfree.hpp
+ /usr/local/include/zmq.h
 CMakeFiles/diva_algorithm.dir/main.cpp.o
  /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/AlgorithmThread.h
  /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.h
@@ -1527,6 +1529,7 @@ CMakeFiles/diva_algorithm.dir/main.cpp.o
  /usr/local/include/opencv2/xfeatures2d.hpp
  /usr/local/include/opencv2/xfeatures2d/cuda.hpp
  /usr/local/include/opencv2/xfeatures2d/nonfree.hpp
+ /usr/local/include/zmq.h
 CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o
  /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/AlgorithmThread.h
  /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/ModelRunThread.h
@@ -2027,6 +2030,7 @@ CMakeFiles/diva_algorithm.dir/mainwindow.cpp.o
  /usr/local/include/opencv2/xfeatures2d.hpp
  /usr/local/include/opencv2/xfeatures2d/cuda.hpp
  /usr/local/include/opencv2/xfeatures2d/nonfree.hpp
+ /usr/local/include/zmq.h
  diva_algorithm_autogen/include/ui_mainwindow.h
 CMakeFiles/diva_algorithm.dir/sensors.pb.cc.o
  /home/diva2/diva2/GroundStation/AlgorithmTesting_ka/build/sensors.pb.cc
