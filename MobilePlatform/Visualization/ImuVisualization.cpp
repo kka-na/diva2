@@ -22,7 +22,8 @@ void ImuVisualization::run(void *contextSub)
     // [Connect with socket SUB with Sensing Process]
     zmq::socket_t SubSock(*(zmq::context_t *)contextSub, ZMQ_SUB);
     SubSock.connect(protocol::SENSING_SUB);
-    SubSock.setsockopt(ZMQ_SUBSCRIBE, "IMU", 3);
+    SubSock.setsockopt(ZMQ_SUBSCRIBE, "", 0);
+    printf("hello!!!!\n");
     printf("[MobilePlatform/Visualization/ImuVisualization] Connet with SUB socket\n");
 
     int cnt = 0;

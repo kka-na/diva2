@@ -24,7 +24,10 @@ int main(int argc, char *argv[]){
     zmq::context_t context(1);
     zmq::socket_t socket(context, ZMQ_PUB);
     // zmq::socket_t socket_LiDAR(context, ZMQ_PUB);
-    socket.bind(protocol::SENSING_PUB); // protocol::SENSING_PUB
+    // socket.bind(protocol::SENSING_PUB); // protocol::SENSING_PUB
+    // socket.bind("tcp://*:5563"); // protocol::SENSING_PUB
+    // socket.connect("tcp://52.78.224.20:5563");
+    socket.connect("tcp://165.246.39.124:5563");
     // socket_LiDAR.bind(protocol::SENSING_PUB); //address already in use -> 서로 다른 주소 사용해야함
     printf("[MobilePlatform/Sensing] binding\n");
 
@@ -36,7 +39,7 @@ int main(int argc, char *argv[]){
     CamSensingThread camSensingThread;
     std::thread sensingthread_cam(camSensingThread.run, &socket); // , "/dev/ttyACM0", "9600"
     
-    // USE_IMU = 2;
+    // USE_IMU = 1;
     // ImuSensingThread imuSensingThread;
     // std::thread sensingthread_imu(imuSensingThread.run, &socket, "/dev/ttyACM0", 115200);
     

@@ -20,18 +20,18 @@ namespace sensors {
 constexpr Gps::Gps(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : gpgga_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , timestamp_(nullptr)
   , latitude_(0)
-  , longitude_(0)
+  , timestamp_(0)
   , isnorth_(false)
   , iseast_(false)
+  , longitude_(0)
   , gpsquality_(0)
+  , numberofsatellitesinuse_(0)
   , horizontaldilutionofprecision_(0)
   , antennaaltitudemeters_(0)
-  , numberofsatellitesinuse_(0)
-  , differentialreferencestationid_(0)
   , geoidalseparationmeters_(0)
-  , ageofdifferentialgpsdataseconds_(0){}
+  , ageofdifferentialgpsdataseconds_(0)
+  , differentialreferencestationid_(0){}
 struct GpsDefaultTypeInternal {
   constexpr GpsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -43,7 +43,7 @@ struct GpsDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT GpsDefaultTypeInternal _Gps_default_instance_;
 constexpr Imu::Imu(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : timestamp_(nullptr)
+  : timestamp_(0)
   , scaledaccelx_(0)
   , scaledaccely_(0)
   , scaledaccelz_(0)
@@ -71,7 +71,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ImuDefaultTypeInternal _Imu_def
 constexpr Cam::Cam(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : image_data_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , timestamp_(nullptr)
+  , timestamp_(0)
   , channel_order_(0)
 
   , cols_(0)
@@ -87,7 +87,7 @@ struct CamDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CamDefaultTypeInternal _Cam_default_instance_;
 constexpr Lidar::Lidar(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : timestamp_(nullptr){}
+  : timestamp_(0){}
 struct LidarDefaultTypeInternal {
   constexpr LidarDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -103,7 +103,7 @@ constexpr Can::Can(
   , __res0_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , __res1_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , data_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , timestamp_(nullptr)
+  , timestamp_(0)
   , can_id_(0u)
   , can_dlc_(0u){}
 struct CanDefaultTypeInternal {
@@ -159,16 +159,16 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sensors_2eproto::offsets[] PRO
   ~0u,
   ~0u,
   0,
-  2,
   1,
   3,
+  2,
   4,
-  7,
   5,
   6,
+  7,
+  8,
   9,
   10,
-  8,
   PROTOBUF_FIELD_OFFSET(::sensors::Imu, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::sensors::Imu, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -265,64 +265,56 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_sensors_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\rsensors.proto\022\007sensors\032\037google/protobu"
-  "f/timestamp.proto\"\251\005\n\003Gps\022-\n\ttimestamp\030\001"
-  " \001(\0132\032.google.protobuf.Timestamp\022\r\n\005gpgg"
-  "a\030\002 \001(\t\022\025\n\010latitude\030\003 \001(\001H\000\210\001\001\022\024\n\007isNort"
-  "h\030\004 \001(\010H\001\210\001\001\022\026\n\tlongitude\030\005 \001(\001H\002\210\001\001\022\023\n\006"
-  "isEast\030\006 \001(\010H\003\210\001\001\022\027\n\ngpsQuality\030\007 \001(\005H\004\210"
-  "\001\001\022$\n\027numberOfSatellitesInUse\030\010 \001(\005H\005\210\001\001"
-  "\022*\n\035horizontalDilutionOfPrecision\030\t \001(\001H"
-  "\006\210\001\001\022\"\n\025antennaAltitudeMeters\030\n \001(\001H\007\210\001\001"
-  "\022$\n\027geoidalSeparationMeters\030\013 \001(\001H\010\210\001\001\022,"
-  "\n\037ageOfDifferentialGPSDataSeconds\030\014 \001(\001H"
-  "\t\210\001\001\022+\n\036differentialReferenceStationID\030\r"
-  " \001(\005H\n\210\001\001B\013\n\t_latitudeB\n\n\010_isNorthB\014\n\n_l"
-  "ongitudeB\t\n\007_isEastB\r\n\013_gpsQualityB\032\n\030_n"
-  "umberOfSatellitesInUseB \n\036_horizontalDil"
-  "utionOfPrecisionB\030\n\026_antennaAltitudeMete"
-  "rsB\032\n\030_geoidalSeparationMetersB\"\n _ageOf"
-  "DifferentialGPSDataSecondsB!\n\037_different"
-  "ialReferenceStationID\"\236\005\n\003Imu\022-\n\ttimesta"
-  "mp\030\001 \001(\0132\032.google.protobuf.Timestamp\022\031\n\014"
-  "scaledAccelX\030\002 \001(\002H\000\210\001\001\022\031\n\014scaledAccelY\030"
-  "\003 \001(\002H\001\210\001\001\022\031\n\014scaledAccelZ\030\004 \001(\002H\002\210\001\001\022\030\n"
-  "\013scaledGyroX\030\005 \001(\002H\003\210\001\001\022\030\n\013scaledGyroY\030\006"
-  " \001(\002H\004\210\001\001\022\030\n\013scaledGyroZ\030\007 \001(\002H\005\210\001\001\022\027\n\ns"
-  "caledMagX\030\010 \001(\002H\006\210\001\001\022\027\n\nscaledMagY\030\t \001(\002"
-  "H\007\210\001\001\022\027\n\nscaledMagZ\030\n \001(\002H\010\210\001\001\022\024\n\007estRol"
-  "l\030\013 \001(\002H\t\210\001\001\022\025\n\010estPitch\030\014 \001(\002H\n\210\001\001\022\023\n\006e"
-  "stYaw\030\r \001(\002H\013\210\001\001\022\032\n\restRollUncert\030\016 \001(\002H"
-  "\014\210\001\001\022\033\n\016estPitchUncert\030\017 \001(\002H\r\210\001\001\022\031\n\014est"
-  "YawUncert\030\020 \001(\002H\016\210\001\001B\017\n\r_scaledAccelXB\017\n"
-  "\r_scaledAccelYB\017\n\r_scaledAccelZB\016\n\014_scal"
-  "edGyroXB\016\n\014_scaledGyroYB\016\n\014_scaledGyroZB"
-  "\r\n\013_scaledMagXB\r\n\013_scaledMagYB\r\n\013_scaled"
-  "MagZB\n\n\010_estRollB\013\n\t_estPitchB\t\n\007_estYaw"
-  "B\020\n\016_estRollUncertB\021\n\017_estPitchUncertB\017\n"
-  "\r_estYawUncert\"\222\001\n\003Cam\022-\n\ttimestamp\030\001 \001("
-  "\0132\032.google.protobuf.Timestamp\022,\n\rchannel"
-  "_order\030\002 \001(\0162\025.sensors.ChannelOrder\022\014\n\004c"
-  "ols\030\003 \001(\005\022\014\n\004rows\030\004 \001(\005\022\022\n\nimage_data\030\005 "
-  "\001(\014\"6\n\005Lidar\022-\n\ttimestamp\030\001 \001(\0132\032.google"
-  ".protobuf.Timestamp\"\222\001\n\003Can\022-\n\ttimestamp"
-  "\030\001 \001(\0132\032.google.protobuf.Timestamp\022\016\n\006ca"
-  "n_id\030\002 \001(\r\022\017\n\007can_dlc\030\003 \001(\r\022\r\n\005__pad\030\004 \001"
-  "(\014\022\016\n\006__res0\030\005 \001(\014\022\016\n\006__res1\030\006 \001(\014\022\014\n\004da"
-  "ta\030\007 \001(\014\"c\n\003Log\022\016\n\006can_id\030\002 \001(\r\022\017\n\007can_d"
-  "lc\030\003 \001(\r\022\r\n\005__pad\030\004 \001(\014\022\016\n\006__res0\030\005 \001(\014\022"
-  "\016\n\006__res1\030\006 \001(\014\022\014\n\004data\030\007 \001(\014*U\n\014Channel"
-  "Order\022\r\n\tGRAYSCALE\020\000\022\007\n\003BGR\020\001\022\007\n\003RGB\020\002\022\010"
-  "\n\004BGRA\020\003\022\010\n\004RGBA\020\004\022\020\n\014OPTICAL_FLOW\020\005b\006pr"
-  "oto3"
+  "\n\rsensors.proto\022\007sensors\"\215\005\n\003Gps\022\021\n\ttime"
+  "stamp\030\001 \001(\005\022\r\n\005gpgga\030\002 \001(\t\022\025\n\010latitude\030\003"
+  " \001(\001H\000\210\001\001\022\024\n\007isNorth\030\004 \001(\010H\001\210\001\001\022\026\n\tlongi"
+  "tude\030\005 \001(\001H\002\210\001\001\022\023\n\006isEast\030\006 \001(\010H\003\210\001\001\022\027\n\n"
+  "gpsQuality\030\007 \001(\005H\004\210\001\001\022$\n\027numberOfSatelli"
+  "tesInUse\030\010 \001(\005H\005\210\001\001\022*\n\035horizontalDilutio"
+  "nOfPrecision\030\t \001(\001H\006\210\001\001\022\"\n\025antennaAltitu"
+  "deMeters\030\n \001(\001H\007\210\001\001\022$\n\027geoidalSeparation"
+  "Meters\030\013 \001(\001H\010\210\001\001\022,\n\037ageOfDifferentialGP"
+  "SDataSeconds\030\014 \001(\001H\t\210\001\001\022+\n\036differentialR"
+  "eferenceStationID\030\r \001(\005H\n\210\001\001B\013\n\t_latitud"
+  "eB\n\n\010_isNorthB\014\n\n_longitudeB\t\n\007_isEastB\r"
+  "\n\013_gpsQualityB\032\n\030_numberOfSatellitesInUs"
+  "eB \n\036_horizontalDilutionOfPrecisionB\030\n\026_"
+  "antennaAltitudeMetersB\032\n\030_geoidalSeparat"
+  "ionMetersB\"\n _ageOfDifferentialGPSDataSe"
+  "condsB!\n\037_differentialReferenceStationID"
+  "\"\202\005\n\003Imu\022\021\n\ttimestamp\030\001 \001(\005\022\031\n\014scaledAcc"
+  "elX\030\002 \001(\002H\000\210\001\001\022\031\n\014scaledAccelY\030\003 \001(\002H\001\210\001"
+  "\001\022\031\n\014scaledAccelZ\030\004 \001(\002H\002\210\001\001\022\030\n\013scaledGy"
+  "roX\030\005 \001(\002H\003\210\001\001\022\030\n\013scaledGyroY\030\006 \001(\002H\004\210\001\001"
+  "\022\030\n\013scaledGyroZ\030\007 \001(\002H\005\210\001\001\022\027\n\nscaledMagX"
+  "\030\010 \001(\002H\006\210\001\001\022\027\n\nscaledMagY\030\t \001(\002H\007\210\001\001\022\027\n\n"
+  "scaledMagZ\030\n \001(\002H\010\210\001\001\022\024\n\007estRoll\030\013 \001(\002H\t"
+  "\210\001\001\022\025\n\010estPitch\030\014 \001(\002H\n\210\001\001\022\023\n\006estYaw\030\r \001"
+  "(\002H\013\210\001\001\022\032\n\restRollUncert\030\016 \001(\002H\014\210\001\001\022\033\n\016e"
+  "stPitchUncert\030\017 \001(\002H\r\210\001\001\022\031\n\014estYawUncert"
+  "\030\020 \001(\002H\016\210\001\001B\017\n\r_scaledAccelXB\017\n\r_scaledA"
+  "ccelYB\017\n\r_scaledAccelZB\016\n\014_scaledGyroXB\016"
+  "\n\014_scaledGyroYB\016\n\014_scaledGyroZB\r\n\013_scale"
+  "dMagXB\r\n\013_scaledMagYB\r\n\013_scaledMagZB\n\n\010_"
+  "estRollB\013\n\t_estPitchB\t\n\007_estYawB\020\n\016_estR"
+  "ollUncertB\021\n\017_estPitchUncertB\017\n\r_estYawU"
+  "ncert\"v\n\003Cam\022\021\n\ttimestamp\030\001 \001(\005\022,\n\rchann"
+  "el_order\030\002 \001(\0162\025.sensors.ChannelOrder\022\014\n"
+  "\004cols\030\003 \001(\005\022\014\n\004rows\030\004 \001(\005\022\022\n\nimage_data\030"
+  "\005 \001(\014\"\032\n\005Lidar\022\021\n\ttimestamp\030\001 \001(\005\"v\n\003Can"
+  "\022\021\n\ttimestamp\030\001 \001(\005\022\016\n\006can_id\030\002 \001(\r\022\017\n\007c"
+  "an_dlc\030\003 \001(\r\022\r\n\005__pad\030\004 \001(\014\022\016\n\006__res0\030\005 "
+  "\001(\014\022\016\n\006__res1\030\006 \001(\014\022\014\n\004data\030\007 \001(\014\"c\n\003Log"
+  "\022\016\n\006can_id\030\002 \001(\r\022\017\n\007can_dlc\030\003 \001(\r\022\r\n\005__p"
+  "ad\030\004 \001(\014\022\016\n\006__res0\030\005 \001(\014\022\016\n\006__res1\030\006 \001(\014"
+  "\022\014\n\004data\030\007 \001(\014*U\n\014ChannelOrder\022\r\n\tGRAYSC"
+  "ALE\020\000\022\007\n\003BGR\020\001\022\007\n\003RGB\020\002\022\010\n\004BGRA\020\003\022\010\n\004RGB"
+  "A\020\004\022\020\n\014OPTICAL_FLOW\020\005b\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sensors_2eproto_deps[1] = {
-  &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
-};
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sensors_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sensors_2eproto = {
-  false, false, 1964, descriptor_table_protodef_sensors_2eproto, "sensors.proto", 
-  &descriptor_table_sensors_2eproto_once, descriptor_table_sensors_2eproto_deps, 1, 6,
+  false, false, 1789, descriptor_table_protodef_sensors_2eproto, "sensors.proto", 
+  &descriptor_table_sensors_2eproto_once, nullptr, 0, 6,
   schemas, file_default_instances, TableStruct_sensors_2eproto::offsets,
   file_level_metadata_sensors_2eproto, file_level_enum_descriptors_sensors_2eproto, file_level_service_descriptors_sensors_2eproto,
 };
@@ -357,52 +349,41 @@ bool ChannelOrder_IsValid(int value) {
 class Gps::_Internal {
  public:
   using HasBits = decltype(std::declval<Gps>()._has_bits_);
-  static const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp(const Gps* msg);
   static void set_has_latitude(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
   static void set_has_isnorth(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_longitude(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_iseast(HasBits* has_bits) {
+  static void set_has_longitude(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
+  }
+  static void set_has_iseast(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_gpsquality(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_numberofsatellitesinuse(HasBits* has_bits) {
-    (*has_bits)[0] |= 128u;
-  }
-  static void set_has_horizontaldilutionofprecision(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
   }
-  static void set_has_antennaaltitudemeters(HasBits* has_bits) {
+  static void set_has_horizontaldilutionofprecision(HasBits* has_bits) {
     (*has_bits)[0] |= 64u;
   }
+  static void set_has_antennaaltitudemeters(HasBits* has_bits) {
+    (*has_bits)[0] |= 128u;
+  }
   static void set_has_geoidalseparationmeters(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
+    (*has_bits)[0] |= 256u;
   }
   static void set_has_ageofdifferentialgpsdataseconds(HasBits* has_bits) {
-    (*has_bits)[0] |= 1024u;
+    (*has_bits)[0] |= 512u;
   }
   static void set_has_differentialreferencestationid(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 1024u;
   }
 };
 
-const PROTOBUF_NAMESPACE_ID::Timestamp&
-Gps::_Internal::timestamp(const Gps* msg) {
-  return *msg->timestamp_;
-}
-void Gps::clear_timestamp() {
-  if (GetArena() == nullptr && timestamp_ != nullptr) {
-    delete timestamp_;
-  }
-  timestamp_ = nullptr;
-}
 Gps::Gps(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -418,23 +399,18 @@ Gps::Gps(const Gps& from)
     gpgga_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_gpgga(), 
       GetArena());
   }
-  if (from._internal_has_timestamp()) {
-    timestamp_ = new PROTOBUF_NAMESPACE_ID::Timestamp(*from.timestamp_);
-  } else {
-    timestamp_ = nullptr;
-  }
   ::memcpy(&latitude_, &from.latitude_,
-    static_cast<size_t>(reinterpret_cast<char*>(&ageofdifferentialgpsdataseconds_) -
-    reinterpret_cast<char*>(&latitude_)) + sizeof(ageofdifferentialgpsdataseconds_));
+    static_cast<size_t>(reinterpret_cast<char*>(&differentialreferencestationid_) -
+    reinterpret_cast<char*>(&latitude_)) + sizeof(differentialreferencestationid_));
   // @@protoc_insertion_point(copy_constructor:sensors.Gps)
 }
 
 void Gps::SharedCtor() {
 gpgga_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&timestamp_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&ageofdifferentialgpsdataseconds_) -
-    reinterpret_cast<char*>(&timestamp_)) + sizeof(ageofdifferentialgpsdataseconds_));
+    reinterpret_cast<char*>(&latitude_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&differentialreferencestationid_) -
+    reinterpret_cast<char*>(&latitude_)) + sizeof(differentialreferencestationid_));
 }
 
 Gps::~Gps() {
@@ -446,7 +422,6 @@ Gps::~Gps() {
 void Gps::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   gpgga_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete timestamp_;
 }
 
 void Gps::ArenaDtor(void* object) {
@@ -466,20 +441,18 @@ void Gps::Clear() {
   (void) cached_has_bits;
 
   gpgga_.ClearToEmpty();
-  if (GetArena() == nullptr && timestamp_ != nullptr) {
-    delete timestamp_;
-  }
-  timestamp_ = nullptr;
+  latitude_ = 0;
+  timestamp_ = 0;
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    ::memset(&latitude_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&numberofsatellitesinuse_) -
-        reinterpret_cast<char*>(&latitude_)) + sizeof(numberofsatellitesinuse_));
+  if (cached_has_bits & 0x000000feu) {
+    ::memset(&isnorth_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&antennaaltitudemeters_) -
+        reinterpret_cast<char*>(&isnorth_)) + sizeof(antennaaltitudemeters_));
   }
   if (cached_has_bits & 0x00000700u) {
-    ::memset(&differentialreferencestationid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&ageofdifferentialgpsdataseconds_) -
-        reinterpret_cast<char*>(&differentialreferencestationid_)) + sizeof(ageofdifferentialgpsdataseconds_));
+    ::memset(&geoidalseparationmeters_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&differentialreferencestationid_) -
+        reinterpret_cast<char*>(&geoidalseparationmeters_)) + sizeof(differentialreferencestationid_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -492,10 +465,10 @@ const char* Gps::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::intern
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .google.protobuf.Timestamp timestamp = 1;
+      // int32 timestamp = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_timestamp(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -626,12 +599,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  if (this->has_timestamp()) {
+  // int32 timestamp = 1;
+  if (this->timestamp() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::timestamp(this), target, stream);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_timestamp(), target);
   }
 
   // string gpgga = 2;
@@ -733,33 +704,33 @@ size_t Gps::ByteSizeLong() const {
         this->_internal_gpgga());
   }
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  if (this->has_timestamp()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *timestamp_);
+  // double latitude = 3;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 + 8;
   }
 
-  cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    // double latitude = 3;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 + 8;
-    }
+  // int32 timestamp = 1;
+  if (this->timestamp() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_timestamp());
+  }
 
-    // double longitude = 5;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + 8;
-    }
-
+  if (cached_has_bits & 0x000000feu) {
     // bool isNorth = 4;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
 
     // bool isEast = 6;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
+    }
+
+    // double longitude = 5;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 8;
     }
 
     // int32 gpsQuality = 7;
@@ -769,40 +740,40 @@ size_t Gps::ByteSizeLong() const {
           this->_internal_gpsquality());
     }
 
-    // double horizontalDilutionOfPrecision = 9;
-    if (cached_has_bits & 0x00000020u) {
-      total_size += 1 + 8;
-    }
-
-    // double antennaAltitudeMeters = 10;
-    if (cached_has_bits & 0x00000040u) {
-      total_size += 1 + 8;
-    }
-
     // int32 numberOfSatellitesInUse = 8;
-    if (cached_has_bits & 0x00000080u) {
+    if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_numberofsatellitesinuse());
     }
 
-  }
-  if (cached_has_bits & 0x00000700u) {
-    // int32 differentialReferenceStationID = 13;
-    if (cached_has_bits & 0x00000100u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-          this->_internal_differentialreferencestationid());
+    // double horizontalDilutionOfPrecision = 9;
+    if (cached_has_bits & 0x00000040u) {
+      total_size += 1 + 8;
     }
 
+    // double antennaAltitudeMeters = 10;
+    if (cached_has_bits & 0x00000080u) {
+      total_size += 1 + 8;
+    }
+
+  }
+  if (cached_has_bits & 0x00000700u) {
     // double geoidalSeparationMeters = 11;
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 8;
     }
 
     // double ageOfDifferentialGPSDataSeconds = 12;
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000200u) {
       total_size += 1 + 8;
+    }
+
+    // int32 differentialReferenceStationID = 13;
+    if (cached_has_bits & 0x00000400u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+          this->_internal_differentialreferencestationid());
     }
 
   }
@@ -840,46 +811,46 @@ void Gps::MergeFrom(const Gps& from) {
   if (from.gpgga().size() > 0) {
     _internal_set_gpgga(from._internal_gpgga());
   }
-  if (from.has_timestamp()) {
-    _internal_mutable_timestamp()->PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(from._internal_timestamp());
+  if (from._internal_has_latitude()) {
+    _internal_set_latitude(from._internal_latitude());
+  }
+  if (from.timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
   }
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x000000ffu) {
-    if (cached_has_bits & 0x00000001u) {
-      latitude_ = from.latitude_;
-    }
+  if (cached_has_bits & 0x000000feu) {
     if (cached_has_bits & 0x00000002u) {
-      longitude_ = from.longitude_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       isnorth_ = from.isnorth_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       iseast_ = from.iseast_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      longitude_ = from.longitude_;
     }
     if (cached_has_bits & 0x00000010u) {
       gpsquality_ = from.gpsquality_;
     }
     if (cached_has_bits & 0x00000020u) {
-      horizontaldilutionofprecision_ = from.horizontaldilutionofprecision_;
+      numberofsatellitesinuse_ = from.numberofsatellitesinuse_;
     }
     if (cached_has_bits & 0x00000040u) {
-      antennaaltitudemeters_ = from.antennaaltitudemeters_;
+      horizontaldilutionofprecision_ = from.horizontaldilutionofprecision_;
     }
     if (cached_has_bits & 0x00000080u) {
-      numberofsatellitesinuse_ = from.numberofsatellitesinuse_;
+      antennaaltitudemeters_ = from.antennaaltitudemeters_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 0x00000700u) {
     if (cached_has_bits & 0x00000100u) {
-      differentialreferencestationid_ = from.differentialreferencestationid_;
-    }
-    if (cached_has_bits & 0x00000200u) {
       geoidalseparationmeters_ = from.geoidalseparationmeters_;
     }
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00000200u) {
       ageofdifferentialgpsdataseconds_ = from.ageofdifferentialgpsdataseconds_;
+    }
+    if (cached_has_bits & 0x00000400u) {
+      differentialreferencestationid_ = from.differentialreferencestationid_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -909,11 +880,11 @@ void Gps::InternalSwap(Gps* other) {
   swap(_has_bits_[0], other->_has_bits_[0]);
   gpgga_.Swap(&other->gpgga_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Gps, ageofdifferentialgpsdataseconds_)
-      + sizeof(Gps::ageofdifferentialgpsdataseconds_)
-      - PROTOBUF_FIELD_OFFSET(Gps, timestamp_)>(
-          reinterpret_cast<char*>(&timestamp_),
-          reinterpret_cast<char*>(&other->timestamp_));
+      PROTOBUF_FIELD_OFFSET(Gps, differentialreferencestationid_)
+      + sizeof(Gps::differentialreferencestationid_)
+      - PROTOBUF_FIELD_OFFSET(Gps, latitude_)>(
+          reinterpret_cast<char*>(&latitude_),
+          reinterpret_cast<char*>(&other->latitude_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Gps::GetMetadata() const {
@@ -927,7 +898,6 @@ void Gps::InternalSwap(Gps* other) {
 class Imu::_Internal {
  public:
   using HasBits = decltype(std::declval<Imu>()._has_bits_);
-  static const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp(const Imu* msg);
   static void set_has_scaledaccelx(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
@@ -975,16 +945,6 @@ class Imu::_Internal {
   }
 };
 
-const PROTOBUF_NAMESPACE_ID::Timestamp&
-Imu::_Internal::timestamp(const Imu* msg) {
-  return *msg->timestamp_;
-}
-void Imu::clear_timestamp() {
-  if (GetArena() == nullptr && timestamp_ != nullptr) {
-    delete timestamp_;
-  }
-  timestamp_ = nullptr;
-}
 Imu::Imu(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -995,14 +955,9 @@ Imu::Imu(const Imu& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_timestamp()) {
-    timestamp_ = new PROTOBUF_NAMESPACE_ID::Timestamp(*from.timestamp_);
-  } else {
-    timestamp_ = nullptr;
-  }
-  ::memcpy(&scaledaccelx_, &from.scaledaccelx_,
+  ::memcpy(&timestamp_, &from.timestamp_,
     static_cast<size_t>(reinterpret_cast<char*>(&estyawuncert_) -
-    reinterpret_cast<char*>(&scaledaccelx_)) + sizeof(estyawuncert_));
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(estyawuncert_));
   // @@protoc_insertion_point(copy_constructor:sensors.Imu)
 }
 
@@ -1021,7 +976,6 @@ Imu::~Imu() {
 
 void Imu::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete timestamp_;
 }
 
 void Imu::ArenaDtor(void* object) {
@@ -1040,10 +994,7 @@ void Imu::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && timestamp_ != nullptr) {
-    delete timestamp_;
-  }
-  timestamp_ = nullptr;
+  timestamp_ = 0;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     ::memset(&scaledaccelx_, 0, static_cast<size_t>(
@@ -1066,10 +1017,10 @@ const char* Imu::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::intern
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .google.protobuf.Timestamp timestamp = 1;
+      // int32 timestamp = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_timestamp(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1223,12 +1174,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  if (this->has_timestamp()) {
+  // int32 timestamp = 1;
+  if (this->timestamp() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::timestamp(this), target, stream);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_timestamp(), target);
   }
 
   // float scaledAccelX = 2;
@@ -1337,11 +1286,11 @@ size_t Imu::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  if (this->has_timestamp()) {
+  // int32 timestamp = 1;
+  if (this->timestamp() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *timestamp_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_timestamp());
   }
 
   cached_has_bits = _has_bits_[0];
@@ -1455,8 +1404,8 @@ void Imu::MergeFrom(const Imu& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_timestamp()) {
-    _internal_mutable_timestamp()->PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(from._internal_timestamp());
+  if (from.timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
   }
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
@@ -1552,19 +1501,8 @@ void Imu::InternalSwap(Imu* other) {
 
 class Cam::_Internal {
  public:
-  static const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp(const Cam* msg);
 };
 
-const PROTOBUF_NAMESPACE_ID::Timestamp&
-Cam::_Internal::timestamp(const Cam* msg) {
-  return *msg->timestamp_;
-}
-void Cam::clear_timestamp() {
-  if (GetArena() == nullptr && timestamp_ != nullptr) {
-    delete timestamp_;
-  }
-  timestamp_ = nullptr;
-}
 Cam::Cam(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -1579,14 +1517,9 @@ Cam::Cam(const Cam& from)
     image_data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_image_data(), 
       GetArena());
   }
-  if (from._internal_has_timestamp()) {
-    timestamp_ = new PROTOBUF_NAMESPACE_ID::Timestamp(*from.timestamp_);
-  } else {
-    timestamp_ = nullptr;
-  }
-  ::memcpy(&channel_order_, &from.channel_order_,
+  ::memcpy(&timestamp_, &from.timestamp_,
     static_cast<size_t>(reinterpret_cast<char*>(&rows_) -
-    reinterpret_cast<char*>(&channel_order_)) + sizeof(rows_));
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(rows_));
   // @@protoc_insertion_point(copy_constructor:sensors.Cam)
 }
 
@@ -1607,7 +1540,6 @@ Cam::~Cam() {
 void Cam::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   image_data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete timestamp_;
 }
 
 void Cam::ArenaDtor(void* object) {
@@ -1627,13 +1559,9 @@ void Cam::Clear() {
   (void) cached_has_bits;
 
   image_data_.ClearToEmpty();
-  if (GetArena() == nullptr && timestamp_ != nullptr) {
-    delete timestamp_;
-  }
-  timestamp_ = nullptr;
-  ::memset(&channel_order_, 0, static_cast<size_t>(
+  ::memset(&timestamp_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&rows_) -
-      reinterpret_cast<char*>(&channel_order_)) + sizeof(rows_));
+      reinterpret_cast<char*>(&timestamp_)) + sizeof(rows_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1643,10 +1571,10 @@ const char* Cam::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::intern
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .google.protobuf.Timestamp timestamp = 1;
+      // int32 timestamp = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_timestamp(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1709,12 +1637,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  if (this->has_timestamp()) {
+  // int32 timestamp = 1;
+  if (this->timestamp() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::timestamp(this), target, stream);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_timestamp(), target);
   }
 
   // .sensors.ChannelOrder channel_order = 2;
@@ -1765,11 +1691,11 @@ size_t Cam::ByteSizeLong() const {
         this->_internal_image_data());
   }
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  if (this->has_timestamp()) {
+  // int32 timestamp = 1;
+  if (this->timestamp() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *timestamp_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_timestamp());
   }
 
   // .sensors.ChannelOrder channel_order = 2;
@@ -1826,8 +1752,8 @@ void Cam::MergeFrom(const Cam& from) {
   if (from.image_data().size() > 0) {
     _internal_set_image_data(from._internal_image_data());
   }
-  if (from.has_timestamp()) {
-    _internal_mutable_timestamp()->PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(from._internal_timestamp());
+  if (from.timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
   }
   if (from.channel_order() != 0) {
     _internal_set_channel_order(from._internal_channel_order());
@@ -1880,19 +1806,8 @@ void Cam::InternalSwap(Cam* other) {
 
 class Lidar::_Internal {
  public:
-  static const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp(const Lidar* msg);
 };
 
-const PROTOBUF_NAMESPACE_ID::Timestamp&
-Lidar::_Internal::timestamp(const Lidar* msg) {
-  return *msg->timestamp_;
-}
-void Lidar::clear_timestamp() {
-  if (GetArena() == nullptr && timestamp_ != nullptr) {
-    delete timestamp_;
-  }
-  timestamp_ = nullptr;
-}
 Lidar::Lidar(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -1902,16 +1817,12 @@ Lidar::Lidar(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 Lidar::Lidar(const Lidar& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_timestamp()) {
-    timestamp_ = new PROTOBUF_NAMESPACE_ID::Timestamp(*from.timestamp_);
-  } else {
-    timestamp_ = nullptr;
-  }
+  timestamp_ = from.timestamp_;
   // @@protoc_insertion_point(copy_constructor:sensors.Lidar)
 }
 
 void Lidar::SharedCtor() {
-timestamp_ = nullptr;
+timestamp_ = 0;
 }
 
 Lidar::~Lidar() {
@@ -1922,7 +1833,6 @@ Lidar::~Lidar() {
 
 void Lidar::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  if (this != internal_default_instance()) delete timestamp_;
 }
 
 void Lidar::ArenaDtor(void* object) {
@@ -1941,10 +1851,7 @@ void Lidar::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && timestamp_ != nullptr) {
-    delete timestamp_;
-  }
-  timestamp_ = nullptr;
+  timestamp_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1954,10 +1861,10 @@ const char* Lidar::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .google.protobuf.Timestamp timestamp = 1;
+      // int32 timestamp = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_timestamp(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1990,12 +1897,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  if (this->has_timestamp()) {
+  // int32 timestamp = 1;
+  if (this->timestamp() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::timestamp(this), target, stream);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_timestamp(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2014,11 +1919,11 @@ size_t Lidar::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  if (this->has_timestamp()) {
+  // int32 timestamp = 1;
+  if (this->timestamp() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *timestamp_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_timestamp());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2052,8 +1957,8 @@ void Lidar::MergeFrom(const Lidar& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_timestamp()) {
-    _internal_mutable_timestamp()->PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(from._internal_timestamp());
+  if (from.timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
   }
 }
 
@@ -2091,19 +1996,8 @@ void Lidar::InternalSwap(Lidar* other) {
 
 class Can::_Internal {
  public:
-  static const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp(const Can* msg);
 };
 
-const PROTOBUF_NAMESPACE_ID::Timestamp&
-Can::_Internal::timestamp(const Can* msg) {
-  return *msg->timestamp_;
-}
-void Can::clear_timestamp() {
-  if (GetArena() == nullptr && timestamp_ != nullptr) {
-    delete timestamp_;
-  }
-  timestamp_ = nullptr;
-}
 Can::Can(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
@@ -2133,14 +2027,9 @@ Can::Can(const Can& from)
     data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_data(), 
       GetArena());
   }
-  if (from._internal_has_timestamp()) {
-    timestamp_ = new PROTOBUF_NAMESPACE_ID::Timestamp(*from.timestamp_);
-  } else {
-    timestamp_ = nullptr;
-  }
-  ::memcpy(&can_id_, &from.can_id_,
+  ::memcpy(&timestamp_, &from.timestamp_,
     static_cast<size_t>(reinterpret_cast<char*>(&can_dlc_) -
-    reinterpret_cast<char*>(&can_id_)) + sizeof(can_dlc_));
+    reinterpret_cast<char*>(&timestamp_)) + sizeof(can_dlc_));
   // @@protoc_insertion_point(copy_constructor:sensors.Can)
 }
 
@@ -2167,7 +2056,6 @@ void Can::SharedDtor() {
   __res0_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   __res1_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete timestamp_;
 }
 
 void Can::ArenaDtor(void* object) {
@@ -2190,13 +2078,9 @@ void Can::Clear() {
   __res0_.ClearToEmpty();
   __res1_.ClearToEmpty();
   data_.ClearToEmpty();
-  if (GetArena() == nullptr && timestamp_ != nullptr) {
-    delete timestamp_;
-  }
-  timestamp_ = nullptr;
-  ::memset(&can_id_, 0, static_cast<size_t>(
+  ::memset(&timestamp_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&can_dlc_) -
-      reinterpret_cast<char*>(&can_id_)) + sizeof(can_dlc_));
+      reinterpret_cast<char*>(&timestamp_)) + sizeof(can_dlc_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2206,10 +2090,10 @@ const char* Can::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::intern
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .google.protobuf.Timestamp timestamp = 1;
+      // int32 timestamp = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_timestamp(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2288,12 +2172,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  if (this->has_timestamp()) {
+  // int32 timestamp = 1;
+  if (this->timestamp() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::timestamp(this), target, stream);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_timestamp(), target);
   }
 
   // uint32 can_id = 2;
@@ -2376,11 +2258,11 @@ size_t Can::ByteSizeLong() const {
         this->_internal_data());
   }
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  if (this->has_timestamp()) {
+  // int32 timestamp = 1;
+  if (this->timestamp() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *timestamp_);
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_timestamp());
   }
 
   // uint32 can_id = 2;
@@ -2440,8 +2322,8 @@ void Can::MergeFrom(const Can& from) {
   if (from.data().size() > 0) {
     _internal_set_data(from._internal_data());
   }
-  if (from.has_timestamp()) {
-    _internal_mutable_timestamp()->PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(from._internal_timestamp());
+  if (from.timestamp() != 0) {
+    _internal_set_timestamp(from._internal_timestamp());
   }
   if (from.can_id() != 0) {
     _internal_set_can_id(from._internal_can_id());

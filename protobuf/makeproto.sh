@@ -2,3 +2,5 @@
 
 protoc --cpp_out=./ sensors.proto
 protoc --proto_path=./ --python_out=./ sensors.proto
+protoc --c_out=. sensors.proto
+

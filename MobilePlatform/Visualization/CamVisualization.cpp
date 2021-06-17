@@ -31,8 +31,9 @@ void CamVisualization::run(void *contextSub)
 
     // [Connect with SUB socket]
     zmq::socket_t socketSub(*(zmq::context_t *)contextSub, ZMQ_SUB);
-    socketSub.connect(protocol::SENSING_SUB);
-    socketSub.setsockopt(ZMQ_SUBSCRIBE, "CAM", 3);
+    // socketSub.connect(protocol::SENSING_SUB);
+    socketSub.bind("tcp://*:5563");
+    socketSub.setsockopt(ZMQ_SUBSCRIBE, "", 0);
     printf("[MobilePlatform/Sensing/CamVisualization] connect with SUB socket\n");
 
     // int cnt = 0;

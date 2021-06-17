@@ -59,13 +59,13 @@ void ImuSensingThread::run(zmq::socket_t *pubSock, const char *devicename, mscl:
                     
                 // [Store the GPS data]
                 // <Make json object>
-                Json::Value json_dataset;
-                string path = "imu.json"; // TO-DO: the rule of file name
-                ifstream in(path.c_str());
-                if(in.is_open()) in >> json_dataset;
-                printf("[MobilePlatform/Sensing/ImuSensingThread] Make Json Object (path:%s)\n",path.c_str()); 
+                // Json::Value json_dataset;
+                // string path = "imu.json"; // TO-DO: the rule of file name
+                // ifstream in(path.c_str());
+                // if(in.is_open()) in >> json_dataset;
+                // printf("[MobilePlatform/Sensing/ImuSensingThread] Make Json Object (path:%s)\n",path.c_str()); 
 
-                Json::Value json_data; 
+                // Json::Value json_data; 
                 int count =0;
                 for(mscl::MipDataPoint dataPoint : points)
                 {    
@@ -85,7 +85,7 @@ void ImuSensingThread::run(zmq::socket_t *pubSock, const char *devicename, mscl:
                     }
 
                     // <make a json object>
-                    json_data[cName] = dataPoint.as_string();
+                    // json_data[cName] = dataPoint.as_string();
                     
                 } // End : read a packet line
                 printf("===========================\n");
@@ -96,33 +96,40 @@ void ImuSensingThread::run(zmq::socket_t *pubSock, const char *devicename, mscl:
                 imu.SerializeToArray(data, data_len);
                 printf("[MobilePlatform/Sensing/ImuSensingThread] complete to serialize (size=%d)\n",data_len);
                         
-                // <Send>
-                clk_now = clock();
-                if((float)(clk_now - clk_bef)/CLOCKS_PER_SEC >= 0.1)
-                {
-                    if(count==3){
+                if(count==3){
                     zmq::message_t zmqData(data_len);
                     memcpy((void *)zmqData.data(), data, data_len);
                     s_send_idx(*pubSock, SENSOR_IMU);
                     s_send(*pubSock, zmqData);
-                    printf("(%dms)[MobilePlatform/Sensing/ImuSensingThread] Complete to send to PUB Socket\n", (float)(clk_now-clk_bef)/CLOCKS_PER_SEC*1000);
-                    
-                    clk_bef = clk_now;
-                    }
                 }
+                
+                // <Send>
+                // clk_now = clock();
+                // if((float)(clk_now - clk_bef)/CLOCKS_PER_SEC >= 0.1)
+                // {
+                //     if(count==3){
+                //     zmq::message_t zmqData(data_len);
+                //     memcpy((void *)zmqData.data(), data, data_len);
+                //     s_send_idx(*pubSock, SENSOR_IMU);
+                //     s_send(*pubSock, zmqData);
+                //     printf("(%dms)[MobilePlatform/Sensing/ImuSensingThread] Complete to send to PUB Socket\n", (float)(clk_now-clk_bef)/CLOCKS_PER_SEC*1000);
+                    
+                //     clk_bef = clk_now;
+                //     }
+                // }
         
 
-                // [STORING]
-                // <add a json to json_dataset>
-                json_dataset.append(json_data);
-                printf("[MobilePlatform/Sensing/ImuSensingThread] Append a json data\n");
+                // // [STORING]
+                // // <add a json to json_dataset>
+                // json_dataset.append(json_data);
+                // printf("[MobilePlatform/Sensing/ImuSensingThread] Append a json data\n");
 
-                // <save the json file>
-                Json::StyledWriter jsonWriter;
-                ofstream out(path.c_str());
-                out<<jsonWriter.write(json_dataset);
-                out.close();
-                printf("[MobilePlatform/Sensing/ImuSensingThread] complete to make json file at \"%s\"\n",path.c_str());
+                // // <save the json file>
+                // Json::StyledWriter jsonWriter;
+                // ofstream out(path.c_str());
+                // out<<jsonWriter.write(json_dataset);
+                // out.close();
+                // printf("[MobilePlatform/Sensing/ImuSensingThread] complete to make json file at \"%s\"\n",path.c_str());
 
             } // End : read all packet lines
         
@@ -131,71 +138,6 @@ void ImuSensingThread::run(zmq::socket_t *pubSock, const char *devicename, mscl:
             
         } // End : while(1)
     } // End : if(USE_IMU==1)
-    if(USE_IMU==2){
-        while(1){
-            sensors::Imu imu;
-
-            // [write fake IMU data]
-            float scaledAccelX = (float) rand() / 500;
-            float scaledAccelY = (float) rand() / 500;
-            float scaledAccelZ = (float) rand() / 500;
-            imu.set_scaledaccelx(scaledAccelX);
-            imu.set_scaledaccely(scaledAccelY);
-            imu.set_scaledaccelz(scaledAccelZ);
-            printf("[MobilePlatform/Sensing/ImuSensingThread] read fake IMU data\n"); 
-
-            // [Send to PUB socket]
-            // <Serialization>        
-            int data_len = imu.ByteSize();
-            unsigned char data[data_len] = "\0";
-            imu.SerializeToArray(data, data_len);
-            printf("[MobilePlatform/Sensing/ImuSensingThread] complete to serialize (size=%d)\n",data_len);
-                        
-            // <Send>
-            clk_now = clock();
-            if((float)(clk_now - clk_bef)/CLOCKS_PER_SEC >= 0.1)
-            {
-                zmq::message_t zmqData(data_len);
-                memcpy((void *)zmqData.data(), data, data_len);
-                s_send_idx(*pubSock, SENSOR_IMU);
-                s_send(*pubSock, zmqData);
-                printf("(%dms)[MobilePlatform/Sensing/ImuSensingThread] Complete to send to PUB Socket\n", (float)(clk_now-clk_bef)/CLOCKS_PER_SEC*1000);
-                    
-                clk_bef = clk_now;
-            }
-            
-            // [Store the GPS data]
-            // <Make json object>
-            Json::Value json_dataset;
-            string path = "imu.json"; // TO-DO: the rule of file name
-            ifstream in(path.c_str());
-            if(in.is_open()) in >> json_dataset;
-            printf("[MobilePlatform/Sensing/ImuSensingThread] Make Json Object (path:%s)\n",path.c_str()); 
-
-            // <make a json object>
-            Json::Value json_data; 
-            json_data["scaledAccelX"] = to_string(scaledAccelX);
-            json_data["scaledAccelY"] = to_string(scaledAccelY);
-            json_data["scaledAccelZ"] = to_string(scaledAccelZ);
-            
-            // <add a json to json_dataset>
-            json_dataset.append(json_data);
-            printf("[MobilePlatform/Sensing/ImuSensingThread] Append a json data\n");
-            
-            // <save the json file>
-            Json::StyledWriter jsonWriter;
-            ofstream out(path.c_str());
-            out<<jsonWriter.write(json_dataset);
-            out.close();
-            printf("[MobilePlatform/Sensing/ImuSensingThread] complete to make json file at \"%s\"\n",path.c_str());
-
-            // [Options]
-            usleep(100);
-            // sleep(1);
-        } // End : while(1)
-        
-        
-    } // End : if(USE_IMU==2)
 }
 
 

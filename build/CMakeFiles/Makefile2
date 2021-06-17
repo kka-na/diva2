@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/diva2/diva2/build
 CMakeFiles/diva2.dir/all:
 	$(MAKE) -f CMakeFiles/diva2.dir/build.make CMakeFiles/diva2.dir/depend
 	$(MAKE) -f CMakeFiles/diva2.dir/build.make CMakeFiles/diva2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=35,36 "Built target diva2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=39,40 "Built target diva2"
 .PHONY : CMakeFiles/diva2.dir/all
 
 # Include target in all.
@@ -266,16 +266,18 @@ clean: GroundStation/Playback/CMakeFiles/GS_playback.dir/clean
 
 # Convenience name for "all" pass in the directory.
 GroundStation/AlgorithmTesting/all: GroundStation/AlgorithmTesting/CMakeFiles/GS_algorithm.dir/all
+GroundStation/AlgorithmTesting/all: GroundStation/AlgorithmTesting/Algorithm/all
 
 .PHONY : GroundStation/AlgorithmTesting/all
 
 # Convenience name for "clean" pass in the directory.
 GroundStation/AlgorithmTesting/clean: GroundStation/AlgorithmTesting/CMakeFiles/GS_algorithm.dir/clean
+GroundStation/AlgorithmTesting/clean: GroundStation/AlgorithmTesting/Algorithm/clean
 
 .PHONY : GroundStation/AlgorithmTesting/clean
 
 # Convenience name for "preinstall" pass in the directory.
-GroundStation/AlgorithmTesting/preinstall:
+GroundStation/AlgorithmTesting/preinstall: GroundStation/AlgorithmTesting/Algorithm/preinstall
 
 .PHONY : GroundStation/AlgorithmTesting/preinstall
 
@@ -317,6 +319,24 @@ clean: GroundStation/AlgorithmTesting/CMakeFiles/GS_algorithm.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory GroundStation/AlgorithmTesting/Algorithm
+
+# Convenience name for "all" pass in the directory.
+GroundStation/AlgorithmTesting/Algorithm/all:
+
+.PHONY : GroundStation/AlgorithmTesting/Algorithm/all
+
+# Convenience name for "clean" pass in the directory.
+GroundStation/AlgorithmTesting/Algorithm/clean:
+
+.PHONY : GroundStation/AlgorithmTesting/Algorithm/clean
+
+# Convenience name for "preinstall" pass in the directory.
+GroundStation/AlgorithmTesting/Algorithm/preinstall:
+
+.PHONY : GroundStation/AlgorithmTesting/Algorithm/preinstall
+
+#=============================================================================
 # Directory level rules for directory test/socketCan
 
 # Convenience name for "all" pass in the directory.
@@ -341,7 +361,7 @@ test/socketCan/preinstall:
 test/socketCan/CMakeFiles/socketCan.dir/all:
 	$(MAKE) -f test/socketCan/CMakeFiles/socketCan.dir/build.make test/socketCan/CMakeFiles/socketCan.dir/depend
 	$(MAKE) -f test/socketCan/CMakeFiles/socketCan.dir/build.make test/socketCan/CMakeFiles/socketCan.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=43,44,45,46 "Built target socketCan"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=41,42,43,44 "Built target socketCan"
 .PHONY : test/socketCan/CMakeFiles/socketCan.dir/all
 
 # Include target in all.
@@ -372,6 +392,116 @@ clean: test/socketCan/CMakeFiles/socketCan.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory test/simple_sub
+
+# Convenience name for "all" pass in the directory.
+test/simple_sub/all: test/simple_sub/CMakeFiles/Simple_sub.dir/all
+
+.PHONY : test/simple_sub/all
+
+# Convenience name for "clean" pass in the directory.
+test/simple_sub/clean: test/simple_sub/CMakeFiles/Simple_sub.dir/clean
+
+.PHONY : test/simple_sub/clean
+
+# Convenience name for "preinstall" pass in the directory.
+test/simple_sub/preinstall:
+
+.PHONY : test/simple_sub/preinstall
+
+#=============================================================================
+# Target rules for target test/simple_sub/CMakeFiles/Simple_sub.dir
+
+# All Build rule for target.
+test/simple_sub/CMakeFiles/Simple_sub.dir/all:
+	$(MAKE) -f test/simple_sub/CMakeFiles/Simple_sub.dir/build.make test/simple_sub/CMakeFiles/Simple_sub.dir/depend
+	$(MAKE) -f test/simple_sub/CMakeFiles/Simple_sub.dir/build.make test/simple_sub/CMakeFiles/Simple_sub.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=30,31,32,33 "Built target Simple_sub"
+.PHONY : test/simple_sub/CMakeFiles/Simple_sub.dir/all
+
+# Include target in all.
+all: test/simple_sub/CMakeFiles/Simple_sub.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+test/simple_sub/CMakeFiles/Simple_sub.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diva2/diva2/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 test/simple_sub/CMakeFiles/Simple_sub.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diva2/diva2/build/CMakeFiles 0
+.PHONY : test/simple_sub/CMakeFiles/Simple_sub.dir/rule
+
+# Convenience name for target.
+Simple_sub: test/simple_sub/CMakeFiles/Simple_sub.dir/rule
+
+.PHONY : Simple_sub
+
+# clean rule for target.
+test/simple_sub/CMakeFiles/Simple_sub.dir/clean:
+	$(MAKE) -f test/simple_sub/CMakeFiles/Simple_sub.dir/build.make test/simple_sub/CMakeFiles/Simple_sub.dir/clean
+.PHONY : test/simple_sub/CMakeFiles/Simple_sub.dir/clean
+
+# clean rule for target.
+clean: test/simple_sub/CMakeFiles/Simple_sub.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory test/simple_pub
+
+# Convenience name for "all" pass in the directory.
+test/simple_pub/all: test/simple_pub/CMakeFiles/Simple_pub.dir/all
+
+.PHONY : test/simple_pub/all
+
+# Convenience name for "clean" pass in the directory.
+test/simple_pub/clean: test/simple_pub/CMakeFiles/Simple_pub.dir/clean
+
+.PHONY : test/simple_pub/clean
+
+# Convenience name for "preinstall" pass in the directory.
+test/simple_pub/preinstall:
+
+.PHONY : test/simple_pub/preinstall
+
+#=============================================================================
+# Target rules for target test/simple_pub/CMakeFiles/Simple_pub.dir
+
+# All Build rule for target.
+test/simple_pub/CMakeFiles/Simple_pub.dir/all:
+	$(MAKE) -f test/simple_pub/CMakeFiles/Simple_pub.dir/build.make test/simple_pub/CMakeFiles/Simple_pub.dir/depend
+	$(MAKE) -f test/simple_pub/CMakeFiles/Simple_pub.dir/build.make test/simple_pub/CMakeFiles/Simple_pub.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=28,29 "Built target Simple_pub"
+.PHONY : test/simple_pub/CMakeFiles/Simple_pub.dir/all
+
+# Include target in all.
+all: test/simple_pub/CMakeFiles/Simple_pub.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+test/simple_pub/CMakeFiles/Simple_pub.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diva2/diva2/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 test/simple_pub/CMakeFiles/Simple_pub.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/diva2/diva2/build/CMakeFiles 0
+.PHONY : test/simple_pub/CMakeFiles/Simple_pub.dir/rule
+
+# Convenience name for target.
+Simple_pub: test/simple_pub/CMakeFiles/Simple_pub.dir/rule
+
+.PHONY : Simple_pub
+
+# clean rule for target.
+test/simple_pub/CMakeFiles/Simple_pub.dir/clean:
+	$(MAKE) -f test/simple_pub/CMakeFiles/Simple_pub.dir/build.make test/simple_pub/CMakeFiles/Simple_pub.dir/clean
+.PHONY : test/simple_pub/CMakeFiles/Simple_pub.dir/clean
+
+# clean rule for target.
+clean: test/simple_pub/CMakeFiles/Simple_pub.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Directory level rules for directory test/can_dbcparser
 
 # Convenience name for "all" pass in the directory.
@@ -396,7 +526,7 @@ test/can_dbcparser/preinstall:
 test/can_dbcparser/CMakeFiles/candbcparser.dir/all:
 	$(MAKE) -f test/can_dbcparser/CMakeFiles/candbcparser.dir/build.make test/can_dbcparser/CMakeFiles/candbcparser.dir/depend
 	$(MAKE) -f test/can_dbcparser/CMakeFiles/candbcparser.dir/build.make test/can_dbcparser/CMakeFiles/candbcparser.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=28,29,30,31,32 "Built target candbcparser"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=34,35,36,37,38 "Built target candbcparser"
 .PHONY : test/can_dbcparser/CMakeFiles/candbcparser.dir/all
 
 # Include target in all.
@@ -423,189 +553,6 @@ test/can_dbcparser/CMakeFiles/candbcparser.dir/clean:
 
 # clean rule for target.
 clean: test/can_dbcparser/CMakeFiles/candbcparser.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory test/lane_detection
-
-# Convenience name for "all" pass in the directory.
-test/lane_detection/all: test/lane_detection/LaneDetector/all
-
-.PHONY : test/lane_detection/all
-
-# Convenience name for "clean" pass in the directory.
-test/lane_detection/clean: test/lane_detection/LaneDetector/clean
-
-.PHONY : test/lane_detection/clean
-
-# Convenience name for "preinstall" pass in the directory.
-test/lane_detection/preinstall: test/lane_detection/LaneDetector/preinstall
-
-.PHONY : test/lane_detection/preinstall
-
-#=============================================================================
-# Directory level rules for directory test/lane_detection/LaneDetector
-
-# Convenience name for "all" pass in the directory.
-test/lane_detection/LaneDetector/all: test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/all
-
-.PHONY : test/lane_detection/LaneDetector/all
-
-# Convenience name for "clean" pass in the directory.
-test/lane_detection/LaneDetector/clean: test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/clean
-
-.PHONY : test/lane_detection/LaneDetector/clean
-
-# Convenience name for "preinstall" pass in the directory.
-test/lane_detection/LaneDetector/preinstall:
-
-.PHONY : test/lane_detection/LaneDetector/preinstall
-
-#=============================================================================
-# Target rules for target test/lane_detection/LaneDetector/CMakeFiles/lanes.dir
-
-# All Build rule for target.
-test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/all:
-	$(MAKE) -f test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/build.make test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/depend
-	$(MAKE) -f test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/build.make test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=41,42 "Built target lanes"
-.PHONY : test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/all
-
-# Include target in all.
-all: test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diva2/diva2/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diva2/diva2/build/CMakeFiles 0
-.PHONY : test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/rule
-
-# Convenience name for target.
-lanes: test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/rule
-
-.PHONY : lanes
-
-# clean rule for target.
-test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/clean:
-	$(MAKE) -f test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/build.make test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/clean
-.PHONY : test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/clean
-
-# clean rule for target.
-clean: test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory test/lane_detection2
-
-# Convenience name for "all" pass in the directory.
-test/lane_detection2/all: test/lane_detection2/CMakeFiles/contours.dir/all
-
-.PHONY : test/lane_detection2/all
-
-# Convenience name for "clean" pass in the directory.
-test/lane_detection2/clean: test/lane_detection2/CMakeFiles/contours.dir/clean
-
-.PHONY : test/lane_detection2/clean
-
-# Convenience name for "preinstall" pass in the directory.
-test/lane_detection2/preinstall:
-
-.PHONY : test/lane_detection2/preinstall
-
-#=============================================================================
-# Target rules for target test/lane_detection2/CMakeFiles/contours.dir
-
-# All Build rule for target.
-test/lane_detection2/CMakeFiles/contours.dir/all:
-	$(MAKE) -f test/lane_detection2/CMakeFiles/contours.dir/build.make test/lane_detection2/CMakeFiles/contours.dir/depend
-	$(MAKE) -f test/lane_detection2/CMakeFiles/contours.dir/build.make test/lane_detection2/CMakeFiles/contours.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=33,34 "Built target contours"
-.PHONY : test/lane_detection2/CMakeFiles/contours.dir/all
-
-# Include target in all.
-all: test/lane_detection2/CMakeFiles/contours.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-test/lane_detection2/CMakeFiles/contours.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diva2/diva2/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 test/lane_detection2/CMakeFiles/contours.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diva2/diva2/build/CMakeFiles 0
-.PHONY : test/lane_detection2/CMakeFiles/contours.dir/rule
-
-# Convenience name for target.
-contours: test/lane_detection2/CMakeFiles/contours.dir/rule
-
-.PHONY : contours
-
-# clean rule for target.
-test/lane_detection2/CMakeFiles/contours.dir/clean:
-	$(MAKE) -f test/lane_detection2/CMakeFiles/contours.dir/build.make test/lane_detection2/CMakeFiles/contours.dir/clean
-.PHONY : test/lane_detection2/CMakeFiles/contours.dir/clean
-
-# clean rule for target.
-clean: test/lane_detection2/CMakeFiles/contours.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory test/lane_detection3
-
-# Convenience name for "all" pass in the directory.
-test/lane_detection3/all: test/lane_detection3/CMakeFiles/lane_detection3.dir/all
-
-.PHONY : test/lane_detection3/all
-
-# Convenience name for "clean" pass in the directory.
-test/lane_detection3/clean: test/lane_detection3/CMakeFiles/lane_detection3.dir/clean
-
-.PHONY : test/lane_detection3/clean
-
-# Convenience name for "preinstall" pass in the directory.
-test/lane_detection3/preinstall:
-
-.PHONY : test/lane_detection3/preinstall
-
-#=============================================================================
-# Target rules for target test/lane_detection3/CMakeFiles/lane_detection3.dir
-
-# All Build rule for target.
-test/lane_detection3/CMakeFiles/lane_detection3.dir/all:
-	$(MAKE) -f test/lane_detection3/CMakeFiles/lane_detection3.dir/build.make test/lane_detection3/CMakeFiles/lane_detection3.dir/depend
-	$(MAKE) -f test/lane_detection3/CMakeFiles/lane_detection3.dir/build.make test/lane_detection3/CMakeFiles/lane_detection3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/diva2/diva2/build/CMakeFiles --progress-num=37,38,39,40 "Built target lane_detection3"
-.PHONY : test/lane_detection3/CMakeFiles/lane_detection3.dir/all
-
-# Include target in all.
-all: test/lane_detection3/CMakeFiles/lane_detection3.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-test/lane_detection3/CMakeFiles/lane_detection3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diva2/diva2/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 test/lane_detection3/CMakeFiles/lane_detection3.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/diva2/diva2/build/CMakeFiles 0
-.PHONY : test/lane_detection3/CMakeFiles/lane_detection3.dir/rule
-
-# Convenience name for target.
-lane_detection3: test/lane_detection3/CMakeFiles/lane_detection3.dir/rule
-
-.PHONY : lane_detection3
-
-# clean rule for target.
-test/lane_detection3/CMakeFiles/lane_detection3.dir/clean:
-	$(MAKE) -f test/lane_detection3/CMakeFiles/lane_detection3.dir/build.make test/lane_detection3/CMakeFiles/lane_detection3.dir/clean
-.PHONY : test/lane_detection3/CMakeFiles/lane_detection3.dir/clean
-
-# clean rule for target.
-clean: test/lane_detection3/CMakeFiles/lane_detection3.dir/clean
 
 .PHONY : clean
 

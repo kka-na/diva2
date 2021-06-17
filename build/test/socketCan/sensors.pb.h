@@ -32,7 +32,6 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
-#include <google/protobuf/timestamp.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_sensors_2eproto
@@ -224,18 +223,18 @@ class Gps PROTOBUF_FINAL :
 
   enum : int {
     kGpggaFieldNumber = 2,
-    kTimestampFieldNumber = 1,
     kLatitudeFieldNumber = 3,
-    kLongitudeFieldNumber = 5,
+    kTimestampFieldNumber = 1,
     kIsNorthFieldNumber = 4,
     kIsEastFieldNumber = 6,
+    kLongitudeFieldNumber = 5,
     kGpsQualityFieldNumber = 7,
+    kNumberOfSatellitesInUseFieldNumber = 8,
     kHorizontalDilutionOfPrecisionFieldNumber = 9,
     kAntennaAltitudeMetersFieldNumber = 10,
-    kNumberOfSatellitesInUseFieldNumber = 8,
-    kDifferentialReferenceStationIDFieldNumber = 13,
     kGeoidalSeparationMetersFieldNumber = 11,
     kAgeOfDifferentialGPSDataSecondsFieldNumber = 12,
+    kDifferentialReferenceStationIDFieldNumber = 13,
   };
   // string gpgga = 2;
   void clear_gpgga();
@@ -251,24 +250,6 @@ class Gps PROTOBUF_FINAL :
   std::string* _internal_mutable_gpgga();
   public:
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  bool has_timestamp() const;
-  private:
-  bool _internal_has_timestamp() const;
-  public:
-  void clear_timestamp();
-  const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp() const;
-  PROTOBUF_NAMESPACE_ID::Timestamp* release_timestamp();
-  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_timestamp();
-  void set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
-  private:
-  const PROTOBUF_NAMESPACE_ID::Timestamp& _internal_timestamp() const;
-  PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_timestamp();
-  public:
-  void unsafe_arena_set_allocated_timestamp(
-      PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
-  PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_timestamp();
-
   // double latitude = 3;
   bool has_latitude() const;
   private:
@@ -282,17 +263,13 @@ class Gps PROTOBUF_FINAL :
   void _internal_set_latitude(double value);
   public:
 
-  // double longitude = 5;
-  bool has_longitude() const;
+  // int32 timestamp = 1;
+  void clear_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::int32 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  bool _internal_has_longitude() const;
-  public:
-  void clear_longitude();
-  double longitude() const;
-  void set_longitude(double value);
-  private:
-  double _internal_longitude() const;
-  void _internal_set_longitude(double value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // bool isNorth = 4;
@@ -321,6 +298,19 @@ class Gps PROTOBUF_FINAL :
   void _internal_set_iseast(bool value);
   public:
 
+  // double longitude = 5;
+  bool has_longitude() const;
+  private:
+  bool _internal_has_longitude() const;
+  public:
+  void clear_longitude();
+  double longitude() const;
+  void set_longitude(double value);
+  private:
+  double _internal_longitude() const;
+  void _internal_set_longitude(double value);
+  public:
+
   // int32 gpsQuality = 7;
   bool has_gpsquality() const;
   private:
@@ -332,6 +322,19 @@ class Gps PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_gpsquality() const;
   void _internal_set_gpsquality(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 numberOfSatellitesInUse = 8;
+  bool has_numberofsatellitesinuse() const;
+  private:
+  bool _internal_has_numberofsatellitesinuse() const;
+  public:
+  void clear_numberofsatellitesinuse();
+  ::PROTOBUF_NAMESPACE_ID::int32 numberofsatellitesinuse() const;
+  void set_numberofsatellitesinuse(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_numberofsatellitesinuse() const;
+  void _internal_set_numberofsatellitesinuse(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // double horizontalDilutionOfPrecision = 9;
@@ -360,32 +363,6 @@ class Gps PROTOBUF_FINAL :
   void _internal_set_antennaaltitudemeters(double value);
   public:
 
-  // int32 numberOfSatellitesInUse = 8;
-  bool has_numberofsatellitesinuse() const;
-  private:
-  bool _internal_has_numberofsatellitesinuse() const;
-  public:
-  void clear_numberofsatellitesinuse();
-  ::PROTOBUF_NAMESPACE_ID::int32 numberofsatellitesinuse() const;
-  void set_numberofsatellitesinuse(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_numberofsatellitesinuse() const;
-  void _internal_set_numberofsatellitesinuse(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // int32 differentialReferenceStationID = 13;
-  bool has_differentialreferencestationid() const;
-  private:
-  bool _internal_has_differentialreferencestationid() const;
-  public:
-  void clear_differentialreferencestationid();
-  ::PROTOBUF_NAMESPACE_ID::int32 differentialreferencestationid() const;
-  void set_differentialreferencestationid(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_differentialreferencestationid() const;
-  void _internal_set_differentialreferencestationid(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
   // double geoidalSeparationMeters = 11;
   bool has_geoidalseparationmeters() const;
   private:
@@ -412,6 +389,19 @@ class Gps PROTOBUF_FINAL :
   void _internal_set_ageofdifferentialgpsdataseconds(double value);
   public:
 
+  // int32 differentialReferenceStationID = 13;
+  bool has_differentialreferencestationid() const;
+  private:
+  bool _internal_has_differentialreferencestationid() const;
+  public:
+  void clear_differentialreferencestationid();
+  ::PROTOBUF_NAMESPACE_ID::int32 differentialreferencestationid() const;
+  void set_differentialreferencestationid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_differentialreferencestationid() const;
+  void _internal_set_differentialreferencestationid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:sensors.Gps)
  private:
   class _Internal;
@@ -422,18 +412,18 @@ class Gps PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr gpgga_;
-  PROTOBUF_NAMESPACE_ID::Timestamp* timestamp_;
   double latitude_;
-  double longitude_;
+  ::PROTOBUF_NAMESPACE_ID::int32 timestamp_;
   bool isnorth_;
   bool iseast_;
+  double longitude_;
   ::PROTOBUF_NAMESPACE_ID::int32 gpsquality_;
+  ::PROTOBUF_NAMESPACE_ID::int32 numberofsatellitesinuse_;
   double horizontaldilutionofprecision_;
   double antennaaltitudemeters_;
-  ::PROTOBUF_NAMESPACE_ID::int32 numberofsatellitesinuse_;
-  ::PROTOBUF_NAMESPACE_ID::int32 differentialreferencestationid_;
   double geoidalseparationmeters_;
   double ageofdifferentialgpsdataseconds_;
+  ::PROTOBUF_NAMESPACE_ID::int32 differentialreferencestationid_;
   friend struct ::TableStruct_sensors_2eproto;
 };
 // -------------------------------------------------------------------
@@ -562,23 +552,14 @@ class Imu PROTOBUF_FINAL :
     kEstPitchUncertFieldNumber = 15,
     kEstYawUncertFieldNumber = 16,
   };
-  // .google.protobuf.Timestamp timestamp = 1;
-  bool has_timestamp() const;
-  private:
-  bool _internal_has_timestamp() const;
-  public:
+  // int32 timestamp = 1;
   void clear_timestamp();
-  const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp() const;
-  PROTOBUF_NAMESPACE_ID::Timestamp* release_timestamp();
-  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_timestamp();
-  void set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  ::PROTOBUF_NAMESPACE_ID::int32 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  const PROTOBUF_NAMESPACE_ID::Timestamp& _internal_timestamp() const;
-  PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
-  void unsafe_arena_set_allocated_timestamp(
-      PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
-  PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_timestamp();
 
   // float scaledAccelX = 2;
   bool has_scaledaccelx() const;
@@ -784,7 +765,7 @@ class Imu PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  PROTOBUF_NAMESPACE_ID::Timestamp* timestamp_;
+  ::PROTOBUF_NAMESPACE_ID::int32 timestamp_;
   float scaledaccelx_;
   float scaledaccely_;
   float scaledaccelz_;
@@ -931,23 +912,14 @@ class Cam PROTOBUF_FINAL :
   std::string* _internal_mutable_image_data();
   public:
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  bool has_timestamp() const;
-  private:
-  bool _internal_has_timestamp() const;
-  public:
+  // int32 timestamp = 1;
   void clear_timestamp();
-  const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp() const;
-  PROTOBUF_NAMESPACE_ID::Timestamp* release_timestamp();
-  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_timestamp();
-  void set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  ::PROTOBUF_NAMESPACE_ID::int32 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  const PROTOBUF_NAMESPACE_ID::Timestamp& _internal_timestamp() const;
-  PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
-  void unsafe_arena_set_allocated_timestamp(
-      PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
-  PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_timestamp();
 
   // .sensors.ChannelOrder channel_order = 2;
   void clear_channel_order();
@@ -984,7 +956,7 @@ class Cam PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr image_data_;
-  PROTOBUF_NAMESPACE_ID::Timestamp* timestamp_;
+  ::PROTOBUF_NAMESPACE_ID::int32 timestamp_;
   int channel_order_;
   ::PROTOBUF_NAMESPACE_ID::int32 cols_;
   ::PROTOBUF_NAMESPACE_ID::int32 rows_;
@@ -1102,23 +1074,14 @@ class Lidar PROTOBUF_FINAL :
   enum : int {
     kTimestampFieldNumber = 1,
   };
-  // .google.protobuf.Timestamp timestamp = 1;
-  bool has_timestamp() const;
-  private:
-  bool _internal_has_timestamp() const;
-  public:
+  // int32 timestamp = 1;
   void clear_timestamp();
-  const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp() const;
-  PROTOBUF_NAMESPACE_ID::Timestamp* release_timestamp();
-  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_timestamp();
-  void set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  ::PROTOBUF_NAMESPACE_ID::int32 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  const PROTOBUF_NAMESPACE_ID::Timestamp& _internal_timestamp() const;
-  PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
-  void unsafe_arena_set_allocated_timestamp(
-      PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
-  PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_timestamp();
 
   // @@protoc_insertion_point(class_scope:sensors.Lidar)
  private:
@@ -1127,7 +1090,7 @@ class Lidar PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  PROTOBUF_NAMESPACE_ID::Timestamp* timestamp_;
+  ::PROTOBUF_NAMESPACE_ID::int32 timestamp_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_sensors_2eproto;
 };
@@ -1304,23 +1267,14 @@ class Can PROTOBUF_FINAL :
   std::string* _internal_mutable_data();
   public:
 
-  // .google.protobuf.Timestamp timestamp = 1;
-  bool has_timestamp() const;
-  private:
-  bool _internal_has_timestamp() const;
-  public:
+  // int32 timestamp = 1;
   void clear_timestamp();
-  const PROTOBUF_NAMESPACE_ID::Timestamp& timestamp() const;
-  PROTOBUF_NAMESPACE_ID::Timestamp* release_timestamp();
-  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_timestamp();
-  void set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
+  ::PROTOBUF_NAMESPACE_ID::int32 timestamp() const;
+  void set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  const PROTOBUF_NAMESPACE_ID::Timestamp& _internal_timestamp() const;
-  PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_timestamp();
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_timestamp() const;
+  void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
-  void unsafe_arena_set_allocated_timestamp(
-      PROTOBUF_NAMESPACE_ID::Timestamp* timestamp);
-  PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_timestamp();
 
   // uint32 can_id = 2;
   void clear_can_id();
@@ -1351,7 +1305,7 @@ class Can PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr __res0_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr __res1_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr data_;
-  PROTOBUF_NAMESPACE_ID::Timestamp* timestamp_;
+  ::PROTOBUF_NAMESPACE_ID::int32 timestamp_;
   ::PROTOBUF_NAMESPACE_ID::uint32 can_id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 can_dlc_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1574,81 +1528,24 @@ class Log PROTOBUF_FINAL :
 #endif  // __GNUC__
 // Gps
 
-// .google.protobuf.Timestamp timestamp = 1;
-inline bool Gps::_internal_has_timestamp() const {
-  return this != internal_default_instance() && timestamp_ != nullptr;
+// int32 timestamp = 1;
+inline void Gps::clear_timestamp() {
+  timestamp_ = 0;
 }
-inline bool Gps::has_timestamp() const {
-  return _internal_has_timestamp();
+inline ::PROTOBUF_NAMESPACE_ID::int32 Gps::_internal_timestamp() const {
+  return timestamp_;
 }
-inline const PROTOBUF_NAMESPACE_ID::Timestamp& Gps::_internal_timestamp() const {
-  const PROTOBUF_NAMESPACE_ID::Timestamp* p = timestamp_;
-  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp&>(
-      PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
-}
-inline const PROTOBUF_NAMESPACE_ID::Timestamp& Gps::timestamp() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Gps::timestamp() const {
   // @@protoc_insertion_point(field_get:sensors.Gps.timestamp)
   return _internal_timestamp();
 }
-inline void Gps::unsafe_arena_set_allocated_timestamp(
-    PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
-  }
-  timestamp_ = timestamp;
-  if (timestamp) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:sensors.Gps.timestamp)
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Gps::release_timestamp() {
+inline void Gps::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
-  timestamp_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
+  timestamp_ = value;
 }
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Gps::unsafe_arena_release_timestamp() {
-  // @@protoc_insertion_point(field_release:sensors.Gps.timestamp)
-  
-  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
-  timestamp_ = nullptr;
-  return temp;
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Gps::_internal_mutable_timestamp() {
-  
-  if (timestamp_ == nullptr) {
-    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArena());
-    timestamp_ = p;
-  }
-  return timestamp_;
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Gps::mutable_timestamp() {
-  // @@protoc_insertion_point(field_mutable:sensors.Gps.timestamp)
-  return _internal_mutable_timestamp();
-}
-inline void Gps::set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
-  }
-  if (timestamp) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp)->GetArena();
-    if (message_arena != submessage_arena) {
-      timestamp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, timestamp, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  timestamp_ = timestamp;
-  // @@protoc_insertion_point(field_set_allocated:sensors.Gps.timestamp)
+inline void Gps::set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:sensors.Gps.timestamp)
 }
 
 // string gpgga = 2;
@@ -1726,7 +1623,7 @@ inline void Gps::set_latitude(double value) {
 
 // bool isNorth = 4;
 inline bool Gps::_internal_has_isnorth() const {
-  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool Gps::has_isnorth() const {
@@ -1734,7 +1631,7 @@ inline bool Gps::has_isnorth() const {
 }
 inline void Gps::clear_isnorth() {
   isnorth_ = false;
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline bool Gps::_internal_isnorth() const {
   return isnorth_;
@@ -1744,7 +1641,7 @@ inline bool Gps::isnorth() const {
   return _internal_isnorth();
 }
 inline void Gps::_internal_set_isnorth(bool value) {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
   isnorth_ = value;
 }
 inline void Gps::set_isnorth(bool value) {
@@ -1754,7 +1651,7 @@ inline void Gps::set_isnorth(bool value) {
 
 // double longitude = 5;
 inline bool Gps::_internal_has_longitude() const {
-  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline bool Gps::has_longitude() const {
@@ -1762,7 +1659,7 @@ inline bool Gps::has_longitude() const {
 }
 inline void Gps::clear_longitude() {
   longitude_ = 0;
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline double Gps::_internal_longitude() const {
   return longitude_;
@@ -1772,7 +1669,7 @@ inline double Gps::longitude() const {
   return _internal_longitude();
 }
 inline void Gps::_internal_set_longitude(double value) {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000008u;
   longitude_ = value;
 }
 inline void Gps::set_longitude(double value) {
@@ -1782,7 +1679,7 @@ inline void Gps::set_longitude(double value) {
 
 // bool isEast = 6;
 inline bool Gps::_internal_has_iseast() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool Gps::has_iseast() const {
@@ -1790,7 +1687,7 @@ inline bool Gps::has_iseast() const {
 }
 inline void Gps::clear_iseast() {
   iseast_ = false;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline bool Gps::_internal_iseast() const {
   return iseast_;
@@ -1800,7 +1697,7 @@ inline bool Gps::iseast() const {
   return _internal_iseast();
 }
 inline void Gps::_internal_set_iseast(bool value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
   iseast_ = value;
 }
 inline void Gps::set_iseast(bool value) {
@@ -1838,7 +1735,7 @@ inline void Gps::set_gpsquality(::PROTOBUF_NAMESPACE_ID::int32 value) {
 
 // int32 numberOfSatellitesInUse = 8;
 inline bool Gps::_internal_has_numberofsatellitesinuse() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool Gps::has_numberofsatellitesinuse() const {
@@ -1846,7 +1743,7 @@ inline bool Gps::has_numberofsatellitesinuse() const {
 }
 inline void Gps::clear_numberofsatellitesinuse() {
   numberofsatellitesinuse_ = 0;
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 Gps::_internal_numberofsatellitesinuse() const {
   return numberofsatellitesinuse_;
@@ -1856,7 +1753,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 Gps::numberofsatellitesinuse() const {
   return _internal_numberofsatellitesinuse();
 }
 inline void Gps::_internal_set_numberofsatellitesinuse(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000020u;
   numberofsatellitesinuse_ = value;
 }
 inline void Gps::set_numberofsatellitesinuse(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -1866,7 +1763,7 @@ inline void Gps::set_numberofsatellitesinuse(::PROTOBUF_NAMESPACE_ID::int32 valu
 
 // double horizontalDilutionOfPrecision = 9;
 inline bool Gps::_internal_has_horizontaldilutionofprecision() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool Gps::has_horizontaldilutionofprecision() const {
@@ -1874,7 +1771,7 @@ inline bool Gps::has_horizontaldilutionofprecision() const {
 }
 inline void Gps::clear_horizontaldilutionofprecision() {
   horizontaldilutionofprecision_ = 0;
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline double Gps::_internal_horizontaldilutionofprecision() const {
   return horizontaldilutionofprecision_;
@@ -1884,7 +1781,7 @@ inline double Gps::horizontaldilutionofprecision() const {
   return _internal_horizontaldilutionofprecision();
 }
 inline void Gps::_internal_set_horizontaldilutionofprecision(double value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   horizontaldilutionofprecision_ = value;
 }
 inline void Gps::set_horizontaldilutionofprecision(double value) {
@@ -1894,7 +1791,7 @@ inline void Gps::set_horizontaldilutionofprecision(double value) {
 
 // double antennaAltitudeMeters = 10;
 inline bool Gps::_internal_has_antennaaltitudemeters() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool Gps::has_antennaaltitudemeters() const {
@@ -1902,7 +1799,7 @@ inline bool Gps::has_antennaaltitudemeters() const {
 }
 inline void Gps::clear_antennaaltitudemeters() {
   antennaaltitudemeters_ = 0;
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline double Gps::_internal_antennaaltitudemeters() const {
   return antennaaltitudemeters_;
@@ -1912,7 +1809,7 @@ inline double Gps::antennaaltitudemeters() const {
   return _internal_antennaaltitudemeters();
 }
 inline void Gps::_internal_set_antennaaltitudemeters(double value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
   antennaaltitudemeters_ = value;
 }
 inline void Gps::set_antennaaltitudemeters(double value) {
@@ -1922,7 +1819,7 @@ inline void Gps::set_antennaaltitudemeters(double value) {
 
 // double geoidalSeparationMeters = 11;
 inline bool Gps::_internal_has_geoidalseparationmeters() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool Gps::has_geoidalseparationmeters() const {
@@ -1930,7 +1827,7 @@ inline bool Gps::has_geoidalseparationmeters() const {
 }
 inline void Gps::clear_geoidalseparationmeters() {
   geoidalseparationmeters_ = 0;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline double Gps::_internal_geoidalseparationmeters() const {
   return geoidalseparationmeters_;
@@ -1940,7 +1837,7 @@ inline double Gps::geoidalseparationmeters() const {
   return _internal_geoidalseparationmeters();
 }
 inline void Gps::_internal_set_geoidalseparationmeters(double value) {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000100u;
   geoidalseparationmeters_ = value;
 }
 inline void Gps::set_geoidalseparationmeters(double value) {
@@ -1950,7 +1847,7 @@ inline void Gps::set_geoidalseparationmeters(double value) {
 
 // double ageOfDifferentialGPSDataSeconds = 12;
 inline bool Gps::_internal_has_ageofdifferentialgpsdataseconds() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool Gps::has_ageofdifferentialgpsdataseconds() const {
@@ -1958,7 +1855,7 @@ inline bool Gps::has_ageofdifferentialgpsdataseconds() const {
 }
 inline void Gps::clear_ageofdifferentialgpsdataseconds() {
   ageofdifferentialgpsdataseconds_ = 0;
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline double Gps::_internal_ageofdifferentialgpsdataseconds() const {
   return ageofdifferentialgpsdataseconds_;
@@ -1968,7 +1865,7 @@ inline double Gps::ageofdifferentialgpsdataseconds() const {
   return _internal_ageofdifferentialgpsdataseconds();
 }
 inline void Gps::_internal_set_ageofdifferentialgpsdataseconds(double value) {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000200u;
   ageofdifferentialgpsdataseconds_ = value;
 }
 inline void Gps::set_ageofdifferentialgpsdataseconds(double value) {
@@ -1978,7 +1875,7 @@ inline void Gps::set_ageofdifferentialgpsdataseconds(double value) {
 
 // int32 differentialReferenceStationID = 13;
 inline bool Gps::_internal_has_differentialreferencestationid() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool Gps::has_differentialreferencestationid() const {
@@ -1986,7 +1883,7 @@ inline bool Gps::has_differentialreferencestationid() const {
 }
 inline void Gps::clear_differentialreferencestationid() {
   differentialreferencestationid_ = 0;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 Gps::_internal_differentialreferencestationid() const {
   return differentialreferencestationid_;
@@ -1996,7 +1893,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 Gps::differentialreferencestationid() cons
   return _internal_differentialreferencestationid();
 }
 inline void Gps::_internal_set_differentialreferencestationid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000400u;
   differentialreferencestationid_ = value;
 }
 inline void Gps::set_differentialreferencestationid(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -2008,81 +1905,24 @@ inline void Gps::set_differentialreferencestationid(::PROTOBUF_NAMESPACE_ID::int
 
 // Imu
 
-// .google.protobuf.Timestamp timestamp = 1;
-inline bool Imu::_internal_has_timestamp() const {
-  return this != internal_default_instance() && timestamp_ != nullptr;
+// int32 timestamp = 1;
+inline void Imu::clear_timestamp() {
+  timestamp_ = 0;
 }
-inline bool Imu::has_timestamp() const {
-  return _internal_has_timestamp();
+inline ::PROTOBUF_NAMESPACE_ID::int32 Imu::_internal_timestamp() const {
+  return timestamp_;
 }
-inline const PROTOBUF_NAMESPACE_ID::Timestamp& Imu::_internal_timestamp() const {
-  const PROTOBUF_NAMESPACE_ID::Timestamp* p = timestamp_;
-  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp&>(
-      PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
-}
-inline const PROTOBUF_NAMESPACE_ID::Timestamp& Imu::timestamp() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Imu::timestamp() const {
   // @@protoc_insertion_point(field_get:sensors.Imu.timestamp)
   return _internal_timestamp();
 }
-inline void Imu::unsafe_arena_set_allocated_timestamp(
-    PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
-  }
-  timestamp_ = timestamp;
-  if (timestamp) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:sensors.Imu.timestamp)
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Imu::release_timestamp() {
+inline void Imu::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
-  timestamp_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
+  timestamp_ = value;
 }
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Imu::unsafe_arena_release_timestamp() {
-  // @@protoc_insertion_point(field_release:sensors.Imu.timestamp)
-  
-  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
-  timestamp_ = nullptr;
-  return temp;
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Imu::_internal_mutable_timestamp() {
-  
-  if (timestamp_ == nullptr) {
-    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArena());
-    timestamp_ = p;
-  }
-  return timestamp_;
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Imu::mutable_timestamp() {
-  // @@protoc_insertion_point(field_mutable:sensors.Imu.timestamp)
-  return _internal_mutable_timestamp();
-}
-inline void Imu::set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
-  }
-  if (timestamp) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp)->GetArena();
-    if (message_arena != submessage_arena) {
-      timestamp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, timestamp, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  timestamp_ = timestamp;
-  // @@protoc_insertion_point(field_set_allocated:sensors.Imu.timestamp)
+inline void Imu::set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:sensors.Imu.timestamp)
 }
 
 // float scaledAccelX = 2;
@@ -2509,81 +2349,24 @@ inline void Imu::set_estyawuncert(float value) {
 
 // Cam
 
-// .google.protobuf.Timestamp timestamp = 1;
-inline bool Cam::_internal_has_timestamp() const {
-  return this != internal_default_instance() && timestamp_ != nullptr;
+// int32 timestamp = 1;
+inline void Cam::clear_timestamp() {
+  timestamp_ = 0;
 }
-inline bool Cam::has_timestamp() const {
-  return _internal_has_timestamp();
+inline ::PROTOBUF_NAMESPACE_ID::int32 Cam::_internal_timestamp() const {
+  return timestamp_;
 }
-inline const PROTOBUF_NAMESPACE_ID::Timestamp& Cam::_internal_timestamp() const {
-  const PROTOBUF_NAMESPACE_ID::Timestamp* p = timestamp_;
-  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp&>(
-      PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
-}
-inline const PROTOBUF_NAMESPACE_ID::Timestamp& Cam::timestamp() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Cam::timestamp() const {
   // @@protoc_insertion_point(field_get:sensors.Cam.timestamp)
   return _internal_timestamp();
 }
-inline void Cam::unsafe_arena_set_allocated_timestamp(
-    PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
-  }
-  timestamp_ = timestamp;
-  if (timestamp) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:sensors.Cam.timestamp)
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Cam::release_timestamp() {
+inline void Cam::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
-  timestamp_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
+  timestamp_ = value;
 }
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Cam::unsafe_arena_release_timestamp() {
-  // @@protoc_insertion_point(field_release:sensors.Cam.timestamp)
-  
-  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
-  timestamp_ = nullptr;
-  return temp;
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Cam::_internal_mutable_timestamp() {
-  
-  if (timestamp_ == nullptr) {
-    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArena());
-    timestamp_ = p;
-  }
-  return timestamp_;
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Cam::mutable_timestamp() {
-  // @@protoc_insertion_point(field_mutable:sensors.Cam.timestamp)
-  return _internal_mutable_timestamp();
-}
-inline void Cam::set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
-  }
-  if (timestamp) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp)->GetArena();
-    if (message_arena != submessage_arena) {
-      timestamp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, timestamp, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  timestamp_ = timestamp;
-  // @@protoc_insertion_point(field_set_allocated:sensors.Cam.timestamp)
+inline void Cam::set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:sensors.Cam.timestamp)
 }
 
 // .sensors.ChannelOrder channel_order = 2;
@@ -2695,162 +2478,48 @@ inline void Cam::set_allocated_image_data(std::string* image_data) {
 
 // Lidar
 
-// .google.protobuf.Timestamp timestamp = 1;
-inline bool Lidar::_internal_has_timestamp() const {
-  return this != internal_default_instance() && timestamp_ != nullptr;
+// int32 timestamp = 1;
+inline void Lidar::clear_timestamp() {
+  timestamp_ = 0;
 }
-inline bool Lidar::has_timestamp() const {
-  return _internal_has_timestamp();
+inline ::PROTOBUF_NAMESPACE_ID::int32 Lidar::_internal_timestamp() const {
+  return timestamp_;
 }
-inline const PROTOBUF_NAMESPACE_ID::Timestamp& Lidar::_internal_timestamp() const {
-  const PROTOBUF_NAMESPACE_ID::Timestamp* p = timestamp_;
-  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp&>(
-      PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
-}
-inline const PROTOBUF_NAMESPACE_ID::Timestamp& Lidar::timestamp() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Lidar::timestamp() const {
   // @@protoc_insertion_point(field_get:sensors.Lidar.timestamp)
   return _internal_timestamp();
 }
-inline void Lidar::unsafe_arena_set_allocated_timestamp(
-    PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
-  }
-  timestamp_ = timestamp;
-  if (timestamp) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:sensors.Lidar.timestamp)
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Lidar::release_timestamp() {
+inline void Lidar::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
-  timestamp_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
+  timestamp_ = value;
 }
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Lidar::unsafe_arena_release_timestamp() {
-  // @@protoc_insertion_point(field_release:sensors.Lidar.timestamp)
-  
-  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
-  timestamp_ = nullptr;
-  return temp;
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Lidar::_internal_mutable_timestamp() {
-  
-  if (timestamp_ == nullptr) {
-    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArena());
-    timestamp_ = p;
-  }
-  return timestamp_;
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Lidar::mutable_timestamp() {
-  // @@protoc_insertion_point(field_mutable:sensors.Lidar.timestamp)
-  return _internal_mutable_timestamp();
-}
-inline void Lidar::set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
-  }
-  if (timestamp) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp)->GetArena();
-    if (message_arena != submessage_arena) {
-      timestamp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, timestamp, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  timestamp_ = timestamp;
-  // @@protoc_insertion_point(field_set_allocated:sensors.Lidar.timestamp)
+inline void Lidar::set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:sensors.Lidar.timestamp)
 }
 
 // -------------------------------------------------------------------
 
 // Can
 
-// .google.protobuf.Timestamp timestamp = 1;
-inline bool Can::_internal_has_timestamp() const {
-  return this != internal_default_instance() && timestamp_ != nullptr;
+// int32 timestamp = 1;
+inline void Can::clear_timestamp() {
+  timestamp_ = 0;
 }
-inline bool Can::has_timestamp() const {
-  return _internal_has_timestamp();
+inline ::PROTOBUF_NAMESPACE_ID::int32 Can::_internal_timestamp() const {
+  return timestamp_;
 }
-inline const PROTOBUF_NAMESPACE_ID::Timestamp& Can::_internal_timestamp() const {
-  const PROTOBUF_NAMESPACE_ID::Timestamp* p = timestamp_;
-  return p != nullptr ? *p : reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp&>(
-      PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
-}
-inline const PROTOBUF_NAMESPACE_ID::Timestamp& Can::timestamp() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 Can::timestamp() const {
   // @@protoc_insertion_point(field_get:sensors.Can.timestamp)
   return _internal_timestamp();
 }
-inline void Can::unsafe_arena_set_allocated_timestamp(
-    PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
-  }
-  timestamp_ = timestamp;
-  if (timestamp) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:sensors.Can.timestamp)
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Can::release_timestamp() {
+inline void Can::_internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
-  timestamp_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
+  timestamp_ = value;
 }
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Can::unsafe_arena_release_timestamp() {
-  // @@protoc_insertion_point(field_release:sensors.Can.timestamp)
-  
-  PROTOBUF_NAMESPACE_ID::Timestamp* temp = timestamp_;
-  timestamp_ = nullptr;
-  return temp;
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Can::_internal_mutable_timestamp() {
-  
-  if (timestamp_ == nullptr) {
-    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArena());
-    timestamp_ = p;
-  }
-  return timestamp_;
-}
-inline PROTOBUF_NAMESPACE_ID::Timestamp* Can::mutable_timestamp() {
-  // @@protoc_insertion_point(field_mutable:sensors.Can.timestamp)
-  return _internal_mutable_timestamp();
-}
-inline void Can::set_allocated_timestamp(PROTOBUF_NAMESPACE_ID::Timestamp* timestamp) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp_);
-  }
-  if (timestamp) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(timestamp)->GetArena();
-    if (message_arena != submessage_arena) {
-      timestamp = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, timestamp, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  timestamp_ = timestamp;
-  // @@protoc_insertion_point(field_set_allocated:sensors.Can.timestamp)
+inline void Can::set_timestamp(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_timestamp(value);
+  // @@protoc_insertion_point(field_set:sensors.Can.timestamp)
 }
 
 // uint32 can_id = 2;

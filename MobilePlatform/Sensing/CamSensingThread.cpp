@@ -33,7 +33,6 @@ void CamSensingThread::run(zmq::socket_t *pubSock) // const int devicename, zmq:
       // < timestamp >
       struct timeval tv;
       auto *timestamp = new google::protobuf::Timestamp();
-      gettimeofday(&tv, NULL);
       timestamp->set_seconds(tv.tv_sec);
       timestamp->set_nanos(tv.tv_usec*1000);
       cam.set_allocated_timestamp(timestamp);
@@ -51,13 +50,21 @@ void CamSensingThread::run(zmq::socket_t *pubSock) // const int devicename, zmq:
         cam.set_cols(frame.cols);
         cam.set_rows(frame.rows);
         
+        //jpg로 인코딩해서 버퍼에 담은 다음 전송
+        vector<uchar> buffer;
+        imencode(".jpg", frame, buffer);
+        
         // <Set image data>
         // 참고: https://github.com/linklab-uva/deepracing/blob/adca1d1a724c4d930e3a5b905a039da5a143a561/data-logger/src/image_logging/utils/opencv_utils.cpp
-        size_t totalsize = frame.step[0]*frame.rows;
-        cam.mutable_image_data()->resize(totalsize);
-        memcpy((void*)cam.mutable_image_data()->data(), (void*)frame.data, totalsize);
-        printf("[MobilePlatform/Sensing/CamSensingThread] set the CAM message (size:%dx%d)\n",cam.cols(), cam.rows()); //, cam.channel_order());
+        // size_t totalsize = frame.step[0]*frame.rows;
+        // cam.mutable_image_data()->resize(totalsize);
+        // memcpy((void*)cam.mutable_image_data()->data(), (void*)frame.data, totalsize);
+        // printf("[MobilePlatform/Sensing/CamSensingThread] set the CAM message (size:%dx%d)\n",cam.cols(), cam.rows()); //, cam.channel_order());
 
+        size_t totalsize = buffer.size();
+        cam.mutable_image_data()->resize(totalsize);
+        memcpy((void*)cam.mutable_image_data()->data(), (void*)buffer.data(), totalsize);
+        
 
         // [Send to PUB socket]
         // <Serialization>        
@@ -69,15 +76,13 @@ void CamSensingThread::run(zmq::socket_t *pubSock) // const int devicename, zmq:
         // <Send>
         // <Send Message>
         clk_now = clock();
-        if((float)(clk_now - clk_bef)/CLOCKS_PER_SEC >= 0.1)
-        {
-          zmq::message_t zmqData(data_len);
-          memcpy((void *)zmqData.data(), data, data_len);
-          s_send_idx(*pubSock, SENSOR_CAM);
-          s_send(*pubSock, zmqData);
-          printf("(%dms)[MobilePlatform/Sensing/CamSensingThread] complete to send (size=%d)\n",(float)(clk_now-clk_bef)/CLOCKS_PER_SEC*1000,zmqData.size());
-          clk_bef = clk_now;
-        }
+        //if((float)(clk_now - clk_bef)/CLOCKS_PER_SEC >= 0.1)
+        zmq::message_t zmqData(data_len);
+        memcpy((void *)zmqData.data(), data, data_len);
+        s_send_idx(*pubSock, SENSOR_CAM);
+        s_send(*pubSock, zmqData);
+        printf("(%dms)[MobilePlatform/Sensing/CamSensingThread] complete to send (size=%d)\n",(float)(clk_now-clk_bef)/CLOCKS_PER_SEC*1000,zmqData.size());
+        clk_bef = clk_now;
         
       }// end : if (!frame.empty())
 
@@ -131,11 +136,11 @@ void CamSensingThread::run(zmq::socket_t *pubSock) // const int devicename, zmq:
 
       sprintf(cFn, "%s/%02d-%02d-%02d-%03d.jpg", cPath,
       ts->tm_hour, ts->tm_min, ts->tm_sec, msc);
-      cv::imwrite(cFn, frame);
+      // cv::imwrite(cFn, frame);
       printf("[MobilePlatform/Sensing/CamSensingThread] complete to save jpg file at \"%s\"\n", cFn);
 
       // [Options]
-      usleep(100);
+      // usleep(1000/30*1000);
       // sleep(1);
 
     } // end : if(USE_CAM)

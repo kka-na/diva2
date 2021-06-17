@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/diva2/diva2/test/simple_pub/main.c
+stdlib.h
+-
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+libgen.h
+-
+errno.h
+-
+string.h
+-
+getopt.h
+-
+sys/types.h
+-
+zmq.h
+-
+

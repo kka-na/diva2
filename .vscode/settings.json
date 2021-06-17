@@ -63,7 +63,22 @@
         "core": "cpp",
         "random": "cpp",
         "typeindex": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "strstream": "cpp",
+        "codecvt": "cpp",
+        "filesystem": "cpp",
+        "cfenv": "cpp",
+        "any": "cpp",
+        "source_location": "cpp",
+        "future": "cpp",
+        "*.ipp": "cpp",
+        "*.inc": "cpp",
+        "zmq.hpp": "c",
+        "option_list.h": "c",
+        "diva2_helper.h": "c",
+        "version.hpp": "c",
+        "opencv_modules.hpp": "c",
+        "highgui.h": "c"
     },
     "C_Cpp.errorSquiggles": "Enabled"
     

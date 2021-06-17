@@ -20,24 +20,24 @@ int main(int argc, char *argv[]){
     printf("sub context generated (in main)\n");
 
     // GPS
-    GpsVisualization mGpsVisualization;
-    thread gpsVisualizationThread(&GpsVisualization::run, &mGpsVisualization, &contextSub);
+    // GpsVisualization mGpsVisualization;
+    // thread gpsVisualizationThread(&GpsVisualization::run, &mGpsVisualization, &contextSub);
     
     // CAM
     CamVisualization mCamVisualization;
     thread camVisualizationThread(&CamVisualization::run, &mCamVisualization, &contextSub);
     
     // IMU
-    ImuVisualization mImuVisualization;
-    thread imuVisualizationThread(&ImuVisualization::run, &mImuVisualization, &contextSub);
+    // ImuVisualization mImuVisualization;
+    // thread imuVisualizationThread(&ImuVisualization::run, &mImuVisualization, &contextSub);
 
-    // CAM
-    CanVisualization mCanVisualization;
-    thread canVisualizationThread(&CanVisualization::run, &mCanVisualization, &contextSub);
+    // CAN
+    // CanVisualization mCanVisualization;
+    // thread canVisualizationThread(&CanVisualization::run, &mCanVisualization, &contextSub);
     
-    gpsVisualizationThread.join();
+    // gpsVisualizationThread.join();
     camVisualizationThread.join();
-    imuVisualizationThread.join();
-    canVisualizationThread.join();
+    // imuVisualizationThread.join();
+    // canVisualizationThread.join();
     
 }

@@ -46,7 +46,6 @@ test/socketCan/CMakeFiles/socketCan.dir/sensors.pb.cc.o: /usr/local/include/goog
 test/socketCan/CMakeFiles/socketCan.dir/sensors.pb.cc.o: /usr/local/include/google/protobuf/stubs/stl_util.h
 test/socketCan/CMakeFiles/socketCan.dir/sensors.pb.cc.o: /usr/local/include/google/protobuf/stubs/stringpiece.h
 test/socketCan/CMakeFiles/socketCan.dir/sensors.pb.cc.o: /usr/local/include/google/protobuf/stubs/strutil.h
-test/socketCan/CMakeFiles/socketCan.dir/sensors.pb.cc.o: /usr/local/include/google/protobuf/timestamp.pb.h
 test/socketCan/CMakeFiles/socketCan.dir/sensors.pb.cc.o: /usr/local/include/google/protobuf/unknown_field_set.h
 test/socketCan/CMakeFiles/socketCan.dir/sensors.pb.cc.o: /usr/local/include/google/protobuf/wire_format.h
 test/socketCan/CMakeFiles/socketCan.dir/sensors.pb.cc.o: /usr/local/include/google/protobuf/wire_format_lite.h

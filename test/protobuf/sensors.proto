@@ -6,11 +6,12 @@
 
 syntax = "proto3";
 package sensors;
-import "google/protobuf/timestamp.proto";
+// import "google/protobuf/timestamp.proto";
 
 message Gps{
     
-    google.protobuf.Timestamp timestamp=1;
+    // google.protobuf.Timestamp timestamp=1;
+    int32 timestamp=1;
     string gpgga = 2;
     
     optional double latitude = 3;
@@ -27,7 +28,8 @@ message Gps{
 }
 
 message Imu{
-    google.protobuf.Timestamp timestamp=1;
+    // google.protobuf.Timestamp timestamp=1;
+    int32 timestamp=1;
 
     optional float scaledAccelX = 2;
     optional float scaledAccelY = 3;
@@ -56,7 +58,8 @@ enum ChannelOrder {
 }
 
 message Cam{
-    google.protobuf.Timestamp timestamp=1;
+    //google.protobuf.Timestamp timestamp=1;
+    int32 timestamp=1;
 
     ChannelOrder channel_order = 2;
     int32 cols = 3;
@@ -78,11 +81,13 @@ message Cam{
 
 
 message Lidar{
-    google.protobuf.Timestamp timestamp=1;
+    //google.protobuf.Timestamp timestamp=1;
+    int32 timestamp=1;
 }
 
 message Can{
-    google.protobuf.Timestamp timestamp=1;
+    //google.protobuf.Timestamp timestamp=1;
+    int32 timestamp=1;
 
     uint32 can_id = 2 ;  /* 32 bit CAN_ID + EFF/RTR/ERR flags */
 	uint32    can_dlc = 3; /* frame payload length in byte (0 .. CAN_MAX_DLEN) */

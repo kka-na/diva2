@@ -63,8 +63,6 @@ google/protobuf/generated_enum_reflection.h
 -
 google/protobuf/unknown_field_set.h
 -
-google/protobuf/timestamp.pb.h
--
 google/protobuf/port_def.inc
 -
 google/protobuf/port_undef.inc

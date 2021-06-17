@@ -189,6 +189,32 @@ socketCan/fast:
 .PHONY : socketCan/fast
 
 #=============================================================================
+# Target rules for targets named Simple_sub
+
+# Build rule for target.
+Simple_sub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Simple_sub
+.PHONY : Simple_sub
+
+# fast build rule for target.
+Simple_sub/fast:
+	$(MAKE) -f test/simple_sub/CMakeFiles/Simple_sub.dir/build.make test/simple_sub/CMakeFiles/Simple_sub.dir/build
+.PHONY : Simple_sub/fast
+
+#=============================================================================
+# Target rules for targets named Simple_pub
+
+# Build rule for target.
+Simple_pub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Simple_pub
+.PHONY : Simple_pub
+
+# fast build rule for target.
+Simple_pub/fast:
+	$(MAKE) -f test/simple_pub/CMakeFiles/Simple_pub.dir/build.make test/simple_pub/CMakeFiles/Simple_pub.dir/build
+.PHONY : Simple_pub/fast
+
+#=============================================================================
 # Target rules for targets named candbcparser
 
 # Build rule for target.
@@ -200,45 +226,6 @@ candbcparser: cmake_check_build_system
 candbcparser/fast:
 	$(MAKE) -f test/can_dbcparser/CMakeFiles/candbcparser.dir/build.make test/can_dbcparser/CMakeFiles/candbcparser.dir/build
 .PHONY : candbcparser/fast
-
-#=============================================================================
-# Target rules for targets named lanes
-
-# Build rule for target.
-lanes: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lanes
-.PHONY : lanes
-
-# fast build rule for target.
-lanes/fast:
-	$(MAKE) -f test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/build.make test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/build
-.PHONY : lanes/fast
-
-#=============================================================================
-# Target rules for targets named contours
-
-# Build rule for target.
-contours: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 contours
-.PHONY : contours
-
-# fast build rule for target.
-contours/fast:
-	$(MAKE) -f test/lane_detection2/CMakeFiles/contours.dir/build.make test/lane_detection2/CMakeFiles/contours.dir/build
-.PHONY : contours/fast
-
-#=============================================================================
-# Target rules for targets named lane_detection3
-
-# Build rule for target.
-lane_detection3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lane_detection3
-.PHONY : lane_detection3
-
-# fast build rule for target.
-lane_detection3/fast:
-	$(MAKE) -f test/lane_detection3/CMakeFiles/lane_detection3.dir/build.make test/lane_detection3/CMakeFiles/lane_detection3.dir/build
-.PHONY : lane_detection3/fast
 
 main.o: main.cpp.o
 
@@ -281,10 +268,9 @@ help:
 	@echo "... GS_playback"
 	@echo "... GS_algorithm"
 	@echo "... socketCan"
+	@echo "... Simple_sub"
+	@echo "... Simple_pub"
 	@echo "... candbcparser"
-	@echo "... lanes"
-	@echo "... contours"
-	@echo "... lane_detection3"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

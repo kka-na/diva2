@@ -44,10 +44,9 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/diva2/diva2/build/GroundStation/Playback/cmake_install.cmake")
   include("/home/diva2/diva2/build/GroundStation/AlgorithmTesting/cmake_install.cmake")
   include("/home/diva2/diva2/build/test/socketCan/cmake_install.cmake")
+  include("/home/diva2/diva2/build/test/simple_sub/cmake_install.cmake")
+  include("/home/diva2/diva2/build/test/simple_pub/cmake_install.cmake")
   include("/home/diva2/diva2/build/test/can_dbcparser/cmake_install.cmake")
-  include("/home/diva2/diva2/build/test/lane_detection/cmake_install.cmake")
-  include("/home/diva2/diva2/build/test/lane_detection2/cmake_install.cmake")
-  include("/home/diva2/diva2/build/test/lane_detection3/cmake_install.cmake")
 
 endif()
 

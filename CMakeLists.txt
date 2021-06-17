@@ -54,42 +54,42 @@ if (ZEROMQ_FOUND AND NOT TARGET ZEROMQ::ZEROMQ)
 endif()
 
 ## Use Czmq
-if (NOT MSVC)
-    find_package(PkgConfig)
-    pkg_check_modules(PC_LIBCURL "libcurl")
-    if (PC_LIBCURL_FOUND)
-        # add CFLAGS from pkg-config file, e.g. draft api.
-        add_definitions(${PC_LIBCURL_CFLAGS} ${PC_LIBCURL_CFLAGS_OTHER})
-        # some libraries install the headers is a subdirectory of the include dir
-        # returned by pkg-config, so use a wildcard match to improve chances of finding
-        # headers and SOs.
-        set(PC_LIBCURL_INCLUDE_HINTS ${PC_LIBCURL_INCLUDE_DIRS} ${PC_LIBCURL_INCLUDE_DIRS}/*)
-        set(PC_LIBCURL_LIBRARY_HINTS ${PC_LIBCURL_LIBRARY_DIRS} ${PC_LIBCURL_LIBRARY_DIRS}/*)
-    endif(PC_LIBCURL_FOUND)
-endif (NOT MSVC)
+# if (NOT MSVC)
+#     find_package(PkgConfig)
+#     pkg_check_modules(PC_LIBCURL "libcurl")
+#     if (PC_LIBCURL_FOUND)
+#         # add CFLAGS from pkg-config file, e.g. draft api.
+#         add_definitions(${PC_LIBCURL_CFLAGS} ${PC_LIBCURL_CFLAGS_OTHER})
+#         # some libraries install the headers is a subdirectory of the include dir
+#         # returned by pkg-config, so use a wildcard match to improve chances of finding
+#         # headers and SOs.
+#         set(PC_LIBCURL_INCLUDE_HINTS ${PC_LIBCURL_INCLUDE_DIRS} ${PC_LIBCURL_INCLUDE_DIRS}/*)
+#         set(PC_LIBCURL_LIBRARY_HINTS ${PC_LIBCURL_LIBRARY_DIRS} ${PC_LIBCURL_LIBRARY_DIRS}/*)
+#     endif(PC_LIBCURL_FOUND)
+# endif (NOT MSVC)
 
-find_path (
-    ${CMAKE_FIND_PACKAGE_NAME}_INCLUDE_DIRS
-    NAMES curl/curl.h
-    HINTS ${PC_LIBCURL_INCLUDE_HINTS}
-)
+# find_path (
+#     ${CMAKE_FIND_PACKAGE_NAME}_INCLUDE_DIRS
+#     NAMES curl/curl.h
+#     HINTS ${PC_LIBCURL_INCLUDE_HINTS}
+# )
 
-find_library (
-    ${CMAKE_FIND_PACKAGE_NAME}_LIBRARIES
-    NAMES libcurl curl
-    HINTS ${PC_LIBCURL_LIBRARY_HINTS}
-)
+# find_library (
+#     ${CMAKE_FIND_PACKAGE_NAME}_LIBRARIES
+#     NAMES libcurl curl
+#     HINTS ${PC_LIBCURL_LIBRARY_HINTS}
+# )
 
-include(FindPackageHandleStandardArgs)
+# include(FindPackageHandleStandardArgs)
 
-find_package_handle_standard_args(
-    ${CMAKE_FIND_PACKAGE_NAME}
-    REQUIRED_VARS ${CMAKE_FIND_PACKAGE_NAME}_LIBRARIES ${CMAKE_FIND_PACKAGE_NAME}_INCLUDE_DIRS
-)
-mark_as_advanced(
-    ${CMAKE_FIND_PACKAGE_NAME}_FOUND
-    ${CMAKE_FIND_PACKAGE_NAME}_LIBRARIES ${CMAKE_FIND_PACKAGE_NAME}_INCLUDE_DIRS
-)
+# find_package_handle_standard_args(
+#     ${CMAKE_FIND_PACKAGE_NAME}
+#     REQUIRED_VARS ${CMAKE_FIND_PACKAGE_NAME}_LIBRARIES ${CMAKE_FIND_PACKAGE_NAME}_INCLUDE_DIRS
+# )
+# mark_as_advanced(
+#     ${CMAKE_FIND_PACKAGE_NAME}_FOUND
+#     ${CMAKE_FIND_PACKAGE_NAME}_LIBRARIES ${CMAKE_FIND_PACKAGE_NAME}_INCLUDE_DIRS
+# )
 
 ## use mscl
 find_library(MSCL_LIB_PATH NAMES libmscl.so PATHS "/usr/share/c++-mscl" DOC "MSCL Library" NO_DEFAULT_PATH)
@@ -146,6 +146,8 @@ add_subdirectory(GroundStation/AlgorithmTesting)
 
 # add_subdirectory(test/zmq_filetransfer)
 add_subdirectory(test/socketCan)
+add_subdirectory(test/simple_sub)
+add_subdirectory(test/simple_pub)
 # add_subdirectory(test/zmq_protobuf/client)
 # add_subdirectory(test/zmq_protobuf/server)
 
@@ -156,6 +158,3 @@ add_subdirectory(test/can_dbcparser)
 
 # add_subdirectory(test_GroundStation/AlgorithmTesting)
 # add_subdirectory(test_GroundStation/ReceiverFromMobile)
-add_subdirectory(test/lane_detection)
-add_subdirectory(test/lane_detection2)
-add_subdirectory(test/lane_detection3)

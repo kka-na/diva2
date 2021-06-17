@@ -121,8 +121,24 @@ struct LogDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT LogDefaultTypeInternal _Log_default_instance_;
+constexpr algorithm_img::algorithm_img(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : image_original_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , image_result_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , cols_(0)
+  , rows_(0)
+  , millis_term_(0){}
+struct algorithm_imgDefaultTypeInternal {
+  constexpr algorithm_imgDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~algorithm_imgDefaultTypeInternal() {}
+  union {
+    algorithm_img _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT algorithm_imgDefaultTypeInternal _algorithm_img_default_instance_;
 }  // namespace sensors
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sensors_2eproto[7];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_sensors_2eproto[8];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_sensors_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_sensors_2eproto = nullptr;
 
@@ -189,6 +205,16 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_sensors_2eproto::offsets[] PRO
   PROTOBUF_FIELD_OFFSET(::sensors::Log, __res0_),
   PROTOBUF_FIELD_OFFSET(::sensors::Log, __res1_),
   PROTOBUF_FIELD_OFFSET(::sensors::Log, data_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::sensors::algorithm_img, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::sensors::algorithm_img, cols_),
+  PROTOBUF_FIELD_OFFSET(::sensors::algorithm_img, rows_),
+  PROTOBUF_FIELD_OFFSET(::sensors::algorithm_img, image_original_),
+  PROTOBUF_FIELD_OFFSET(::sensors::algorithm_img, image_result_),
+  PROTOBUF_FIELD_OFFSET(::sensors::algorithm_img, millis_term_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::sensors::Gps)},
@@ -198,6 +224,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 35, -1, sizeof(::sensors::Lidar)},
   { 43, -1, sizeof(::sensors::Can)},
   { 51, -1, sizeof(::sensors::Log)},
+  { 62, -1, sizeof(::sensors::algorithm_img)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -208,6 +235,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::sensors::_Lidar_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::sensors::_Can_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::sensors::_Log_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::sensors::_algorithm_img_default_instance_),
 };
 
 const char descriptor_table_protodef_sensors_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -229,17 +257,20 @@ const char descriptor_table_protodef_sensors_2eproto[] PROTOBUF_SECTION_VARIABLE
   "amp\030\003 \001(\0132\032.google.protobuf.Timestamp\"c\n"
   "\003Log\022\016\n\006can_id\030\002 \001(\r\022\017\n\007can_dlc\030\003 \001(\r\022\r\n"
   "\005__pad\030\004 \001(\014\022\016\n\006__res0\030\005 \001(\014\022\016\n\006__res1\030\006"
-  " \001(\014\022\014\n\004data\030\007 \001(\014*U\n\014ChannelOrder\022\r\n\tGR"
-  "AYSCALE\020\000\022\007\n\003BGR\020\001\022\007\n\003RGB\020\002\022\010\n\004BGRA\020\003\022\010\n"
-  "\004RGBA\020\004\022\020\n\014OPTICAL_FLOW\020\005b\006proto3"
+  " \001(\014\022\014\n\004data\030\007 \001(\014\"n\n\ralgorithm_img\022\014\n\004c"
+  "ols\030\001 \001(\005\022\014\n\004rows\030\002 \001(\005\022\026\n\016image_origina"
+  "l\030\003 \001(\014\022\024\n\014image_result\030\004 \001(\014\022\023\n\013millis_"
+  "term\030\005 \001(\002*U\n\014ChannelOrder\022\r\n\tGRAYSCALE\020"
+  "\000\022\007\n\003BGR\020\001\022\007\n\003RGB\020\002\022\010\n\004BGRA\020\003\022\010\n\004RGBA\020\004\022"
+  "\020\n\014OPTICAL_FLOW\020\005b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_sensors_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_sensors_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_sensors_2eproto = {
-  false, false, 833, descriptor_table_protodef_sensors_2eproto, "sensors.proto", 
-  &descriptor_table_sensors_2eproto_once, descriptor_table_sensors_2eproto_deps, 1, 7,
+  false, false, 945, descriptor_table_protodef_sensors_2eproto, "sensors.proto", 
+  &descriptor_table_sensors_2eproto_once, descriptor_table_sensors_2eproto_deps, 1, 8,
   schemas, file_default_instances, TableStruct_sensors_2eproto::offsets,
   file_level_metadata_sensors_2eproto, file_level_enum_descriptors_sensors_2eproto, file_level_service_descriptors_sensors_2eproto,
 };
@@ -2289,6 +2320,318 @@ void Log::InternalSwap(Log* other) {
       file_level_metadata_sensors_2eproto[6]);
 }
 
+// ===================================================================
+
+class algorithm_img::_Internal {
+ public:
+};
+
+algorithm_img::algorithm_img(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:sensors.algorithm_img)
+}
+algorithm_img::algorithm_img(const algorithm_img& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  image_original_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_image_original().empty()) {
+    image_original_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_image_original(), 
+      GetArena());
+  }
+  image_result_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_image_result().empty()) {
+    image_result_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_image_result(), 
+      GetArena());
+  }
+  ::memcpy(&cols_, &from.cols_,
+    static_cast<size_t>(reinterpret_cast<char*>(&millis_term_) -
+    reinterpret_cast<char*>(&cols_)) + sizeof(millis_term_));
+  // @@protoc_insertion_point(copy_constructor:sensors.algorithm_img)
+}
+
+void algorithm_img::SharedCtor() {
+image_original_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+image_result_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&cols_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&millis_term_) -
+    reinterpret_cast<char*>(&cols_)) + sizeof(millis_term_));
+}
+
+algorithm_img::~algorithm_img() {
+  // @@protoc_insertion_point(destructor:sensors.algorithm_img)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void algorithm_img::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  image_original_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  image_result_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void algorithm_img::ArenaDtor(void* object) {
+  algorithm_img* _this = reinterpret_cast< algorithm_img* >(object);
+  (void)_this;
+}
+void algorithm_img::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void algorithm_img::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void algorithm_img::Clear() {
+// @@protoc_insertion_point(message_clear_start:sensors.algorithm_img)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  image_original_.ClearToEmpty();
+  image_result_.ClearToEmpty();
+  ::memset(&cols_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&millis_term_) -
+      reinterpret_cast<char*>(&cols_)) + sizeof(millis_term_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* algorithm_img::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 cols = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          cols_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 rows = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          rows_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bytes image_original = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_image_original();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bytes image_result = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          auto str = _internal_mutable_image_result();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // float millis_term = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
+          millis_term_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* algorithm_img::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:sensors.algorithm_img)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 cols = 1;
+  if (this->cols() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_cols(), target);
+  }
+
+  // int32 rows = 2;
+  if (this->rows() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_rows(), target);
+  }
+
+  // bytes image_original = 3;
+  if (this->image_original().size() > 0) {
+    target = stream->WriteBytesMaybeAliased(
+        3, this->_internal_image_original(), target);
+  }
+
+  // bytes image_result = 4;
+  if (this->image_result().size() > 0) {
+    target = stream->WriteBytesMaybeAliased(
+        4, this->_internal_image_result(), target);
+  }
+
+  // float millis_term = 5;
+  if (!(this->millis_term() <= 0 && this->millis_term() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_millis_term(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:sensors.algorithm_img)
+  return target;
+}
+
+size_t algorithm_img::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:sensors.algorithm_img)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bytes image_original = 3;
+  if (this->image_original().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_image_original());
+  }
+
+  // bytes image_result = 4;
+  if (this->image_result().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_image_result());
+  }
+
+  // int32 cols = 1;
+  if (this->cols() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_cols());
+  }
+
+  // int32 rows = 2;
+  if (this->rows() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_rows());
+  }
+
+  // float millis_term = 5;
+  if (!(this->millis_term() <= 0 && this->millis_term() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void algorithm_img::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:sensors.algorithm_img)
+  GOOGLE_DCHECK_NE(&from, this);
+  const algorithm_img* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<algorithm_img>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:sensors.algorithm_img)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:sensors.algorithm_img)
+    MergeFrom(*source);
+  }
+}
+
+void algorithm_img::MergeFrom(const algorithm_img& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:sensors.algorithm_img)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.image_original().size() > 0) {
+    _internal_set_image_original(from._internal_image_original());
+  }
+  if (from.image_result().size() > 0) {
+    _internal_set_image_result(from._internal_image_result());
+  }
+  if (from.cols() != 0) {
+    _internal_set_cols(from._internal_cols());
+  }
+  if (from.rows() != 0) {
+    _internal_set_rows(from._internal_rows());
+  }
+  if (!(from.millis_term() <= 0 && from.millis_term() >= 0)) {
+    _internal_set_millis_term(from._internal_millis_term());
+  }
+}
+
+void algorithm_img::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:sensors.algorithm_img)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void algorithm_img::CopyFrom(const algorithm_img& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:sensors.algorithm_img)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool algorithm_img::IsInitialized() const {
+  return true;
+}
+
+void algorithm_img::InternalSwap(algorithm_img* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  image_original_.Swap(&other->image_original_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  image_result_.Swap(&other->image_result_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(algorithm_img, millis_term_)
+      + sizeof(algorithm_img::millis_term_)
+      - PROTOBUF_FIELD_OFFSET(algorithm_img, cols_)>(
+          reinterpret_cast<char*>(&cols_),
+          reinterpret_cast<char*>(&other->cols_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata algorithm_img::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_sensors_2eproto_getter, &descriptor_table_sensors_2eproto_once,
+      file_level_metadata_sensors_2eproto[7]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace sensors
 PROTOBUF_NAMESPACE_OPEN
@@ -2312,6 +2655,9 @@ template<> PROTOBUF_NOINLINE ::sensors::Can* Arena::CreateMaybeMessage< ::sensor
 }
 template<> PROTOBUF_NOINLINE ::sensors::Log* Arena::CreateMaybeMessage< ::sensors::Log >(Arena* arena) {
   return Arena::CreateMessageInternal< ::sensors::Log >(arena);
+}
+template<> PROTOBUF_NOINLINE ::sensors::algorithm_img* Arena::CreateMaybeMessage< ::sensors::algorithm_img >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::sensors::algorithm_img >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

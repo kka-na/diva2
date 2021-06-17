@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
+  "../GroundStation/AlgorithmTesting/Algorithm/CMakeLists.txt"
   "../GroundStation/AlgorithmTesting/CMakeLists.txt"
   "../GroundStation/Playback/CMakeLists.txt"
   "../MobilePlatform/Sensing/CMakeLists.txt"
@@ -16,10 +17,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
   "../test/can_dbcparser/CMakeLists.txt"
-  "../test/lane_detection/CMakeLists.txt"
-  "../test/lane_detection/LaneDetector/CMakeLists.txt"
-  "../test/lane_detection2/CMakeLists.txt"
-  "../test/lane_detection3/CMakeLists.txt"
+  "../test/simple_pub/CMakeLists.txt"
+  "../test/simple_sub/CMakeLists.txt"
   "../test/socketCan/CMakeLists.txt"
   "/usr/local/lib/cmake/Boost-1.76.0/BoostConfig.cmake"
   "/usr/local/lib/cmake/Boost-1.76.0/BoostConfigVersion.cmake"
@@ -84,12 +83,11 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "MobilePlatform/Visualization/CMakeFiles/CMakeDirectoryInformation.cmake"
   "GroundStation/Playback/CMakeFiles/CMakeDirectoryInformation.cmake"
   "GroundStation/AlgorithmTesting/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "GroundStation/AlgorithmTesting/Algorithm/CMakeFiles/CMakeDirectoryInformation.cmake"
   "test/socketCan/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "test/simple_sub/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "test/simple_pub/CMakeFiles/CMakeDirectoryInformation.cmake"
   "test/can_dbcparser/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "test/lane_detection/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "test/lane_detection/LaneDetector/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "test/lane_detection2/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "test/lane_detection3/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -100,8 +98,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "GroundStation/Playback/CMakeFiles/GS_playback.dir/DependInfo.cmake"
   "GroundStation/AlgorithmTesting/CMakeFiles/GS_algorithm.dir/DependInfo.cmake"
   "test/socketCan/CMakeFiles/socketCan.dir/DependInfo.cmake"
+  "test/simple_sub/CMakeFiles/Simple_sub.dir/DependInfo.cmake"
+  "test/simple_pub/CMakeFiles/Simple_pub.dir/DependInfo.cmake"
   "test/can_dbcparser/CMakeFiles/candbcparser.dir/DependInfo.cmake"
-  "test/lane_detection/LaneDetector/CMakeFiles/lanes.dir/DependInfo.cmake"
-  "test/lane_detection2/CMakeFiles/contours.dir/DependInfo.cmake"
-  "test/lane_detection3/CMakeFiles/lane_detection3.dir/DependInfo.cmake"
   )

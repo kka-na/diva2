@@ -9,7 +9,10 @@
                 "/usr/share/c++-mscl/Boost/include",
                 "/usr/include",
                 "/home/diva2/develop/ouster_example-master/ouster_client",
-                "/usr/local/include/pcl-1.11"
+                "/usr/local/include/pcl-1.11",
+                "/usr/lib/python3.6",
+                "/usr/lib/",
+                "/usr/local/lib/"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
