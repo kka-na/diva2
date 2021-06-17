@@ -25,7 +25,7 @@ void ModelRunThread::run(){
             command += "&& python3 model.py ";
         }else if(algorithmIdx==1) // object detection
         {
-            command += "cd /home/diva2/diva2/test/obj_detection/darknet/ ";
+            command += "cd /home/diva2/diva2/GroundStation/obj_detection/darknet/ ";
             command += "&& ./darknet detector test ";
             command += this->str_datafile;
             command +=" ";
